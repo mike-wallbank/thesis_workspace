@@ -1,0 +1,33 @@
+#include "hitfindermodules_dune.fcl"
+#include "cluster_dune.fcl"
+#include "services_dune.fcl"
+
+services:
+{
+  user: @local::dune35t_services
+  TFileService: { fileName: "shower_analysis.root" }
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+     showerAnalysis: {
+        module_type: "ShowerAnalysis"
+        HitsModuleLabel: "lineclusterdc"
+        ClusterModuleLabel: "blurredclusterdc"
+        ShowerModuleLabel: "emshowerdc"
+     }
+  }
+
+ a1: [ showerAnalysis ]
+ end_paths: [ a1 ]
+
+}
+

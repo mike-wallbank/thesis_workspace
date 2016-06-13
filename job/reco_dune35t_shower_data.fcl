@@ -1,0 +1,149 @@
+#include "services_dune.fcl"
+#include "noisefilter_dune.fcl"
+#include "caldata_dune.fcl"
+#include "hitfindermodules_dune.fcl"
+#include "cluster_dune.fcl"
+#include "trackfindermodules_dune.fcl"
+#include "calorimetry_dune35t.fcl"
+#include "showerfindermodules_dune.fcl"
+
+process_name: ShowerReco
+
+services:
+{
+  # Load the service that manages root files for histograms.
+  TFileService: { fileName: "reco_hist.root" }
+  TimeTracker:       {}
+  SimpleMemoryCheck:     { ignoreTotal: 1 } # default is one
+  RandomNumberGenerator: {} #ART native random number generator
+  message:      @local::dune_message_services_prod_debug
+  FileCatalogMetadata:  @local::art_file_catalog_mc
+  user:         @local::dune35t_services
+}
+
+services.scheduler.SkipEvent: [ProductNotFound]
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+
+ producers:
+ {
+   rns:                { module_type: RandomNumberSaver }
+   unstick:            @local::dune35t_unstick
+   daq:                @local::dune35t_filterwf
+   caldata:            @local::dune35t_calwire
+   gaushit:            @local::dune35t_gaushitfinder
+   hit35t:             @local::dune35t_hitfinder35t
+   linecluster:        @local::dune35t_linecluster
+   blurredcluster:     @local::dune35t_blurredcluster
+   pmtrack:            @local::dune35t_pmalgtrackmaker
+   emshower:           @local::dune35t_emshower
+ }
+
+ reco: [ #rns, unstick, daq,
+         #caldata,
+         #gaushit, hit35t,
+         linecluster, blurredcluster
+         #linecluster, pmtrack, blurredcluster, emshower
+       ]
+
+ stream1:  [ out1 ]
+ trigger_paths: [reco]
+ end_paths:     [stream1]
+
+}
+
+outputs:
+{
+ out1:
+ {
+   module_type: RootOutput
+   fileName:    "%ifb_%tc_reco.root"
+   dataTier:    "full-reconstructed"
+   compressionLevel: 1
+   fastCloning: false
+ }
+}
+
+# Define module labels
+
+physics.producers.unstick.DigitModuleLabel:   "SplitterInput:TPC"
+physics.producers.daq.DigitModuleLabel:       "unstick:TPC"
+physics.producers.daq.SkipStuckCodes:         false
+physics.producers.caldata.DigitModuleLabel:   "daq"
+#physics.producers.caldata.DoBaselineSub:      true
+physics.producers.gaushit.CalDataModuleLabel: "caldata"
+
+physics.producers.linecluster.HitFinderModuleLabel:  "hit35t"
+#physics.producers.linecluster.ClusterCrawlerAlg.KillGarbageClusters: 0
+physics.producers.blurredcluster.HitsModuleLabel:    "linecluster"
+physics.producers.blurredcluster.TrackModuleLabel:   "pmtrack"
+physics.producers.blurredcluster.VertexModuleLabel:  "linecluster"
+physics.producers.pmtrack.HitModuleLabel:            "linecluster"
+physics.producers.pmtrack.ClusterModuleLabel:        "linecluster"
+
+physics.producers.emshower.HitsModuleLabel:    "linecluster"
+physics.producers.emshower.ClusterModuleLabel: "blurredcluster"
+physics.producers.emshower.TrackModuleLabel:   "pmtrack"
+physics.producers.emshower.MinTrackLength:     0
+
+# cluster
+physics.producers.blurredcluster.CreateDebugPDF: false
+physics.producers.blurredcluster.MergeClusters: false
+physics.producers.blurredcluster.GlobalTPCRecon: true
+physics.producers.blurredcluster.BlurredClusterAlg.Debug: true
+physics.producers.blurredcluster.BlurredClusterAlg.BlurWire: 60
+physics.producers.blurredcluster.BlurredClusterAlg.BlurTick: 60
+physics.producers.blurredcluster.BlurredClusterAlg.SigmaWire: 30
+physics.producers.blurredcluster.BlurredClusterAlg.SigmaTick: 30
+physics.producers.blurredcluster.BlurredClusterAlg.ClusterWireDistance: 20
+physics.producers.blurredcluster.BlurredClusterAlg.ClusterTickDistance: 20
+physics.producers.blurredcluster.BlurredClusterAlg.TickWidthRescale: 2
+physics.producers.blurredcluster.BlurredClusterAlg.MaxTickWidthScale: 2
+physics.producers.blurredcluster.BlurredClusterAlg.Kernels: [1,5,10]
+
+# shower
+physics.producers.blurredcluster.ShowerReconOnly: false
+physics.producers.emshower.SaveNonCompleteShowers: true
+physics.producers.emshower.Shower:  -1
+physics.producers.emshower.Plane:  -1
+
+services.user.DetectorPropertiesService.NumberTimeSamples: 15000
+services.user.DetectorPropertiesService.ReadOutWindowSize: 15000
+
+services.user.DetectorPropertiesService.TimeOffsetU:  0
+services.user.DetectorPropertiesService.TimeOffsetV:  0
+services.user.DetectorPropertiesService.TimeOffsetZ:  0
+services.user.DetectorPropertiesService.Efield: [ 0.25, 0.782, 1.73 ]
+
+#services.user.SignalShapingServiceDUNE35t.DebugFieldShape: true
+services.user.SignalShapingServiceDUNE35t.ASICGainInMVPerFC: [14, 14, 14]
+services.user.SignalShapingServiceDUNE35t.ShapeTimeConst: [3, 3, 3]
+
+services.user.SignalShapingServiceDUNE35t.NoiseFactVec:  [[ 1.12, 0.86, 6.0, 0.55 ],
+							  [ 1.12, 0.86, 6.0, 0.55 ],
+							  [ 0.89, 0.66, 4.8, 0.43 ]]
+
+##############   The standard parameters -----------------------
+#services.user.SignalShapingServiceDUNE35t.ColFilter: "(x>0.0)*[0]*exp(-0.5*(((x-[1])/[2])^2)^[3])"
+#services.user.SignalShapingServiceDUNE35t.IndUFilter: "(x>0.0)*gaus*exp(-0.5*pow(x/[3],[4]))"
+#services.user.SignalShapingServiceDUNE35t.IndVFilter: "(x>0.0)*gaus*exp(-0.5*pow(x/[3],[4]))"
+
+##############   My new  parameters -----------------------
+
+services.user.SignalShapingServiceDUNE35t.ColFilter:       "(x>0.0)*[0]*(1-1/(1+exp(-(x-[1])/[2])))"
+services.user.SignalShapingServiceDUNE35t.ColFilterParams: [ 1, 0.150, 0.025 ]
+
+services.user.SignalShapingServiceDUNE35t.IndUFilter:       "(x>0.)*[0]*(1-1/(1+exp(-(x-[1])/[2])))*(1/(1+exp(-(x-[3])/[4])))"
+services.user.SignalShapingServiceDUNE35t.IndUFilterParams: [ 1.0, 0.105, 0.019, 0.018, 0.010 ]
+services.user.SignalShapingServiceDUNE35t.IndVFilter:       "(x>0.)*[0]*(1-1/(1+exp(-(x-[1])/[2])))*(1/(1+exp(-(x-[3])/[4])))"
+services.user.SignalShapingServiceDUNE35t.IndVFilterParams: [ 0.95, 0.125, 0.019, 0.010, 0.0109 ]
+
+physics.producers.gaushit.MinSig:   [ 8  ,8  , 10  ]
+physics.producers.gaushit.MinWidth: [ 2.5, 2.5, 2.5 ]

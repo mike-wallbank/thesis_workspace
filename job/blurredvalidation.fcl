@@ -1,0 +1,30 @@
+#include "hitfindermodules_dune.fcl"
+#include "cluster_dune.fcl"
+#include "services_dune.fcl"
+
+services:
+{
+  user: @local::dune35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    blurredvalidation: @local::standard_clusteringvalidation
+  }
+
+ a1: [ blurredvalidation ]
+ end_paths: [ a1 ]
+
+}
+
+physics.analyzers.blurredvalidation.HitsModuleLabel:     "lineclusterdc"
+physics.analyzers.blurredvalidation.ClusterModuleLabels: [ "blurredclusterdc" ]
+

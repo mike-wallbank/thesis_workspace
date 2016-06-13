@@ -57,9 +57,9 @@ private:
 
 EMEnergyCalibStudy::EMEnergyCalibStudy(TTree* tree) {
   fTree = tree;
-  ChargeDepositEnergyU = new TH2D("ChargeDepositEnergyU","Charge v Depositied Energy on U;Deposited Energy (GeV);Charge (ADC);",50,0,1,100,0,200000);
-  ChargeDepositEnergyV = new TH2D("ChargeDepositEnergyV","Charge v Depositied Energy on V;Deposited Energy (GeV);Charge (ADC);",50,0,1,100,0,200000);
-  ChargeDepositEnergyZ = new TH2D("ChargeDepositEnergyZ","Charge v Depositied Energy on Z;Deposited Energy (GeV);Charge (ADC);",50,0,1,100,0,200000);
+  ChargeDepositEnergyU = new TH2D("ChargeDepositEnergyU","Charge v Depositied Energy on U;Deposited Energy (GeV);Charge (ADC);",50,0,5,100,0,15e9);
+  ChargeDepositEnergyV = new TH2D("ChargeDepositEnergyV","Charge v Depositied Energy on V;Deposited Energy (GeV);Charge (ADC);",50,0,5,100,0,15e9);
+  ChargeDepositEnergyZ = new TH2D("ChargeDepositEnergyZ","Charge v Depositied Energy on Z;Deposited Energy (GeV);Charge (ADC);",50,0,5,100,0,15e9);
   EnergyDepositUDistance = new TH2D("EnergyDepositUDistance","Deposited Energy on U vs Distance from Detector Edge;Distance (cm);Fraction of Energy Deposited;",100,0,220,50,0,1.1);
   EnergyDepositVDistance = new TH2D("EnergyDepositVDistance","Deposited Energy on V vs Distance from Detector Edge;Distance (cm);Fraction of Energy Deposited;",100,0,220,50,0,1.1);
   EnergyDepositZDistance = new TH2D("EnergyDepositZDistance","Deposited Energy on Z vs Distance from Detector Edge;Distance (cm);Fraction of Energy Deposited;",100,0,220,50,0,1.1);
@@ -123,27 +123,13 @@ void EMEnergyCalibStudy::MakeFits() {
 
 std::pair<double,double> EMEnergyCalibStudy::MakeFit(int num, TString plane) {
 
-  // Make a load of histograms!
-  TH1D* ChargeDist1 = new TH1D(TString("ChargeDist1Plane")+plane,";Total ADC;",200,0,30000);
-  TH1D* ChargeDist2 = new TH1D(TString("ChargeDist2Plane")+plane,";Total ADC;",200,10000,40000);
-  TH1D* ChargeDist3 = new TH1D(TString("ChargeDist3Plane")+plane,";Total ADC;",200,20000,60000);
-  TH1D* ChargeDist4 = new TH1D(TString("ChargeDist4Plane")+plane,";Total ADC;",200,40000,70000);
-  TH1D* ChargeDist5 = new TH1D(TString("ChargeDist5Plane")+plane,";Total ADC;",200,50000,90000);
-  TH1D* ChargeDist6 = new TH1D(TString("ChargeDist6Plane")+plane,";Total ADC;",200,60000,110000);
-  TH1D* ChargeDist7 = new TH1D(TString("ChargeDist7Plane")+plane,";Total ADC;",200,80000,120000);
-  TH1D* ChargeDist8 = new TH1D(TString("ChargeDist8Plane")+plane,";Total ADC;",200,90000,140000);
-  TH1D* ChargeDist9 = new TH1D(TString("ChargeDist9Plane")+plane,";Total ADC;",200,110000,150000);
-  TH1D* ChargeDist10 = new TH1D(TString("ChargeDist10Plane")+plane,";Total ADC;",200,120000,170000);
-  TH1D* EnergyDist1 = new TH1D(TString("EnergyDist1Plane")+plane,";Energy (GeV);",100,0.05,0.1);
-  TH1D* EnergyDist2 = new TH1D(TString("EnergyDist2Plane")+plane,";Energy (GeV);",100,0.15,0.2);
-  TH1D* EnergyDist3 = new TH1D(TString("EnergyDist3Plane")+plane,";Energy (GeV);",100,0.25,0.3);
-  TH1D* EnergyDist4 = new TH1D(TString("EnergyDist4Plane")+plane,";Energy (GeV);",100,0.35,0.4);
-  TH1D* EnergyDist5 = new TH1D(TString("EnergyDist5Plane")+plane,";Energy (GeV);",100,0.45,0.5);
-  TH1D* EnergyDist6 = new TH1D(TString("EnergyDist6Plane")+plane,";Energy (GeV);",100,0.55,0.6);
-  TH1D* EnergyDist7 = new TH1D(TString("EnergyDist7Plane")+plane,";Energy (GeV);",100,0.65,0.7);
-  TH1D* EnergyDist8 = new TH1D(TString("EnergyDist8Plane")+plane,";Energy (GeV);",100,0.75,0.8);
-  TH1D* EnergyDist9 = new TH1D(TString("EnergyDist9Plane")+plane,";Energy (GeV);",100,0.85,0.9);
-  TH1D* EnergyDist10 = new TH1D(TString("EnergyDist10Plane")+plane,";Energy (GeV);",100,0.95,1.0);
+  // Find the highest and lowest charge
+  std::map<int,double> highCharge;
+  std::map<int,double> lowCharge;
+  for (int i = 1; i <= 10; ++i) {
+    highCharge[i] = 0;
+    lowCharge[i] = 1e10;
+  }
 
   for (unsigned int event = 0; event < fTree->GetEntriesFast(); ++event) {
     fTree->GetEntry(event);
@@ -156,22 +142,77 @@ std::pair<double,double> EMEnergyCalibStudy::MakeFit(int num, TString plane) {
     double planeCharge = 0;
     for (unsigned int hit = 0; hit < NHits; ++hit)
       if (Hit_Plane[hit] == num) planeCharge += (Hit_Charge[hit] * TMath::Exp((500 * Hit_PeakT[hit])/3e6));
-    if (deposit >= 0.05 && deposit <= 0.1) { ChargeDist1->Fill(planeCharge); EnergyDist1->Fill(deposit); }
-    if (deposit >= 0.15 && deposit <= 0.2) { ChargeDist2->Fill(planeCharge); EnergyDist2->Fill(deposit); }
-    if (deposit >= 0.25 && deposit <= 0.3) { ChargeDist3->Fill(planeCharge); EnergyDist3->Fill(deposit); }
-    if (deposit >= 0.35 && deposit <= 0.4) { ChargeDist4->Fill(planeCharge); EnergyDist4->Fill(deposit); }
-    if (deposit >= 0.45 && deposit <= 0.5) { ChargeDist5->Fill(planeCharge); EnergyDist5->Fill(deposit); }
-    if (deposit >= 0.55 && deposit <= 0.6) { ChargeDist6->Fill(planeCharge); EnergyDist6->Fill(deposit); }
-    if (deposit >= 0.65 && deposit <= 0.7) { ChargeDist7->Fill(planeCharge); EnergyDist7->Fill(deposit); }
-    if (deposit >= 0.75 && deposit <= 0.8) { ChargeDist8->Fill(planeCharge); EnergyDist8->Fill(deposit); }
-    if (deposit >= 0.85 && deposit <= 0.9) { ChargeDist9->Fill(planeCharge); EnergyDist9->Fill(deposit); }
-    if (deposit >= 0.95 && deposit <= 1.0) { ChargeDist10->Fill(planeCharge); EnergyDist10->Fill(deposit); }
+    if (deposit > 0.0 && deposit <= 0.5) { if (planeCharge > highCharge[1]) highCharge[1] = planeCharge; if (planeCharge < lowCharge[1]) lowCharge[1] = planeCharge; }
+    if (deposit > 0.5 && deposit <= 1.0) { if (planeCharge > highCharge[2]) highCharge[2] = planeCharge; if (planeCharge < lowCharge[2]) lowCharge[2] = planeCharge; }
+    if (deposit > 1.0 && deposit <= 1.5) { if (planeCharge > highCharge[3]) highCharge[3] = planeCharge; if (planeCharge < lowCharge[3]) lowCharge[3] = planeCharge; }
+    if (deposit > 1.5 && deposit <= 2.0) { if (planeCharge > highCharge[4]) highCharge[4] = planeCharge; if (planeCharge < lowCharge[4]) lowCharge[4] = planeCharge; }
+    if (deposit > 2.0 && deposit <= 2.5) { if (planeCharge > highCharge[5]) highCharge[5] = planeCharge; if (planeCharge < lowCharge[5]) lowCharge[5] = planeCharge; }
+    if (deposit > 2.5 && deposit <= 3.0) { if (planeCharge > highCharge[6]) highCharge[6] = planeCharge; if (planeCharge < lowCharge[6]) lowCharge[6] = planeCharge; }
+    if (deposit > 3.0 && deposit <= 3.5) { if (planeCharge > highCharge[7]) highCharge[7] = planeCharge; if (planeCharge < lowCharge[7]) lowCharge[7] = planeCharge; }
+    if (deposit > 3.5 && deposit <= 4.0) { if (planeCharge > highCharge[8]) highCharge[8] = planeCharge; if (planeCharge < lowCharge[8]) lowCharge[8] = planeCharge; }
+    if (deposit > 4.0 && deposit <= 4.5) { if (planeCharge > highCharge[9]) highCharge[9] = planeCharge; if (planeCharge < lowCharge[9]) lowCharge[9] = planeCharge; }
+    if (deposit > 4.5 && deposit <= 5.0) { if (planeCharge > highCharge[10]) highCharge[10] = planeCharge; if (planeCharge < lowCharge[10]) lowCharge[10] = planeCharge; }
+  }
+
+  // Make a load of histograms!
+  TH1D* ChargeDist1 = new TH1D(TString("ChargeDist1Plane")+plane,";Total ADC;",200,lowCharge[1]-2e6,highCharge[1]+2e6);
+  TH1D* ChargeDist2 = new TH1D(TString("ChargeDist2Plane")+plane,";Total ADC;",200,lowCharge[2]-2e6,highCharge[2]+2e6);
+  TH1D* ChargeDist3 = new TH1D(TString("ChargeDist3Plane")+plane,";Total ADC;",200,lowCharge[3]-2e6,highCharge[3]+2e6);
+  TH1D* ChargeDist4 = new TH1D(TString("ChargeDist4Plane")+plane,";Total ADC;",200,lowCharge[4]-2e6,highCharge[4]+2e6);
+  TH1D* ChargeDist5 = new TH1D(TString("ChargeDist5Plane")+plane,";Total ADC;",200,lowCharge[5]-2e6,highCharge[5]+2e6);
+  TH1D* ChargeDist6 = new TH1D(TString("ChargeDist6Plane")+plane,";Total ADC;",200,lowCharge[6]-2e6,highCharge[6]+2e6);
+  TH1D* ChargeDist7 = new TH1D(TString("ChargeDist7Plane")+plane,";Total ADC;",200,lowCharge[7]-2e6,highCharge[7]+2e6);
+  TH1D* ChargeDist8 = new TH1D(TString("ChargeDist8Plane")+plane,";Total ADC;",200,lowCharge[8]-2e6,highCharge[8]+2e6);
+  TH1D* ChargeDist9 = new TH1D(TString("ChargeDist9Plane")+plane,";Total ADC;",200,lowCharge[9]-2e6,highCharge[9]+2e6);
+  TH1D* ChargeDist10 = new TH1D(TString("ChargeDist10Plane")+plane,";Total ADC;",200,lowCharge[10]-2e6,highCharge[10]+2e6);
+  TH1D* EnergyDist1 = new TH1D(TString("EnergyDist1Plane")+plane,";Energy (GeV);",100,0.0,0.5);
+  TH1D* EnergyDist2 = new TH1D(TString("EnergyDist2Plane")+plane,";Energy (GeV);",100,0.5,1.0);
+  TH1D* EnergyDist3 = new TH1D(TString("EnergyDist3Plane")+plane,";Energy (GeV);",100,0.1,1.5);
+  TH1D* EnergyDist4 = new TH1D(TString("EnergyDist4Plane")+plane,";Energy (GeV);",100,1.5,2.0);
+  TH1D* EnergyDist5 = new TH1D(TString("EnergyDist5Plane")+plane,";Energy (GeV);",100,2.0,2.5);
+  TH1D* EnergyDist6 = new TH1D(TString("EnergyDist6Plane")+plane,";Energy (GeV);",100,2.5,3.0);
+  TH1D* EnergyDist7 = new TH1D(TString("EnergyDist7Plane")+plane,";Energy (GeV);",100,3.0,3.5);
+  TH1D* EnergyDist8 = new TH1D(TString("EnergyDist8Plane")+plane,";Energy (GeV);",100,3.5,4.0);
+  TH1D* EnergyDist9 = new TH1D(TString("EnergyDist9Plane")+plane,";Energy (GeV);",100,4.0,4.5);
+  TH1D* EnergyDist10 = new TH1D(TString("EnergyDist10Plane")+plane,";Energy (GeV);",100,4.5,5.0);
+
+  for (unsigned int event = 0; event < fTree->GetEntriesFast(); ++event) {
+    fTree->GetEntry(event);
+    double deposit;
+    switch (num) {
+    case 0: deposit = DepositU;
+    case 1: deposit = DepositV;
+    case 2: deposit = DepositZ;
+    }
+    double planeCharge = 0;
+    for (unsigned int hit = 0; hit < NHits; ++hit)
+      if (Hit_Plane[hit] == num) planeCharge += (Hit_Charge[hit] * TMath::Exp((500 * Hit_PeakT[hit])/3e6));
+    if (deposit > 0.0 && deposit <= 0.5) { ChargeDist1->Fill(planeCharge); EnergyDist1->Fill(deposit); }
+    if (deposit > 0.5 && deposit <= 1.0) { ChargeDist2->Fill(planeCharge); EnergyDist2->Fill(deposit); }
+    if (deposit > 1.0 && deposit <= 1.5) { ChargeDist3->Fill(planeCharge); EnergyDist3->Fill(deposit); }
+    if (deposit > 1.5 && deposit <= 2.0) { ChargeDist4->Fill(planeCharge); EnergyDist4->Fill(deposit); }
+    if (deposit > 2.0 && deposit <= 2.5) { ChargeDist5->Fill(planeCharge); EnergyDist5->Fill(deposit); }
+    if (deposit > 2.5 && deposit <= 3.0) { ChargeDist6->Fill(planeCharge); EnergyDist6->Fill(deposit); }
+    if (deposit > 3.0 && deposit <= 3.5) { ChargeDist7->Fill(planeCharge); EnergyDist7->Fill(deposit); }
+    if (deposit > 3.5 && deposit <= 4.0) { ChargeDist8->Fill(planeCharge); EnergyDist8->Fill(deposit); }
+    if (deposit > 4.0 && deposit <= 4.5) { ChargeDist9->Fill(planeCharge); EnergyDist9->Fill(deposit); }
+    if (deposit > 4.5 && deposit <= 5.0) { ChargeDist10->Fill(planeCharge); EnergyDist10->Fill(deposit); }
   }
 
   TF1* fit;
   double charge[10], energy[10];
   outFile->cd();
 
+  // ChargeDist1->Write();
+  // ChargeDist2->Write();
+  // ChargeDist3->Write();
+  // ChargeDist4->Write();
+  // ChargeDist5->Write();
+  // ChargeDist6->Write();
+  // ChargeDist7->Write();
+  // ChargeDist8->Write();
+  // ChargeDist9->Write();
+  // ChargeDist10->Write();
   ChargeDist1->Fit("gaus"); fit = ChargeDist1->GetFunction("gaus"); charge[0] = fit->GetParameter(1); ChargeDist1->Write();
   ChargeDist2->Fit("gaus"); fit = ChargeDist2->GetFunction("gaus"); charge[1] = fit->GetParameter(1); ChargeDist2->Write();
   ChargeDist3->Fit("gaus"); fit = ChargeDist3->GetFunction("gaus"); charge[2] = fit->GetParameter(1); ChargeDist3->Write();

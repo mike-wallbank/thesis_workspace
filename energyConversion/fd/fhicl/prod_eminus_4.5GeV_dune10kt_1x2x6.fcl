@@ -1,0 +1,14 @@
+#include "prodsingle_common_dunefd.fcl"
+
+process_name: SinglesGen
+
+outputs.out1.fileName: "prod_eminus_4.5GeV_dune10kt_1x2x6_gen.root"
+
+services.Geometry: @local::dune10kt_1x2x6_geo
+source.firstRun: 20000011
+source.maxEvents: 1000
+
+physics.producers.generator.PDG: [ 11 ]            # e-
+physics.producers.generator.P0: [4.5]              # GeV
+physics.producers.generator.PDist: 0
+physics.producers.generator.SigmaP: [0.0]

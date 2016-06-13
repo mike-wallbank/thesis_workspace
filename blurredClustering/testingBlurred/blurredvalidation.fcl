@@ -1,0 +1,30 @@
+#include "hitfindermodules_lbne.fcl"
+#include "cluster_lbne.fcl"
+#include "services_lbne.fcl"
+
+services:
+{
+  user: @local::lbne35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    blurredvalidation: @local::standard_clusteringvalidation
+  }
+
+ a1: [ blurredvalidation ]
+ end_paths: [ a1 ]
+
+}
+
+physics.analyzers.blurredvalidation.HitsModuleLabel:     "dcheat"
+physics.analyzers.blurredvalidation.ClusterModuleLabels: [ "blurredclusteringdc", "dbclusterdc" ]
+physics.analyzers.blurredvalidation.MinHitsInPlane:      0

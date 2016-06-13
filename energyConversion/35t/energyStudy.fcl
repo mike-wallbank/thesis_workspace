@@ -1,0 +1,29 @@
+#include "services_dune.fcl"
+#include "emenergy.fcl"
+
+services:
+{
+  TFileService: { fileName: "EMPi0Energy.root" }
+  user: @local::dune35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    energyPi0: @local::emenergypi0
+  }
+
+ a1: [ energyPi0 ]
+ end_paths: [ a1 ]
+
+}
+
+physics.analyzers.energyPi0.HitsModuleLabel: "dcheat"
+physics.analyzers.energyPi0.ClusterModuleLabel: "blurredclusterdc"

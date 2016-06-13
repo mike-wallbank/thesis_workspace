@@ -1,0 +1,30 @@
+#include "services_lbne.fcl"
+
+process_name: MikeReco
+
+services:
+{
+  user: @local::lbne35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  producers:
+  {
+    global:
+    {
+      module_type: "MergeClusterGlobal"
+      HitsModuleLabel: "dcheat"
+    }
+  }
+
+ p1: [ global ]
+ trigger_paths: [ p1 ]
+
+}

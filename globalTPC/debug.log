@@ -1,0 +1,219 @@
+%MSG-i MF_INIT_OK:  lar 15-Nov-2015 14:46:17 CST JobSetup
+Messagelogger initialization complete.
+%MSG
+%MSG-i PathConfiguration:  lar 15-Nov-2015 14:46:18 CST JobSetup
+Multiple end paths have been combined into one end path,
+"end_path" since order is irrelevant.
+
+%MSG
+%MSG-i path:  lar 15-Nov-2015 14:46:18 CST JobSetup
+The following module labels are not assigned to any path:
+'blurredcluster', 'blurredclusterdc', 'hit35t', 'linecluster'
+
+%MSG
+%MSG-w CONFIG:  lar 15-Nov-2015 14:46:18 CST JobSetup
+Use of services.user parameter set is deprecated.
+Define all services in services parameter set.
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Import() 15-Nov-2015 14:46:18 CST  JobSetup
+Reading geometry from file: /lbne/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v04_29_02_e9_prof/dunetpc/v04_29_01/gdml/dune35t4apa_v5.gdml
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  15-Nov-2015 14:46:18 CST JobSetup
+Geometry GDMLImport, Geometry imported from GDML created
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  15-Nov-2015 14:46:22 CST JobSetup
+Top volume is volWorld. Master volume is volWorld
+%MSG
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  15-Nov-2015 14:46:22 CST JobSetup
+--- Maximum geometry depth set to 100
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+Fixing runtime shapes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+...Nothing to fix
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+Counting nodes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 15-Nov-2015 14:46:22 CST  JobSetup
+Voxelizing...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+Building cache...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  15-Nov-2015 14:46:22 CST JobSetup
+max level = 5, max placements = 359
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+5627 nodes/ 2528 volume UID's in Geometry imported from GDML
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Nov-2015 14:46:22 CST JobSetup
+----------------modeler ready----------------
+%MSG
+%MSG-i GeometryCore:  lar 15-Nov-2015 14:46:22 CST JobSetup
+New detector geometry loaded from 
+	/lbne/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v04_29_02_e9_prof/dunetpc/v04_29_01/gdml/dune35t4apa_v5.gdml
+	/lbne/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v04_29_02_e9_prof/dunetpc/v04_29_01/gdml/dune35t4apa_v5_nowires.gdml
+
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 15-Nov-2015 14:46:22 CST JobSetup
+Sorting...
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 15-Nov-2015 14:46:22 CST JobSetup
+Initializing...
+%MSG
+fNchannels = 2048
+U channels per APA = 144
+V channels per APA = 144
+Z channels per APA side = 112
+%MSG-i SimpleChannelStatusService:  lar 15-Nov-2015 14:46:22 CST JobSetup
+Loaded from configuration:
+  - 0 bad channels
+  - 0 noisy channels
+  - largest channel ID: 2047, largest present: 2047
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 15-Nov-2015 14:46:22 CST JobSetup
+Getting Filter from .fcl file
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 15-Nov-2015 14:46:22 CST JobSetup
+ using the field response provided from a .root file 
+%MSG
+%MSG-w CONFIG:  lar 15-Nov-2015 14:46:22 CST JobSetup
+
+ <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
+
+%MSG
+15-Nov-2015 14:46:22 CST  Initiating request to open file single35t_gen_20151115T160820_reco.root
+15-Nov-2015 14:46:22 CST  Successfully opened file single35t_gen_20151115T160820_reco.root
+%MSG-i FastCloning:  RootOutput:out1@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Initial fast cloning configuration (from default): true
+%MSG
+%MSG-d BranchID:  RandomNumberSaver:rns@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [1073218114] from branch name: "art::RNGsnapshots_rns__BlurReco."
+%MSG
+%MSG-d BranchID:  CalWireDUNE35t:caldata@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [4239162727] from branch name: "raw::RawDigitrecob::Wirevoidart::Assns_caldata__BlurReco."
+%MSG
+%MSG-d BranchID:  CalWireDUNE35t:caldata@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [3222183848] from branch name: "recob::Wires_caldata__BlurReco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [507351876] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_gaushit__BlurReco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [1085674334] from branch name: "recob::Hitrecob::Wirevoidart::Assns_gaushit__BlurReco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [1527659207] from branch name: "recob::Hits_gaushit__BlurReco."
+%MSG
+%MSG-d BranchID:  DisambigCheater:dcheat@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [710723534] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_dcheat__BlurReco."
+%MSG
+%MSG-d BranchID:  DisambigCheater:dcheat@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [2133185462] from branch name: "recob::Hitrecob::Wirevoidart::Assns_dcheat__BlurReco."
+%MSG
+%MSG-d BranchID:  DisambigCheater:dcheat@Construction 15-Nov-2015 14:46:22 CST  ModuleConstruction
+Product created with branch id: [3332977123] from branch name: "recob::Hits_dcheat__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [514751838] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [1404462782] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [493101300] from branch name: "recob::Clusterrecob::Vertexushortart::Assns_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [966433224] from branch name: "recob::Clusters_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [455267287] from branch name: "recob::EndPoint2Ds_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [1367334577] from branch name: "recob::Hitrecob::Wirevoidart::Assns_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [1869807275] from branch name: "recob::Hits_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterdc@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [3924543802] from branch name: "recob::Vertexs_lineclusterdc__BlurReco."
+%MSG
+%MSG-d BranchID:  TriggerResultInserter:TriggerResults@Construction  15-Nov-2015 14:46:22 CST ModuleConstruction
+Product created with branch id: [1185059621] from branch name: "art::TriggerResults_TriggerResults__BlurReco."
+%MSG
+%MSG-w FastCloning:  PostOpenFile 15-Nov-2015 14:46:22 CST BeforeEvents
+Fast cloning deactivated for this input file due to information in FileBlock.
+%MSG
+%MSG-i DatabaseUtil:  PostSourceRun 15-Nov-2015 14:46:23 CST run: 1
+Not connecting to DB by choice. 
+
+%MSG
+%MSG-i DatabaseUtil:  PostSourceRun 15-Nov-2015 14:46:23 CST run: 1
+Not connecting to DB by choice. 
+
+%MSG
+%MSG-i DatabaseUtil:  PostSourceRun 15-Nov-2015 14:46:23 CST run: 1
+Not connecting to DB by choice. 
+
+%MSG
+%MSG-i DatabaseUtil:  PostSourceRun 15-Nov-2015 14:46:23 CST run: 1
+Not connecting to DB by choice. 
+
+%MSG
+Begin processing the 1st record. run: 1 subRun: 0 event: 1 at 15-Nov-2015 14:46:23 CST
+%MSG-d RANDOM:  PostSource 15-Nov-2015 14:46:23 CST run: 1 subRun: 0 event: 1
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG
+%MSG-i CalWireDUNE35t:  CalWireDUNE35t:caldata 15-Nov-2015 14:46:23 CST  run: 1 subRun: 0 event: 1
+CalWireDUNE35t:: digitVecHandle size is 2048
+%MSG
+15-Nov-2015 14:46:25 CST  Closed file single35t_gen_20151115T160820_reco.root
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+
+TrigReport ------ Modules in End-Path: end_path ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     0    0          1          1          0          0 globaltpc
+TrigReport     0    0          1          1          0          0 out1
+
+TimeReport ---------- Time  Summary ---[sec]----
+TimeReport CPU = 2.348479 Real = 2.341644
+
+===============================================================================================================================
+TimeTracker printout (sec)                       Min           Avg           Max         Median          RMS         nEvts   
+===============================================================================================================================
+Full event                                     2.34856       2.34856       2.34856       2.34856          0            1     
+-------------------------------------------------------------------------------------------------------------------------------
+reco:rns:RandomNumberSaver                   0.000379542   0.000379542   0.000379542   0.000379542        0            1     
+reco:caldata:CalWireDUNE35t                   0.764378      0.764378      0.764378      0.764378          0            1     
+reco:gaushit:GausHitFinder                     1.23294       1.23294       1.23294       1.23294          0            1     
+reco:dcheat:DisambigCheater                  0.00940513    0.00940513    0.00940513    0.00940513         0            1     
+reco:lineclusterdc:LineCluster                0.0288533     0.0288533     0.0288533     0.0288533         0            1     
+reco:TriggerResults:TriggerResultInserter    8.5595e-05    8.5595e-05    8.5595e-05    8.5595e-05         0            1     
+end_path:globaltpc:GlobalTPC                 0.00597196    0.00597196    0.00597196    0.00597196         0            1     
+end_path:out1:RootOutput                      0.305766      0.305766      0.305766      0.305766          0            1     
+===============================================================================================================================
+
+MemoryReport> Peak virtual size 756.648 Mbytes
+Key events increasing vsize:
+[none]
+
+Key events with largest vsize:
+[none]
+
+
+Summary of seeds computed by the SeedService
+Random policy: 'random'
+  master seed: 632237718
+  seed within: [ 1 ; 900000000 ]
+
+%MSG-d RANDOM:  RootOutput:out1@EndJob 15-Nov-2015 14:46:25 CST PostEndRun
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG

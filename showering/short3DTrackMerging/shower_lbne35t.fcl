@@ -1,0 +1,41 @@
+#include "showerfindermodules_lbne35t.fcl"
+#include "services_lbne.fcl"
+
+process_name: MikeReco
+
+services:
+{
+  TFileService: { fileName: "mergingVariables.root" }
+  user: @local::lbne35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+outputs:
+{
+ out1:
+ {
+   module_type: RootOutput
+   fileName:    "%ifb_%tc_reco.root"
+   dataTier:    "full-reconstructed"
+   compressionLevel: 1
+ }
+}
+
+physics:
+{
+  producers:
+  {
+    testshower: @local::test_shower
+  }
+
+ stream1: [ out1 ]
+ p1: [ testshower ]
+ trigger_paths: [ p1 ]
+ end_paths: [ stream1 ]
+
+}

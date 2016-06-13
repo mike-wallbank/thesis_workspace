@@ -1,0 +1,26 @@
+#include "showerfindermodules_lbne35t.fcl"
+#include "services_lbne.fcl"
+
+services:
+{
+  user: @local::lbne35t_services
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    showervalidation: @local::standard_showervalidation
+  }
+
+ a1: [ showervalidation ]
+ end_paths: [ a1 ]
+
+}
+

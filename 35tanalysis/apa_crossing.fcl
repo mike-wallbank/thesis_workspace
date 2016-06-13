@@ -1,0 +1,42 @@
+#include "services_dune.fcl"
+
+process_name: APACrossing
+
+services:
+{
+  TFileService: { fileName: "hit_maps.root" }
+  TimeTracker:       {}
+  SimpleMemoryCheck:     { ignoreTotal: 1 } # default is one
+  RandomNumberGenerator: {} #ART native random number generator
+  message:      @local::dune_message_services_prod_debug
+  FileCatalogMetadata:  @local::art_file_catalog_mc
+  user:         @local::dune35t_services
+}
+
+services.scheduler.SkipEvent: [ProductNotFound]
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    apacrossing:
+    {
+      module_type: "APACrossingMuons"
+      HitsModuleLabel: "fasthit"
+      TriggerModuleLabel: "SplitterInput:TRIGGER"
+      T0ModuleLabel: "t0counter"
+      CounterWidth: 15.
+      SaveImages: true
+    }
+  }
+
+  a1: [ apacrossing ]
+  end_paths: [ a1 ]
+
+}

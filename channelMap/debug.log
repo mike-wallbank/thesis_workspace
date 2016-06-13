@@ -1,0 +1,190 @@
+%MSG-i MF_INIT_OK:  lar 18-Apr-2016 11:41:58 BST JobSetup
+Messagelogger initialization complete.
+%MSG
+%MSG-i path:  lar 18-Apr-2016 11:42:00 BST JobSetup
+The following module labels are not assigned to any path:
+'blurredcluster', 'caldata', 'dcheat', 'emshower', 'emshowerdc', 'gaushit', 'hit35t', 'linecluster', 'lineclusterdc', 'pmtrack', 'pmtrackdc', 'rns'
+
+%MSG
+%MSG-w CONFIG:  lar 18-Apr-2016 11:42:00 BST JobSetup
+Use of services.user parameter set is deprecated.
+Define all services in services parameter set.
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Import() 18-Apr-2016 11:42:00 BST  JobSetup
+Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v6.gdml
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  18-Apr-2016 11:42:00 BST JobSetup
+Geometry GDMLImport, Geometry imported from GDML created
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  18-Apr-2016 11:42:04 BST JobSetup
+Top volume is volWorld. Master volume is volWorld
+%MSG
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  18-Apr-2016 11:42:04 BST JobSetup
+--- Maximum geometry depth set to 100
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+Fixing runtime shapes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+...Nothing to fix
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+Counting nodes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 18-Apr-2016 11:42:04 BST  JobSetup
+Voxelizing...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+Building cache...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  18-Apr-2016 11:42:04 BST JobSetup
+max level = 5, max placements = 359
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+5627 nodes/ 2528 volume UID's in Geometry imported from GDML
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Apr-2016 11:42:04 BST JobSetup
+----------------modeler ready----------------
+%MSG
+%MSG-i GeometryCore:  lar 18-Apr-2016 11:42:04 BST JobSetup
+New detector geometry loaded from 
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v6.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v6_nowires.gdml
+
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 18-Apr-2016 11:42:04 BST JobSetup
+Sorting...
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 18-Apr-2016 11:42:04 BST JobSetup
+Initializing...
+%MSG
+fNchannels = 2048
+U channels per APA = 144
+V channels per APA = 144
+Z channels per APA side = 112
+%MSG-i SimpleChannelStatusService:  lar 18-Apr-2016 11:42:04 BST JobSetup
+Loaded from configuration:
+  - 88 bad channels
+  - 0 noisy channels
+  - largest channel ID: 2047, largest present: 2047
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 18-Apr-2016 11:42:04 BST JobSetup
+Getting Filter from .fcl file
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 18-Apr-2016 11:42:04 BST JobSetup
+ using the field response provided from a .root file 
+%MSG
+%MSG-w CONFIG:  lar 18-Apr-2016 11:42:04 BST JobSetup
+
+ <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
+
+%MSG
+18-Apr-2016 11:42:04 BST  Initiating request to open file /data2/wallbank/dune/35t/mc/prod_pi0_0.4-1.0GeV_dune35t_28_20151204T231221_gen_2224cc31-7974-4bbb-9c0a-83d928e594a6_20151206T054749_g4_20151207T194922_detsim.root
+18-Apr-2016 11:42:04 BST  Successfully opened file /data2/wallbank/dune/35t/mc/prod_pi0_0.4-1.0GeV_dune35t_28_20151204T231221_gen_2224cc31-7974-4bbb-9c0a-83d928e594a6_20151206T054749_g4_20151207T194922_detsim.root
+%MSG-i FastCloning:  RootOutput:out1@Construction 18-Apr-2016 11:42:04 BST  ModuleConstruction
+Initial fast cloning configuration (user-set): false
+%MSG
+%MSG-d BranchID:  BlurredClustering:blurredclusterdc@Construction  18-Apr-2016 11:42:04 BST ModuleConstruction
+Product created with branch id: [2882010039] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_blurredclusterdc__ShowerReco."
+%MSG
+%MSG-d BranchID:  BlurredClustering:blurredclusterdc@Construction  18-Apr-2016 11:42:04 BST ModuleConstruction
+Product created with branch id: [2903889024] from branch name: "recob::Clusters_blurredclusterdc__ShowerReco."
+%MSG
+%MSG-d BranchID:  TriggerResultInserter:TriggerResults@Construction  18-Apr-2016 11:42:04 BST ModuleConstruction
+Product created with branch id: [296453927] from branch name: "art::TriggerResults_TriggerResults__ShowerReco."
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::Import()  18-Apr-2016 11:42:04 BST run: 10000006
+Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v5.gdml
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::TGeoManager()  18-Apr-2016 11:42:04 BST run: 10000006
+Geometry GDMLImport, Geometry imported from GDML created
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::SetTopVolume()  18-Apr-2016 11:42:07 BST run: 10000006
+Top volume is volWorld. Master volume is volWorld
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CheckGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+Fixing runtime shapes...
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CheckGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+...Nothing to fix
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CloseGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+Counting nodes...
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::Voxelize()  18-Apr-2016 11:42:07 BST run: 10000006
+Voxelizing...
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CloseGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+Building cache...
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CountLevels()  18-Apr-2016 11:42:07 BST run: 10000006
+max level = 5, max placements = 359
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CloseGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+5627 nodes/ 2528 volume UID's in Geometry imported from GDML
+%MSG
+%MSG-i Root_Information:  PostSourceRun TGeoManager::CloseGeometry()  18-Apr-2016 11:42:07 BST run: 10000006
+----------------modeler ready----------------
+%MSG
+%MSG-i GeometryCore:  PostSourceRun 18-Apr-2016 11:42:07 BST run: 10000006
+New detector geometry loaded from 
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v5.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_09_00_e9_prof/dunetpc/v05_08_00/gdml/dune35t4apa_v5_nowires.gdml
+
+%MSG
+%MSG-i ChannelMap35OptAlg:  PostSourceRun 18-Apr-2016 11:42:07 BST run: 10000006
+Sorting...
+%MSG
+%MSG-i ChannelMap35OptAlg:  PostSourceRun 18-Apr-2016 11:42:07 BST run: 10000006
+Initializing...
+%MSG
+fNchannels = 2048
+U channels per APA = 144
+V channels per APA = 144
+Z channels per APA side = 112
+Begin processing the 1st record. run: 10000006 subRun: 29 event: 2801 at 18-Apr-2016 11:42:08 BST
+%MSG-d RANDOM:  PostSource 18-Apr-2016 11:42:08 BST  run: 10000006 subRun: 29 event: 2801
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG
+18-Apr-2016 11:42:08 BST  Closed file /data2/wallbank/dune/35t/mc/prod_pi0_0.4-1.0GeV_dune35t_28_20151204T231221_gen_2224cc31-7974-4bbb-9c0a-83d928e594a6_20151206T054749_g4_20151207T194922_detsim.root
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+
+TrigReport ------ Modules in End-Path: end_path ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     0    0          1          1          0          0 out1
+
+TimeReport ---------- Time  Summary ---[sec]----
+TimeReport CPU = 0.214518 Real = 0.213967
+
+===============================================================================================================================
+TimeTracker printout (sec)                       Min           Avg           Max         Median          RMS         nEvts   
+===============================================================================================================================
+Full event                                    0.214604      0.214604      0.214604      0.214604          0            1     
+-------------------------------------------------------------------------------------------------------------------------------
+reco:blurredclusterdc:BlurredClustering      0.00176483    0.00176483    0.00176483    0.00176483         0            1     
+reco:TriggerResults:TriggerResultInserter    5.9653e-05    5.9653e-05    5.9653e-05    5.9653e-05         0            1     
+end_path:out1:RootOutput                      0.212283      0.212283      0.212283      0.212283          0            1     
+===============================================================================================================================
+
+MemoryReport> Peak virtual size 766.863 Mbytes
+Key events increasing vsize:
+[none]
+
+Key events with largest vsize:
+[none]
+
+
+Summary of seeds computed by the SeedService
+Random policy: 'random'
+  master seed: 665576128
+  seed within: [ 1 ; 900000000 ]
+
+%MSG-d RANDOM:  RootOutput:out1@EndJob 18-Apr-2016 11:42:08 BST PostEndRun
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG

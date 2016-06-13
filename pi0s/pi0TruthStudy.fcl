@@ -1,0 +1,27 @@
+#include "services_dune.fcl"
+
+services:
+{
+  user: @local::dune35t_services
+  TFileService: { fileName: "true_photons.root" }
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+    pi0truth: { module_type: Pi0TruthStudy }
+  }
+
+ a1: [ pi0truth ]
+ end_paths: [ a1 ]
+
+}
+
+physics.analyzers.pi0truth.PrintDecays: false

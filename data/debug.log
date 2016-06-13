@@ -1,0 +1,1260 @@
+%MSG-i MF_INIT_OK:  lar 29-Mar-2016 10:22:06 CDT JobSetup
+Messagelogger initialization complete.
+%MSG
+%MSG-i path:  lar 29-Mar-2016 10:22:07 CDT JobSetup
+The following module labels are not assigned to any path:
+'caldata', 'daq', 'emshower', 'gaushit', 'hit35t', 'pmtrack', 'rns', 'unstick'
+
+%MSG
+%MSG-w CONFIG:  lar 29-Mar-2016 10:22:07 CDT JobSetup
+Use of services.user parameter set is deprecated.
+Define all services in services parameter set.
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Import() 29-Mar-2016 10:22:07 CDT  JobSetup
+Reading geometry from file: /dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_04_00_e9_prof/dunetpc/v05_02_00/gdml/dune35t4apa_v5.gdml
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  29-Mar-2016 10:22:07 CDT JobSetup
+Geometry GDMLImport, Geometry imported from GDML created
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  29-Mar-2016 10:22:11 CDT JobSetup
+Top volume is volWorld. Master volume is volWorld
+%MSG
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  29-Mar-2016 10:22:11 CDT JobSetup
+--- Maximum geometry depth set to 100
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+Fixing runtime shapes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+...Nothing to fix
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+Counting nodes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 29-Mar-2016 10:22:11 CDT  JobSetup
+Voxelizing...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+Building cache...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  29-Mar-2016 10:22:11 CDT JobSetup
+max level = 5, max placements = 359
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+5627 nodes/ 2528 volume UID's in Geometry imported from GDML
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  29-Mar-2016 10:22:11 CDT JobSetup
+----------------modeler ready----------------
+%MSG
+%MSG-i GeometryCore:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+New detector geometry loaded from 
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_04_00_e9_prof/dunetpc/v05_02_00/gdml/dune35t4apa_v5.gdml
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_04_00_e9_prof/dunetpc/v05_02_00/gdml/dune35t4apa_v5_nowires.gdml
+
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+Sorting...
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+Initializing...
+%MSG
+fNchannels = 2048
+U channels per APA = 144
+V channels per APA = 144
+Z channels per APA side = 112
+%MSG-i SimpleChannelStatusService:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+Loaded from configuration:
+  - 88 bad channels
+  - 0 noisy channels
+  - largest channel ID: 2047, largest present: 2047
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+Getting Filter from .fcl file
+%MSG
+%MSG-i SignalShapingServiceDUNE35t:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+ using the field response provided from a .root file 
+%MSG
+%MSG-w CONFIG:  lar 29-Mar-2016 10:22:11 CDT JobSetup
+
+ <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
+
+%MSG
+29-Mar-2016 10:22:11 CDT  Initiating request to open file hit_reco.root
+29-Mar-2016 10:22:12 CDT  Successfully opened file hit_reco.root
+%MSG-i FastCloning:  RootOutput:out1@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Initial fast cloning configuration (user-set): false
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [1522109334] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [1601359287] from branch name: "recob::Clusterrecob::EndPoint2Dushortart::Assns_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [396464246] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [1500763708] from branch name: "recob::Clusterrecob::Vertexushortart::Assns_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [2106420992] from branch name: "recob::Clusters_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [1597318431] from branch name: "recob::EndPoint2Ds_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [359147641] from branch name: "recob::Hitrecob::Wirevoidart::Assns_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [728041571] from branch name: "recob::Hits_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 29-Mar-2016 10:22:12 CDT  ModuleConstruction
+Product created with branch id: [2918989810] from branch name: "recob::Vertexs_linecluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  BlurredClustering:blurredcluster@Construction  29-Mar-2016 10:22:12 CDT ModuleConstruction
+Product created with branch id: [782469980] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_blurredcluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  BlurredClustering:blurredcluster@Construction  29-Mar-2016 10:22:12 CDT ModuleConstruction
+Product created with branch id: [3743616581] from branch name: "recob::Clusters_blurredcluster__ShowerReco."
+%MSG
+%MSG-d BranchID:  TriggerResultInserter:TriggerResults@Construction  29-Mar-2016 10:22:12 CDT ModuleConstruction
+Product created with branch id: [296453927] from branch name: "art::TriggerResults_TriggerResults__ShowerReco."
+%MSG
+%MSG-w LoadNewGeometry:  PostSourceRun 29-Mar-2016 10:22:12 CDT run: 11505
+cannot find sumdata::RunData object to grab detector name
+this is expected if generating MC files
+using default geometry from configuration file
+
+%MSG
+Begin processing the 1st record. run: 11505 subRun: 1 event: 42 at 29-Mar-2016 10:22:12 CDT
+%MSG-d RANDOM:  PostSource 29-Mar-2016 10:22:12 CDT  run: 11505 subRun: 1 event: 42
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG
+Size of cluster after filling in holes: 2377
+Size of cluster after removing peninsulas: 2377
+Size of cluster after filling in holes: 1998
+Size of cluster after removing peninsulas: 1998
+Found 2 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:16 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2377 bins, of which 24 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:16 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1998 bins, of which 14 were real hits
+%MSG
+Size of cluster after filling in holes: 1925
+Size of cluster after removing peninsulas: 1925
+Size of cluster after filling in holes: 6721
+Size of cluster after removing peninsulas: 6721
+Size of cluster after filling in holes: 285
+Size of cluster after removing peninsulas: 285
+Size of cluster after filling in holes: 512
+Size of cluster after removing peninsulas: 512
+Size of cluster after filling in holes: 394
+Size of cluster after removing peninsulas: 394
+Size of cluster after filling in holes: 121
+Size of cluster after removing peninsulas: 121
+Size of cluster after filling in holes: 230
+Size of cluster after removing peninsulas: 230
+Found 7 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1925 bins, of which 29 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 6721 bins, of which 102 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 285 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 512 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 394 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 121 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:26 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 230 bins, of which 2 were real hits
+%MSG
+Size of cluster after filling in holes: 3700
+Size of cluster after removing peninsulas: 3700
+Size of cluster after filling in holes: 2591
+Size of cluster after removing peninsulas: 2591
+Found 2 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 3700 bins, of which 31 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2591 bins, of which 15 were real hits
+%MSG
+Size of cluster after filling in holes: 1547
+Size of cluster after removing peninsulas: 1547
+Size of cluster after filling in holes: 1442
+Size of cluster after removing peninsulas: 1442
+Size of cluster after filling in holes: 4703
+Size of cluster after removing peninsulas: 4703
+Size of cluster after filling in holes: 5390
+Size of cluster after removing peninsulas: 5390
+Size of cluster after filling in holes: 319
+Size of cluster after removing peninsulas: 319
+Size of cluster after filling in holes: 555
+Size of cluster after removing peninsulas: 555
+Size of cluster after filling in holes: 518
+Size of cluster after removing peninsulas: 518
+Size of cluster after filling in holes: 513
+Size of cluster after removing peninsulas: 513
+Size of cluster after filling in holes: 244
+Size of cluster after removing peninsulas: 244
+Found 9 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1547 bins, of which 25 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1442 bins, of which 28 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 4703 bins, of which 61 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 5390 bins, of which 92 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 319 bins, of which 6 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 555 bins, of which 6 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 518 bins, of which 7 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 513 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:22:40 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 244 bins, of which 2 were real hits
+%MSG
+Size of cluster after filling in holes: 229
+Size of cluster after removing peninsulas: 229
+Size of cluster after filling in holes: 219
+Size of cluster after removing peninsulas: 219
+Size of cluster after filling in holes: 2955
+Size of cluster after removing peninsulas: 2955
+Size of cluster after filling in holes: 2576
+Size of cluster after removing peninsulas: 2576
+Size of cluster after filling in holes: 318
+Size of cluster after removing peninsulas: 318
+Size of cluster after filling in holes: 307
+Size of cluster after removing peninsulas: 307
+Size of cluster after filling in holes: 383
+Size of cluster after removing peninsulas: 383
+Size of cluster after filling in holes: 149
+Size of cluster after removing peninsulas: 149
+Size of cluster after filling in holes: 581
+Size of cluster after removing peninsulas: 581
+Size of cluster after filling in holes: 285
+Size of cluster after removing peninsulas: 285
+Size of cluster after filling in holes: 313
+Size of cluster after removing peninsulas: 313
+Size of cluster after filling in holes: 285
+Size of cluster after removing peninsulas: 285
+Size of cluster after filling in holes: 208
+Size of cluster after removing peninsulas: 208
+Size of cluster after filling in holes: 125
+Size of cluster after removing peninsulas: 125
+Size of cluster after filling in holes: 125
+Size of cluster after removing peninsulas: 125
+Size of cluster after filling in holes: 121
+Size of cluster after removing peninsulas: 121
+Size of cluster after filling in holes: 121
+Size of cluster after removing peninsulas: 121
+Size of cluster after filling in holes: 119
+Size of cluster after removing peninsulas: 119
+Size of cluster after filling in holes: 119
+Size of cluster after removing peninsulas: 119
+Size of cluster after filling in holes: 341
+Size of cluster after removing peninsulas: 341
+Size of cluster after filling in holes: 115
+Size of cluster after removing peninsulas: 115
+Size of cluster after filling in holes: 188
+Size of cluster after removing peninsulas: 188
+Size of cluster after filling in holes: 115
+Size of cluster after removing peninsulas: 115
+Size of cluster after filling in holes: 220
+Size of cluster after removing peninsulas: 220
+Size of cluster after filling in holes: 115
+Size of cluster after removing peninsulas: 115
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 111
+Size of cluster after removing peninsulas: 111
+Size of cluster after filling in holes: 105
+Size of cluster after removing peninsulas: 105
+Size of cluster after filling in holes: 105
+Size of cluster after removing peninsulas: 105
+Size of cluster after filling in holes: 105
+Size of cluster after removing peninsulas: 105
+Size of cluster after filling in holes: 105
+Size of cluster after removing peninsulas: 105
+Size of cluster after filling in holes: 105
+Size of cluster after removing peninsulas: 105
+Size of cluster after filling in holes: 156
+Size of cluster after removing peninsulas: 156
+Found 57 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 229 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 219 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2955 bins, of which 44 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2576 bins, of which 40 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 318 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 307 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 383 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 149 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 581 bins, of which 8 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 285 bins, of which 6 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 313 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 285 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 208 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 125 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 125 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 121 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 121 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 119 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 119 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 341 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 115 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 188 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 115 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 220 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 115 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 111 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 105 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 105 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 105 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 105 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 105 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:23:47 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 156 bins, of which 2 were real hits
+%MSG
+Size of cluster after filling in holes: 22130
+Size of cluster after removing peninsulas: 22130
+Size of cluster after filling in holes: 30930
+Size of cluster after removing peninsulas: 30930
+Size of cluster after filling in holes: 2338
+Size of cluster after removing peninsulas: 2338
+Size of cluster after filling in holes: 388
+Size of cluster after removing peninsulas: 388
+Size of cluster after filling in holes: 2344
+Size of cluster after removing peninsulas: 2344
+Size of cluster after filling in holes: 2134
+Size of cluster after removing peninsulas: 2134
+Size of cluster after filling in holes: 337
+Size of cluster after removing peninsulas: 337
+Size of cluster after filling in holes: 2584
+Size of cluster after removing peninsulas: 2584
+Size of cluster after filling in holes: 3723
+Size of cluster after removing peninsulas: 3723
+Size of cluster after filling in holes: 2125
+Size of cluster after removing peninsulas: 2125
+Size of cluster after filling in holes: 1681
+Size of cluster after removing peninsulas: 1681
+Size of cluster after filling in holes: 3154
+Size of cluster after removing peninsulas: 3154
+Size of cluster after filling in holes: 1219
+Size of cluster after removing peninsulas: 1219
+Size of cluster after filling in holes: 1172
+Size of cluster after removing peninsulas: 1172
+Size of cluster after filling in holes: 395
+Size of cluster after removing peninsulas: 395
+Size of cluster after filling in holes: 6725
+Size of cluster after removing peninsulas: 6725
+Size of cluster after filling in holes: 439
+Size of cluster after removing peninsulas: 439
+Size of cluster after filling in holes: 663
+Size of cluster after removing peninsulas: 663
+Size of cluster after filling in holes: 548
+Size of cluster after removing peninsulas: 548
+Size of cluster after filling in holes: 925
+Size of cluster after removing peninsulas: 925
+Size of cluster after filling in holes: 360
+Size of cluster after removing peninsulas: 360
+Size of cluster after filling in holes: 11058
+Size of cluster after removing peninsulas: 11058
+Size of cluster after filling in holes: 1794
+Size of cluster after removing peninsulas: 1794
+Size of cluster after filling in holes: 2467
+Size of cluster after removing peninsulas: 2467
+Size of cluster after filling in holes: 1428
+Size of cluster after removing peninsulas: 1428
+Size of cluster after filling in holes: 1507
+Size of cluster after removing peninsulas: 1507
+Size of cluster after filling in holes: 279
+Size of cluster after removing peninsulas: 279
+Size of cluster after filling in holes: 701
+Size of cluster after removing peninsulas: 701
+Size of cluster after filling in holes: 359
+Size of cluster after removing peninsulas: 359
+Size of cluster after filling in holes: 434
+Size of cluster after removing peninsulas: 434
+Size of cluster after filling in holes: 263
+Size of cluster after removing peninsulas: 263
+Size of cluster after filling in holes: 424
+Size of cluster after removing peninsulas: 424
+Size of cluster after filling in holes: 424
+Size of cluster after removing peninsulas: 424
+Size of cluster after filling in holes: 577
+Size of cluster after removing peninsulas: 577
+Size of cluster after filling in holes: 455
+Size of cluster after removing peninsulas: 455
+Size of cluster after filling in holes: 486
+Size of cluster after removing peninsulas: 486
+Size of cluster after filling in holes: 455
+Size of cluster after removing peninsulas: 455
+Size of cluster after filling in holes: 265
+Size of cluster after removing peninsulas: 265
+Size of cluster after filling in holes: 334
+Size of cluster after removing peninsulas: 334
+Size of cluster after filling in holes: 489
+Size of cluster after removing peninsulas: 489
+Size of cluster after filling in holes: 2565
+Size of cluster after removing peninsulas: 2565
+Size of cluster after filling in holes: 270
+Size of cluster after removing peninsulas: 270
+Size of cluster after filling in holes: 256
+Size of cluster after removing peninsulas: 256
+Size of cluster after filling in holes: 282
+Size of cluster after removing peninsulas: 282
+Size of cluster after filling in holes: 542
+Size of cluster after removing peninsulas: 542
+Size of cluster after filling in holes: 621
+Size of cluster after removing peninsulas: 621
+Size of cluster after filling in holes: 237
+Size of cluster after removing peninsulas: 237
+Size of cluster after filling in holes: 262
+Size of cluster after removing peninsulas: 262
+Size of cluster after filling in holes: 237
+Size of cluster after removing peninsulas: 237
+Size of cluster after filling in holes: 433
+Size of cluster after removing peninsulas: 433
+Size of cluster after filling in holes: 500
+Size of cluster after removing peninsulas: 500
+Size of cluster after filling in holes: 455
+Size of cluster after removing peninsulas: 455
+Size of cluster after filling in holes: 229
+Size of cluster after removing peninsulas: 229
+Size of cluster after filling in holes: 496
+Size of cluster after removing peninsulas: 496
+Size of cluster after filling in holes: 1299
+Size of cluster after removing peninsulas: 1299
+Size of cluster after filling in holes: 465
+Size of cluster after removing peninsulas: 465
+Size of cluster after filling in holes: 826
+Size of cluster after removing peninsulas: 826
+Size of cluster after filling in holes: 430
+Size of cluster after removing peninsulas: 430
+Size of cluster after filling in holes: 217
+Size of cluster after removing peninsulas: 217
+Size of cluster after filling in holes: 217
+Size of cluster after removing peninsulas: 217
+Size of cluster after filling in holes: 220
+Size of cluster after removing peninsulas: 220
+Size of cluster after filling in holes: 418
+Size of cluster after removing peninsulas: 418
+Size of cluster after filling in holes: 211
+Size of cluster after removing peninsulas: 211
+Size of cluster after filling in holes: 558
+Size of cluster after removing peninsulas: 558
+Size of cluster after filling in holes: 211
+Size of cluster after removing peninsulas: 211
+Size of cluster after filling in holes: 216
+Size of cluster after removing peninsulas: 216
+Size of cluster after filling in holes: 211
+Size of cluster after removing peninsulas: 211
+Size of cluster after filling in holes: 211
+Size of cluster after removing peninsulas: 211
+Size of cluster after filling in holes: 207
+Size of cluster after removing peninsulas: 207
+Size of cluster after filling in holes: 322
+Size of cluster after removing peninsulas: 322
+Size of cluster after filling in holes: 203
+Size of cluster after removing peninsulas: 203
+Size of cluster after filling in holes: 203
+Size of cluster after removing peninsulas: 203
+Size of cluster after filling in holes: 203
+Size of cluster after removing peninsulas: 203
+Size of cluster after filling in holes: 203
+Size of cluster after removing peninsulas: 203
+Size of cluster after filling in holes: 565
+Size of cluster after removing peninsulas: 565
+Size of cluster after filling in holes: 203
+Size of cluster after removing peninsulas: 203
+Size of cluster after filling in holes: 388
+Size of cluster after removing peninsulas: 388
+Size of cluster after filling in holes: 199
+Size of cluster after removing peninsulas: 199
+Size of cluster after filling in holes: 199
+Size of cluster after removing peninsulas: 199
+Size of cluster after filling in holes: 199
+Size of cluster after removing peninsulas: 199
+Size of cluster after filling in holes: 789
+Size of cluster after removing peninsulas: 789
+Size of cluster after filling in holes: 199
+Size of cluster after removing peninsulas: 199
+Size of cluster after filling in holes: 346
+Size of cluster after removing peninsulas: 346
+Size of cluster after filling in holes: 189
+Size of cluster after removing peninsulas: 189
+Size of cluster after filling in holes: 189
+Size of cluster after removing peninsulas: 189
+Size of cluster after filling in holes: 539
+Size of cluster after removing peninsulas: 539
+Size of cluster after filling in holes: 189
+Size of cluster after removing peninsulas: 189
+Size of cluster after filling in holes: 189
+Size of cluster after removing peninsulas: 189
+Size of cluster after filling in holes: 189
+Size of cluster after removing peninsulas: 189
+Size of cluster after filling in holes: 181
+Size of cluster after removing peninsulas: 181
+Size of cluster after filling in holes: 181
+Size of cluster after removing peninsulas: 181
+Size of cluster after filling in holes: 181
+Size of cluster after removing peninsulas: 181
+Size of cluster after filling in holes: 181
+Size of cluster after removing peninsulas: 181
+Size of cluster after filling in holes: 181
+Size of cluster after removing peninsulas: 181
+Size of cluster after filling in holes: 177
+Size of cluster after removing peninsulas: 177
+Size of cluster after filling in holes: 177
+Size of cluster after removing peninsulas: 177
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 342
+Size of cluster after removing peninsulas: 342
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 175
+Size of cluster after removing peninsulas: 175
+Size of cluster after filling in holes: 171
+Size of cluster after removing peninsulas: 171
+Size of cluster after filling in holes: 171
+Size of cluster after removing peninsulas: 171
+Size of cluster after filling in holes: 171
+Size of cluster after removing peninsulas: 171
+Size of cluster after filling in holes: 171
+Size of cluster after removing peninsulas: 171
+Size of cluster after filling in holes: 171
+Size of cluster after removing peninsulas: 171
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 167
+Size of cluster after removing peninsulas: 167
+Size of cluster after filling in holes: 117
+Size of cluster after removing peninsulas: 117
+Found 119 clusters
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 22130 bins, of which 196 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 30930 bins, of which 335 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2338 bins, of which 18 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 388 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2344 bins, of which 27 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2134 bins, of which 13 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 337 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2584 bins, of which 20 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 3723 bins, of which 36 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2125 bins, of which 13 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1681 bins, of which 16 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 3154 bins, of which 26 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1219 bins, of which 9 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1172 bins, of which 11 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 395 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 6725 bins, of which 55 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 439 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 663 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 548 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 925 bins, of which 9 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 360 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 11058 bins, of which 71 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1794 bins, of which 14 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2467 bins, of which 34 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1428 bins, of which 12 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1507 bins, of which 10 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 279 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 701 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 359 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 434 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 263 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 424 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 424 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 577 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 455 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 486 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 455 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 265 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 334 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 489 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 2565 bins, of which 16 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 270 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 256 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 282 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 542 bins, of which 6 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 621 bins, of which 4 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 237 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 262 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 237 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 433 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 500 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 455 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 229 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 496 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 1299 bins, of which 8 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 465 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 826 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 430 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 217 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 217 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 220 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 418 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 211 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 558 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 211 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 216 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 211 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 211 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 207 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 322 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 203 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 203 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 203 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 203 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 565 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 203 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 388 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 199 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 199 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 199 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 789 bins, of which 5 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 199 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 346 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 189 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 189 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 539 bins, of which 3 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 189 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 189 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 189 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 181 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 181 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 181 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 181 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 181 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 177 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 177 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 342 bins, of which 2 were real hits
+%MSG
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 175 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 171 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 171 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 171 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 171 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 171 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 167 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+%MSG-i BlurredClustering:  BlurredClustering:blurredcluster  29-Mar-2016 10:26:31 CDT run: 11505 subRun: 1 event: 42
+Cluster made from 117 bins, of which 1 were real hits
+%MSG
+Cluster of size 1 not saved since it is smaller than the minimum cluster size, set to 2
+29-Mar-2016 10:26:40 CDT  Closed file hit_reco.root
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+
+TrigReport ------ Modules in End-Path: end_path ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     0    0          1          1          0          0 out1
+
+TimeReport ---------- Time  Summary ---[sec]----
+TimeReport CPU = 267.423549 Real = 267.387350
+
+===============================================================================================================================
+TimeTracker printout (sec)                       Min           Avg           Max         Median          RMS         nEvts   
+===============================================================================================================================
+Full event                                     267.424       267.424       267.424       267.424          0            1     
+-------------------------------------------------------------------------------------------------------------------------------
+reco:linecluster:LineCluster                  0.844851      0.844851      0.844851      0.844851          0            1     
+reco:blurredcluster:BlurredClustering          258.686       258.686       258.686       258.686          0            1     
+reco:TriggerResults:TriggerResultInserter    0.000204047   0.000204047   0.000204047   0.000204047        0            1     
+end_path:out1:RootOutput                       7.89153       7.89153       7.89153       7.89153          0            1     
+===============================================================================================================================
+
+MemoryReport> Peak virtual size 1600.6 Mbytes
+Key events increasing vsize:
+[none]
+
+Key events with largest vsize:
+[none]
+
+
+Summary of seeds computed by the SeedService
+Random policy: 'random'
+  master seed: 657001086
+  seed within: [ 1 ; 900000000 ]
+
+%MSG-d RANDOM:  RootOutput:out1@EndJob 29-Mar-2016 10:26:40 CDT PostEndRun
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG

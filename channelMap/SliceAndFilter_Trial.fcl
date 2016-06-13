@@ -1,0 +1,82 @@
+#include "services_dune.fcl"
+#include "clusteralgorithms.fcl"
+#include "SSPToOffline.fcl"
+#include "SplitterInput.fcl"
+#include "filters_dune35t.fcl"
+#include "channelmap_35t.fcl"
+
+BEGIN_PROLOG
+MySelection: { SelectEvents: ["reco"] }
+END_PROLOG
+
+process_name: Trim
+
+services:
+{
+  # TFileService: { fileName: "test.root" }
+  TimeTracker:       {}
+  RandomNumberGenerator: {} 
+  message:      @local::dune_message_services_prod_debug
+  FileCatalogMetadata:  @local::art_file_catalog_mc
+  user:         @local::dune35t_services
+}
+
+source: @local::split_events
+#source.UsePedestalFile: "true"
+#source.PedestalFile: "/dune/app/users/mstancar/evdisp/offline_databaseRun_10873.csv" 
+#source.UsePedestalDefault: "true"
+#source.UsePedestalDefault: "false"
+#source.UsePedestalFile: "false"
+source.firstEvent: 1
+source.maxEvents: 10000
+source.ADCdiffThreshold:  50
+source.ADCsOverThreshold: 100
+source.TrigSeparation:   10
+source.PreTriggerTicks:   300
+source.PostTriggerTicks: 5200
+source.WhichTrigger:  [3]
+#source.PTBTrigs:      [111]
+source.PTBTrigs:      [111, 112, 113]
+# 111 - EW  112 - NU-SL 113 - NL-SU
+services.user.ChannelMapService.FileName: "channelMap_v4_5.txt"
+
+physics:
+{
+#  producers:
+#  {
+#    fasthit:            @local::dune35t_fasthitfinder      
+#  }
+   filters:{
+      myfilter:  @local::cwp_filter
+   }
+#  analyzers:
+#  {
+#  }
+  reco: [myfilter]
+  stream1:      [ out1 ]
+  end_paths: [ stream1 ]
+}
+
+
+
+#define the output stream, there could be more than one if using filters 
+   stream1:  [ out1 ]
+outputs:{
+  out1: 
+ {
+   dataTier:    "sliced"
+   module_type:  RootOutput
+   fileName:    "sliced_Trial.root"     
+   #default file name, can override from command line with -o or --output
+   SelectEvents: @local::MySelection
+ }
+}
+
+physics.filters.myfilter.counterArrangement : 4 
+
+physics.filters.myfilter.firstset  : [7,7,7,8,8,8,9,9,9,10,10,10,11,11,11,12,12,12,13,13,13,14,14,14,15,15,15,30,30,30,30,30,30,30,30,8,8,8,8,8,8,8]
+physics.filters.myfilter.secondset : [29,30,31,29,30,31,30,31,32,31,32,33,32,33,34,33,34,35,34,35,36,35,36,37,35,36,37,8,9,10,11,12,13,14,15,31,32,33,34,35,36,37]
+
+#physics.filters.myfilter.firstset  : [30,31,30,31,30,31,30,31,30,31,30,31,30,31,30,31]
+#physics.filters.myfilter.secondset : [8,8,9,9,10,10,11,11,12,12,13,13,14,14,15,15]
+#services.user.DatabaseUtil.ShouldConnect: true

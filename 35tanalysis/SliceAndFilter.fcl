@@ -45,12 +45,12 @@ physics:
 #    fasthit:            @local::dune35t_fasthitfinder      
 #  }
    filters:{
-      myfilter:  @local::cwp_filter
+      countertrigger:  @local::cwp_filter
    }
 #  analyzers:
 #  {
 #  }
-  reco: [myfilter]
+  reco: [countertrigger]
   stream1:      [ out1 ]
   end_paths: [ stream1 ]
 }
@@ -70,6 +70,12 @@ outputs:{
  }
 }
 
-physics.filters.myfilter.firstset:  [16,16,16,16,17,17,17,17,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,26,26,26,26,27,27,27,27]
-physics.filters.myfilter.secondset: [38,39,42,43,38,39,42,43,38,39,42,43,38,39,42,43, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5]
+# NS triggers
+# physics.filters.countertrigger.firstset:  [16,16,16,16,17,17,17,17,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,26,26,26,26,27,27,27,27]
+# physics.filters.countertrigger.secondset: [38,39,42,43,38,39,42,43,38,39,42,43,38,39,42,43, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5]
+
+# EW triggers [specifically to get a track as close as possible to the APA but with enough in both drift regions!]
+physics.filters.countertrigger.firstset:  [ 6, 9]
+physics.filters.countertrigger.secondset: [31,28]
+
 #services.user.DatabaseUtil.ShouldConnect: true

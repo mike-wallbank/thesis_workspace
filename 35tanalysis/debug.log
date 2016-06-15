@@ -1,193 +1,130 @@
-%MSG-i MF_INIT_OK:  lar 10-Jun-2016 17:04:26 BST JobSetup
+%MSG-i MF_INIT_OK:  lar 15-Jun-2016 07:24:12 CDT JobSetup
 Messagelogger initialization complete.
 %MSG
-%MSG-w CONFIG:  lar 10-Jun-2016 17:04:27 BST JobSetup
+%MSG-w CONFIG:  lar 15-Jun-2016 07:24:14 CDT JobSetup
 Use of services.user parameter set is deprecated.
 Define all services in services parameter set.
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Import() 10-Jun-2016 17:04:27 BST  JobSetup
-Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_00_e9_prof/dunetpc/v05_12_00/gdml/dune35t4apa_v6.gdml
+%MSG-i Root_Information:  lar TGeoManager::Import() 15-Jun-2016 07:24:14 CDT  JobSetup
+Reading geometry from file: /dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6.gdml
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  10-Jun-2016 17:04:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  15-Jun-2016 07:24:14 CDT JobSetup
 Geometry GDMLImport, Geometry imported from GDML created
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  15-Jun-2016 07:24:18 CDT JobSetup
 Top volume is volWorld. Master volume is volWorld
 %MSG
-%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  15-Jun-2016 07:24:18 CDT JobSetup
 --- Maximum geometry depth set to 100
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 Fixing runtime shapes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 ...Nothing to fix
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 Counting nodes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Voxelize() 10-Jun-2016 17:04:30 BST  JobSetup
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 15-Jun-2016 07:24:18 CDT  JobSetup
 Voxelizing...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 Building cache...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CountLevels()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  15-Jun-2016 07:24:18 CDT JobSetup
 max level = 5, max placements = 359
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 5627 nodes/ 2528 volume UID's in Geometry imported from GDML
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
 ----------------modeler ready----------------
 %MSG
-%MSG-i GeometryCore:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i GeometryCore:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 New detector geometry loaded from 
-	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_00_e9_prof/dunetpc/v05_12_00/gdml/dune35t4apa_v6.gdml
-	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_00_e9_prof/dunetpc/v05_12_00/gdml/dune35t4apa_v6_nowires.gdml
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6.gdml
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6_nowires.gdml
 
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 Sorting...
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 Initializing...
 %MSG
 fNchannels = 2048
 U channels per APA = 144
 V channels per APA = 144
 Z channels per APA side = 112
-%MSG-i SimpleChannelStatusService:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i SimpleChannelStatusService:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 Loaded from configuration:
   - 259 bad channels
   - 0 noisy channels
   - largest channel ID: 2047, largest present: 2047
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i SignalShapingServiceDUNE:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 Getting Filter from .fcl file
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-i SignalShapingServiceDUNE:  lar 15-Jun-2016 07:24:18 CDT JobSetup
  using the field response provided from a .root file 
 %MSG
-%MSG-w CONFIG:  lar 10-Jun-2016 17:04:30 BST JobSetup
+%MSG-w CONFIG:  lar 15-Jun-2016 07:24:18 CDT JobSetup
 
  <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
 
 %MSG
-10-Jun-2016 17:04:31 BST  Initiating request to open file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/r014428/reco.root
-10-Jun-2016 17:04:31 BST  Successfully opened file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/r014428/reco.root
-%MSG-w LoadNewGeometry:  PostSourceRun 10-Jun-2016 17:04:31 BST run: 14428
+15-Jun-2016 07:24:18 CDT  Initiating request to open file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
+15-Jun-2016 07:24:18 CDT  Successfully opened file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
+%MSG-w LoadNewGeometry:  PostSourceRun 15-Jun-2016 07:24:18 CDT run: 14427
 cannot find sumdata::RunData object to grab detector name
 this is expected if generating MC files
 using default geometry from configuration file
 
 %MSG
-Begin processing the 1st record. run: 14428 subRun: 1 event: 18 at 10-Jun-2016 17:04:31 BST
-%MSG-d RANDOM:  PostSource 10-Jun-2016 17:04:31 BST  run: 14428 subRun: 1 event: 18
+Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 15-Jun-2016 07:24:18 CDT
+%MSG-d RANDOM:  PostSource 15-Jun-2016 07:24:18 CDT  run: 14427 subRun: 1 event: 5
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:32 BST run: 14428 subRun: 1 event: 18
-png file Event18A-BeforeHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:32 BST run: 14428 subRun: 1 event: 18
-png file Event18B-AfterHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:32 BST run: 14428 subRun: 1 event: 18
-png file Event18C-Final.png has been created
-%MSG
-Begin processing the 2nd record. run: 14428 subRun: 1 event: 22 at 10-Jun-2016 17:04:32 BST
-%MSG-w MemoryCheck:  Source 10-Jun-2016 17:04:32 BST PostProcessEvent
-MemoryCheck: module source:source VSIZE 773.168 0 RSS 180.621 0.445312
-
-%MSG
-%MSG-d RANDOM:  PostSource 10-Jun-2016 17:04:32 BST  run: 14428 subRun: 1 event: 22
-RNGservice::takeSnapshot_() of the following engine labels:
- |
-
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:33 BST run: 14428 subRun: 1 event: 22
-png file Event22A-BeforeHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:33 BST run: 14428 subRun: 1 event: 22
-png file Event22B-AfterHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:33 BST run: 14428 subRun: 1 event: 22
-png file graph.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:34 BST run: 14428 subRun: 1 event: 22
-png file Event22C-Final.png has been created
-%MSG
-%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 10-Jun-2016 17:04:34 BST  run: 14428 subRun: 1 event: 22
-MemoryCheck: module APACrossingMuons:apacrossing VSIZE 863.742 90.5742 RSS 271.582 90.9609
-
-%MSG
-Begin processing the 3rd record. run: 14428 subRun: 1 event: 28 at 10-Jun-2016 17:04:34 BST
-%MSG-w MemoryCheck:  Source 10-Jun-2016 17:04:34 BST PostProcessEvent
-MemoryCheck: module source:source VSIZE 863.742 0 RSS 271.59 0.0078125
-
-%MSG
-%MSG-d RANDOM:  PostSource 10-Jun-2016 17:04:34 BST  run: 14428 subRun: 1 event: 28
-RNGservice::takeSnapshot_() of the following engine labels:
- |
-
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:34 BST run: 14428 subRun: 1 event: 28
-png file Event28A-BeforeHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:34 BST run: 14428 subRun: 1 event: 28
-png file Event28B-AfterHitSelection.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:34 BST run: 14428 subRun: 1 event: 28
-png file graph.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  10-Jun-2016 17:04:35 BST run: 14428 subRun: 1 event: 28
-png file Event28C-Final.png has been created
-%MSG
-%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 10-Jun-2016 17:04:35 BST  run: 14428 subRun: 1 event: 28
-MemoryCheck: module APACrossingMuons:apacrossing VSIZE 954.309 90.5664 RSS 362.168 90.5781
-
-%MSG
-10-Jun-2016 17:04:35 BST  Closed file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/r014428/reco.root
+15-Jun-2016 07:24:18 CDT  Closed file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
 
 TrigReport ---------- Event  Summary ------------
-TrigReport Events total = 3 passed = 3 failed = 0
+TrigReport Events total = 1 passed = 1 failed = 0
 
 TrigReport ------ Modules in End-Path: end_path ------------
 TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
-TrigReport     0    0          3          3          0          0 apacrossing
+TrigReport     0    0          1          1          0          0 apacrossing
 
 TimeReport ---------- Time  Summary ---[sec]----
-TimeReport CPU = 3.419353 Real = 2.742584
+TimeReport CPU = 0.007206 Real = 0.006999
 
 ===========================================================================================================================
 TimeTracker printout (sec)                   Min           Avg           Max         Median          RMS         nEvts   
 ===========================================================================================================================
-Full event                                0.991535       1.13985       1.24656       1.18144       0.10819         3     
+Full event                                0.0072998     0.0072998     0.0072998     0.0072998         0            1     
 ---------------------------------------------------------------------------------------------------------------------------
-end_path:apacrossing:APACrossingMuons      0.98903       1.13881       1.24625       1.18116      0.109195         3     
+end_path:apacrossing:APACrossingMuons    0.00684607    0.00684607    0.00684607    0.00684607         0            1     
 ===========================================================================================================================
 
-MemoryReport> Peak virtual size 954.309 Mbytes
+MemoryReport> Peak virtual size 649.504 Mbytes
 Key events increasing vsize:
-[1] run: 14428 subRun: 1 event: 22  vsize = 863.742 deltaVsize = 90.5742
-[2] run: 14428 subRun: 1 event: 28  vsize = 954.309 deltaVsize = 90.5664
+[none]
 
 Key events with largest vsize:
-[1] run: 14428 subRun: 1 event: 28  vsize = 954.309
-[2] run: 14428 subRun: 1 event: 22  vsize = 863.742
+[none]
 
-%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 10-Jun-2016 17:04:35 BST  PostEndRun
+%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 15-Jun-2016 07:24:18 CDT  PostEndRun
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
-%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  10-Jun-2016 17:04:35 BST PostEndRun
+%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  15-Jun-2016 07:24:18 CDT PostEndRun
 
 Summary of seeds computed by the LArSeedService
 Random policy: 'random'
-  master seed: 845940588
+  master seed: 563257638
   seed within: [ 1 ; 900000000 ]
 
 %MSG

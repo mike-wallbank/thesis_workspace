@@ -68,7 +68,7 @@ physics:
          #hit35t, linecluster, pmtrack, blurredcluster, emshower
        ]
 
- analysis: [ showerAnalysis ]
+ analysis: [ ] #showerAnalysis ]
 
  stream1:  [ out1 ]
  trigger_paths: [reco]

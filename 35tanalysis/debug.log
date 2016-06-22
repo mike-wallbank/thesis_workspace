@@ -1,130 +1,314 @@
-%MSG-i MF_INIT_OK:  lar 15-Jun-2016 07:24:12 CDT JobSetup
+%MSG-i MF_INIT_OK:  lar 22-Jun-2016 10:45:24 BST JobSetup
 Messagelogger initialization complete.
 %MSG
-%MSG-w CONFIG:  lar 15-Jun-2016 07:24:14 CDT JobSetup
+%MSG-i path:  lar 22-Jun-2016 10:45:27 BST JobSetup
+The following module labels are not assigned to any path:
+'blurredcluster', 'calo', 'cchit', 'costrk', 'dbcluster', 'emshower', 'emshower3d', 'fasthit', 'handscan', 'mergeemshower3d', 'opflash', 'ophit', 'pandora', 'pandoracalo', 'particlestitcher', 'photont0costrk', 'photont0costrkdc', 'photont0pandora', 'photont0pandoradc', 'photont0pmtrack', 'photont0pmtrackdc', 'pmtrackcalo', 'trkshowersplit'
+
+%MSG
+%MSG-w CONFIG:  lar 22-Jun-2016 10:45:27 BST JobSetup
 Use of services.user parameter set is deprecated.
 Define all services in services parameter set.
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Import() 15-Jun-2016 07:24:14 CDT  JobSetup
-Reading geometry from file: /dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6.gdml
+%MSG-i Root_Information:  lar TGeoManager::Import() 22-Jun-2016 10:45:27 BST  JobSetup
+Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6.gdml
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  15-Jun-2016 07:24:14 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  22-Jun-2016 10:45:27 BST JobSetup
 Geometry GDMLImport, Geometry imported from GDML created
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  22-Jun-2016 10:45:31 BST JobSetup
 Top volume is volWorld. Master volume is volWorld
 %MSG
-%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  22-Jun-2016 10:45:31 BST JobSetup
 --- Maximum geometry depth set to 100
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 Fixing runtime shapes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 ...Nothing to fix
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 Counting nodes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Voxelize() 15-Jun-2016 07:24:18 CDT  JobSetup
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 22-Jun-2016 10:45:31 BST  JobSetup
 Voxelizing...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 Building cache...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CountLevels()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  22-Jun-2016 10:45:31 BST JobSetup
 max level = 5, max placements = 359
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 5627 nodes/ 2528 volume UID's in Geometry imported from GDML
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 10:45:31 BST JobSetup
 ----------------modeler ready----------------
 %MSG
-%MSG-i GeometryCore:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i GeometryCore:  lar 22-Jun-2016 10:45:31 BST JobSetup
 New detector geometry loaded from 
-	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6.gdml
-	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_12_01_e9_prof/dunetpc/v05_12_01/gdml/dune35t4apa_v6_nowires.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6_nowires.gdml
 
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 22-Jun-2016 10:45:31 BST JobSetup
 Sorting...
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 22-Jun-2016 10:45:31 BST JobSetup
 Initializing...
 %MSG
 fNchannels = 2048
 U channels per APA = 144
 V channels per APA = 144
 Z channels per APA side = 112
-%MSG-i SimpleChannelStatusService:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i SimpleChannelStatusService:  lar 22-Jun-2016 10:45:31 BST JobSetup
 Loaded from configuration:
   - 259 bad channels
   - 0 noisy channels
   - largest channel ID: 2047, largest present: 2047
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i setupProvider<DetectorPropertiesStandard>:  lar 22-Jun-2016 10:45:31 BST  JobSetup
+Asked to ignore 1 keys: 'InheritNumberTimeSamples'
+%MSG
+%MSG-i SignalShapingServiceDUNE:  lar 22-Jun-2016 10:45:31 BST JobSetup
 Getting Filter from .fcl file
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-i SignalShapingServiceDUNE:  lar 22-Jun-2016 10:45:31 BST JobSetup
  using the field response provided from a .root file 
 %MSG
-%MSG-w CONFIG:  lar 15-Jun-2016 07:24:18 CDT JobSetup
+%MSG-w CONFIG:  lar 22-Jun-2016 10:45:31 BST JobSetup
 
  <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
 
 %MSG
-15-Jun-2016 07:24:18 CDT  Initiating request to open file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
-15-Jun-2016 07:24:18 CDT  Successfully opened file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
-%MSG-w LoadNewGeometry:  PostSourceRun 15-Jun-2016 07:24:18 CDT run: 14427
+22-Jun-2016 10:45:31 BST  Initiating request to open file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/sliced_and_filtered.root
+22-Jun-2016 10:45:31 BST  Successfully opened file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/sliced_and_filtered.root
+%MSG-i FastCloning:  RootOutput:out1@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Initial fast cloning configuration (from default): true
+%MSG
+%MSG-d BranchID:  RandomNumberSaver:rns@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3780623483] from branch name: "art::RNGsnapshots_rns__Reco."
+%MSG
+%MSG-d BranchID:  UnstickADCCodes:unstick@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [530724682] from branch name: "raw::RawDigits_unstick_TPC_Reco."
+%MSG
+%MSG-d BranchID:  FilterWF:daq@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [829604140] from branch name: "raw::RawDigits_daq__Reco."
+%MSG
+%MSG-d BranchID:  T0Counter:t0counter@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1403405480] from branch name: "anab::T0raw::ExternalTriggervoidart::Assns_t0counter__Reco."
+%MSG
+%MSG-d BranchID:  T0Counter:t0counter@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3814658373] from branch name: "anab::T0s_t0counter__Reco."
+%MSG
+%MSG-d BranchID:  CalWireDUNE35t:caldata@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1036850245] from branch name: "raw::RawDigitrecob::Wirevoidart::Assns_caldata__Reco."
+%MSG
+%MSG-d BranchID:  CalWireDUNE35t:caldata@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3504684752] from branch name: "recob::Wires_caldata__Reco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1694247524] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_gaushit__Reco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3533555814] from branch name: "recob::Hitrecob::Wirevoidart::Assns_gaushit__Reco."
+%MSG
+%MSG-d BranchID:  GausHitFinder:gaushit@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2866372334] from branch name: "recob::Hits_gaushit__Reco."
+%MSG
+%MSG-d BranchID:  HitFinder35t:hit35t@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1932920342] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_hit35t__Reco."
+%MSG
+%MSG-d BranchID:  HitFinder35t:hit35t@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1962490153] from branch name: "recob::Hitrecob::Wirevoidart::Assns_hit35t__Reco."
+%MSG
+%MSG-d BranchID:  HitFinder35t:hit35t@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [933630817] from branch name: "recob::Hits_hit35t__Reco."
+%MSG
+%MSG-d BranchID:  HitFinderCounter35t:counterhit@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3691976690] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_counterhit__Reco."
+%MSG
+%MSG-d BranchID:  HitFinderCounter35t:counterhit@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2306212746] from branch name: "recob::Hitrecob::Wirevoidart::Assns_counterhit__Reco."
+%MSG
+%MSG-d BranchID:  HitFinderCounter35t:counterhit@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [821748191] from branch name: "recob::Hits_counterhit__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1917414597] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3426442502] from branch name: "recob::Clusterrecob::EndPoint2Dushortart::Assns_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2122217672] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3967044207] from branch name: "recob::Clusterrecob::Vertexushortart::Assns_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2905304054] from branch name: "recob::Clusters_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2798057541] from branch name: "recob::EndPoint2Ds_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [750972127] from branch name: "recob::Hitrecob::Wirevoidart::Assns_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [930792774] from branch name: "recob::Hits_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:linecluster@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1094290412] from branch name: "recob::Vertexs_linecluster__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2238076673] from branch name: "raw::RawDigitrecob::Hitvoidart::Assns_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [879717828] from branch name: "recob::Clusterrecob::EndPoint2Dushortart::Assns_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [705884422] from branch name: "recob::Clusterrecob::Hitvoidart::Assns_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [58923170] from branch name: "recob::Clusterrecob::Vertexushortart::Assns_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [4016666864] from branch name: "recob::Clusters_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [1233603736] from branch name: "recob::EndPoint2Ds_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3639832689] from branch name: "recob::Hitrecob::Wirevoidart::Assns_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [985842422] from branch name: "recob::Hits_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  LineCluster:lineclusterch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [4283337793] from branch name: "recob::Vertexs_lineclusterch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1733612807] from branch name: "anab::T0recob::Trackvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1260769101] from branch name: "anab::T0s_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3302613294] from branch name: "recob::Clusterrecob::PFParticlevoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3853967119] from branch name: "recob::Hitrecob::SpacePointvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2315162841] from branch name: "recob::Hitrecob::Trackrecob::TrackHitMetaart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [2501152972] from branch name: "recob::Hitrecob::Trackvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3034480119] from branch name: "recob::PFParticlerecob::Trackvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [321287966] from branch name: "recob::PFParticlerecob::Vertexvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1119354088] from branch name: "recob::PFParticles_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3475999919] from branch name: "recob::SpacePointrecob::Trackvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [4211526131] from branch name: "recob::SpacePoints_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [4072479018] from branch name: "recob::Trackrecob::Vertexvoidart::Assns_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [3460746211] from branch name: "recob::Tracks_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [58403021] from branch name: "recob::Vertexs_pmtrack__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [480208780] from branch name: "recob::Trackrecob::Vertexvoidart::Assns_pmtrack_kink_Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [629416936] from branch name: "recob::Vertexs_pmtrack_kink_Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrack@Construction 22-Jun-2016 10:45:31 BST  ModuleConstruction
+Product created with branch id: [1900607155] from branch name: "recob::Vertexs_pmtrack_node_Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3457678584] from branch name: "anab::T0recob::Trackvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [971214460] from branch name: "anab::T0s_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2883925035] from branch name: "recob::Clusterrecob::PFParticlevoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3860536588] from branch name: "recob::Hitrecob::SpacePointvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3497495493] from branch name: "recob::Hitrecob::Trackrecob::TrackHitMetaart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3769611554] from branch name: "recob::Hitrecob::Trackvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [44492053] from branch name: "recob::PFParticlerecob::Trackvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [1842340694] from branch name: "recob::PFParticlerecob::Vertexvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [1430498900] from branch name: "recob::PFParticles_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [3128855346] from branch name: "recob::SpacePointrecob::Trackvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2865109084] from branch name: "recob::SpacePoints_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2096086373] from branch name: "recob::Trackrecob::Vertexvoidart::Assns_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [235560545] from branch name: "recob::Tracks_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [1007561138] from branch name: "recob::Vertexs_pmtrackch__Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2199145386] from branch name: "recob::Trackrecob::Vertexvoidart::Assns_pmtrackch_kink_Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [4080294299] from branch name: "recob::Vertexs_pmtrackch_kink_Reco."
+%MSG
+%MSG-d BranchID:  PMAlgTrackMaker:pmtrackch@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [2818084032] from branch name: "recob::Vertexs_pmtrackch_node_Reco."
+%MSG
+%MSG-d BranchID:  TriggerResultInserter:TriggerResults@Construction  22-Jun-2016 10:45:31 BST ModuleConstruction
+Product created with branch id: [1493737] from branch name: "art::TriggerResults_TriggerResults__Reco."
+%MSG
+%MSG-w LoadNewGeometry:  PostSourceRun 22-Jun-2016 10:45:32 BST run: 14427
 cannot find sumdata::RunData object to grab detector name
 this is expected if generating MC files
 using default geometry from configuration file
 
 %MSG
-Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 15-Jun-2016 07:24:18 CDT
-%MSG-d RANDOM:  PostSource 15-Jun-2016 07:24:18 CDT  run: 14427 subRun: 1 event: 5
+Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 22-Jun-2016 10:45:33 BST
+%MSG-d RANDOM:  PostSource 22-Jun-2016 10:45:33 BST  run: 14427 subRun: 1 event: 5
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
-15-Jun-2016 07:24:18 CDT  Closed file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
-
-TrigReport ---------- Event  Summary ------------
-TrigReport Events total = 1 passed = 1 failed = 0
-
-TrigReport ------ Modules in End-Path: end_path ------------
-TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
-TrigReport     0    0          1          1          0          0 apacrossing
-
-TimeReport ---------- Time  Summary ---[sec]----
-TimeReport CPU = 0.007206 Real = 0.006999
-
-===========================================================================================================================
-TimeTracker printout (sec)                   Min           Avg           Max         Median          RMS         nEvts   
-===========================================================================================================================
-Full event                                0.0072998     0.0072998     0.0072998     0.0072998         0            1     
----------------------------------------------------------------------------------------------------------------------------
-end_path:apacrossing:APACrossingMuons    0.00684607    0.00684607    0.00684607    0.00684607         0            1     
-===========================================================================================================================
-
-MemoryReport> Peak virtual size 649.504 Mbytes
-Key events increasing vsize:
-[none]
-
-Key events with largest vsize:
-[none]
-
-%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 15-Jun-2016 07:24:18 CDT  PostEndRun
-RNGservice::takeSnapshot_() of the following engine labels:
- |
-
+%MSG-i UnstickADCCodes:  UnstickADCCodes:unstick 22-Jun-2016 10:45:33 BST  run: 14427 subRun: 1 event: 5
+UnstickADCCodes:: digitVecHandle size is 1792
 %MSG
-%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  15-Jun-2016 07:24:18 CDT PostEndRun
-
-Summary of seeds computed by the LArSeedService
-Random policy: 'random'
-  master seed: 563257638
-  seed within: [ 1 ; 900000000 ]
-
+%MSG-i CalWireDUNE35t:  CalWireDUNE35t:caldata 22-Jun-2016 10:45:38 BST  run: 14427 subRun: 1 event: 5
+CalWireDUNE35t:: digitVecHandle size is 1792
 %MSG

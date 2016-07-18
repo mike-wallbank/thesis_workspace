@@ -1,145 +1,177 @@
-%MSG-i MF_INIT_OK:  lar 22-Jun-2016 14:47:22 BST JobSetup
+%MSG-i MF_INIT_OK:  lar 18-Jul-2016 17:36:34 BST JobSetup
 Messagelogger initialization complete.
 %MSG
-%MSG-w CONFIG:  lar 22-Jun-2016 14:47:23 BST JobSetup
+%MSG-w CONFIG:  lar 18-Jul-2016 17:36:35 BST JobSetup
 Use of services.user parameter set is deprecated.
 Define all services in services parameter set.
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Import() 22-Jun-2016 14:47:24 BST  JobSetup
-Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6.gdml
+%MSG-i Root_Information:  lar TGeoManager::Import() 18-Jul-2016 17:36:35 BST  JobSetup
+Reading geometry from file: /home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6.gdml
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  22-Jun-2016 14:47:24 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  18-Jul-2016 17:36:35 BST JobSetup
 Geometry GDMLImport, Geometry imported from GDML created
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  18-Jul-2016 17:36:39 BST JobSetup
 Top volume is volWorld. Master volume is volWorld
 %MSG
-%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  18-Jul-2016 17:36:39 BST JobSetup
 --- Maximum geometry depth set to 100
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 Fixing runtime shapes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 ...Nothing to fix
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 Counting nodes...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::Voxelize() 22-Jun-2016 14:47:27 BST  JobSetup
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 18-Jul-2016 17:36:39 BST  JobSetup
 Voxelizing...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 Building cache...
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CountLevels()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  18-Jul-2016 17:36:39 BST JobSetup
 max level = 5, max placements = 359
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 5627 nodes/ 2528 volume UID's in Geometry imported from GDML
 %MSG
-%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  18-Jul-2016 17:36:39 BST JobSetup
 ----------------modeler ready----------------
 %MSG
-%MSG-i GeometryCore:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i GeometryCore:  lar 18-Jul-2016 17:36:39 BST JobSetup
 New detector geometry loaded from 
-	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6.gdml
-	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_13_00_e9_prof/dunetpc/v05_13_00/gdml/dune35t4apa_v6_nowires.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6.gdml
+	/home/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6_nowires.gdml
 
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 18-Jul-2016 17:36:39 BST JobSetup
 Sorting...
 %MSG
-%MSG-i ChannelMap35OptAlg:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i ChannelMap35OptAlg:  lar 18-Jul-2016 17:36:39 BST JobSetup
 Initializing...
 %MSG
 fNchannels = 2048
 U channels per APA = 144
 V channels per APA = 144
 Z channels per APA side = 112
-%MSG-i SimpleChannelStatusService:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i SimpleChannelStatusService:  lar 18-Jul-2016 17:36:39 BST JobSetup
 Loaded from configuration:
   - 259 bad channels
   - 0 noisy channels
   - largest channel ID: 2047, largest present: 2047
 %MSG
-%MSG-i setupProvider<DetectorPropertiesStandard>:  lar 22-Jun-2016 14:47:27 BST  JobSetup
+%MSG-i setupProvider<DetectorPropertiesStandard>:  lar 18-Jul-2016 17:36:39 BST  JobSetup
 Asked to ignore 1 keys: 'InheritNumberTimeSamples'
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i SignalShapingServiceDUNE:  lar 18-Jul-2016 17:36:39 BST JobSetup
 Getting Filter from .fcl file
 %MSG
-%MSG-i SignalShapingServiceDUNE:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-i SignalShapingServiceDUNE:  lar 18-Jul-2016 17:36:39 BST JobSetup
  using the field response provided from a .root file 
 %MSG
-%MSG-w CONFIG:  lar 22-Jun-2016 14:47:27 BST JobSetup
+%MSG-w CONFIG:  lar 18-Jul-2016 17:36:39 BST JobSetup
 
  <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
 
 %MSG
-22-Jun-2016 14:47:27 BST  Initiating request to open file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco_track.root
-22-Jun-2016 14:47:27 BST  Successfully opened file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco_track.root
-%MSG-i Root_Information:  APACrossingMuons:apacrossing@Construction  TCanvas::Print() 22-Jun-2016 14:47:27 BST ModuleConstruction
+18-Jul-2016 17:36:39 BST  Initiating request to open file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco.root
+18-Jul-2016 17:36:39 BST  Successfully opened file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco.root
+%MSG-i Root_Information:  APACrossingMuons:apacrossing@Construction  TCanvas::Print() 18-Jul-2016 17:36:39 BST ModuleConstruction
 pdf file TrackFinding.pdf has been created
 %MSG
-%MSG-w LoadNewGeometry:  PostSourceRun 22-Jun-2016 14:47:27 BST run: 14427
+%MSG-w LoadNewGeometry:  PostSourceRun 18-Jul-2016 17:36:39 BST run: 14427
 cannot find sumdata::RunData object to grab detector name
 this is expected if generating MC files
 using default geometry from configuration file
 
 %MSG
-Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 22-Jun-2016 14:47:28 BST
-%MSG-d RANDOM:  PostSource 22-Jun-2016 14:47:28 BST  run: 14427 subRun: 1 event: 5
+Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 18-Jul-2016 17:36:40 BST
+%MSG-d RANDOM:  PostSource 18-Jul-2016 17:36:40 BST  run: 14427 subRun: 1 event: 5
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  22-Jun-2016 14:47:29 BST run: 14427 subRun: 1 event: 5
-png file graph.png has been created
-%MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  22-Jun-2016 14:47:29 BST run: 14427 subRun: 1 event: 5
+%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  18-Jul-2016 17:36:43 BST run: 14427 subRun: 1 event: 5
 Current canvas added to pdf file TrackFinding.pdf
 %MSG
-22-Jun-2016 14:47:29 BST  Closed file /data2/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco_track.root
+Begin processing the 2nd record. run: 14427 subRun: 1 event: 16 at 18-Jul-2016 17:36:43 BST
+%MSG-w MemoryCheck:  Source 18-Jul-2016 17:36:43 BST PostProcessEvent
+MemoryCheck: module source:source VSIZE 1151.59 0 RSS 572.574 0.480469
+
+%MSG
+%MSG-d RANDOM:  PostSource 18-Jul-2016 17:36:43 BST  run: 14427 subRun: 1 event: 16
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG
+%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  18-Jul-2016 17:36:43 BST run: 14427 subRun: 1 event: 16
+png file chisquare.png has been created
+%MSG
+%MSG-i Root_Information:  APACrossingMuons:apacrossing TCanvas::Print()  18-Jul-2016 17:36:46 BST run: 14427 subRun: 1 event: 16
+Current canvas added to pdf file TrackFinding.pdf
+%MSG
+%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 18-Jul-2016 17:36:46 BST  run: 14427 subRun: 1 event: 16
+MemoryCheck: module APACrossingMuons:apacrossing VSIZE 1530.95 379.355 RSS 936.789 364.215
+
+%MSG
+Begin processing the 3rd record. run: 14427 subRun: 1 event: 51 at 18-Jul-2016 17:36:46 BST
+%MSG-w MemoryCheck:  Source 18-Jul-2016 17:36:46 BST PostProcessEvent
+MemoryCheck: module source:source VSIZE 1530.95 0 RSS 936.797 0.0078125
+
+%MSG
+%MSG-d RANDOM:  PostSource 18-Jul-2016 17:36:46 BST  run: 14427 subRun: 1 event: 51
+RNGservice::takeSnapshot_() of the following engine labels:
+ |
+
+%MSG
+%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 18-Jul-2016 17:36:46 BST  run: 14427 subRun: 1 event: 51
+MemoryCheck: module APACrossingMuons:apacrossing VSIZE 1530.95 0 RSS 936.816 0.0195312
+
+%MSG
+18-Jul-2016 17:36:46 BST  Closed file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco.root
 
 TrigReport ---------- Event  Summary ------------
-TrigReport Events total = 1 passed = 1 failed = 0
+TrigReport Events total = 3 passed = 3 failed = 0
 
 TrigReport ------ Modules in End-Path: end_path ------------
 TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
-TrigReport     0    0          1          1          0          0 apacrossing
+TrigReport     0    0          3          3          0          0 apacrossing
 
 TimeReport ---------- Time  Summary ---[sec]----
-TimeReport CPU = 1.417529 Real = 1.092834
+TimeReport CPU = 5.860815 Real = 5.539158
 
 ===========================================================================================================================
 TimeTracker printout (sec)                   Min           Avg           Max         Median          RMS         nEvts   
 ===========================================================================================================================
-Full event                                 1.41772       1.41772       1.41772       1.41772          0            1     
+Full event                               0.000524281     1.95367       2.99432       2.86617       1.38207         3     
 ---------------------------------------------------------------------------------------------------------------------------
-end_path:apacrossing:APACrossingMuons      1.41591       1.41591       1.41591       1.41591          0            1     
+end_path:apacrossing:APACrossingMuons    0.000444655     1.95301       2.99256       2.86604       1.38164         3     
 ===========================================================================================================================
 
-MemoryReport> Peak virtual size 779.164 Mbytes
+MemoryReport> Peak virtual size 1530.95 Mbytes
 Key events increasing vsize:
-[none]
+[1] run: 14427 subRun: 1 event: 16  vsize = 1530.95 deltaVsize = 379.355
 
 Key events with largest vsize:
-[none]
+[1] run: 14427 subRun: 1 event: 51  vsize = 1530.95
+[2] run: 14427 subRun: 1 event: 16  vsize = 1530.95
 
-%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 22-Jun-2016 14:47:29 BST  PostEndRun
+%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 18-Jul-2016 17:36:46 BST  PostEndRun
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
-%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  22-Jun-2016 14:47:29 BST PostEndRun
+%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  18-Jul-2016 17:36:46 BST PostEndRun
 
 Summary of seeds computed by the LArSeedService
 Random policy: 'random'
-  master seed: 726465147
+  master seed: 471226434
   seed within: [ 1 ; 900000000 ]
 
 %MSG
-%MSG-i Root_Information:  APACrossingMuons:apacrossing@EndJob TCanvas::Print()  22-Jun-2016 14:47:29 BST PostEndRun
+%MSG-i Root_Information:  APACrossingMuons:apacrossing@EndJob TCanvas::Print()  18-Jul-2016 17:36:46 BST PostEndRun
 Current canvas added to pdf file TrackFinding.pdf
 %MSG

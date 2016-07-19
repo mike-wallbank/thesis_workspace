@@ -13,8 +13,8 @@ do
     file=/pnfs/lbne${path:29}
 
     # get the directories
-    outDir=/dune/data/users/wallbank/Sliced_And_Filtered/EW/${run}
-    condorDir='${_CONDOR_SCRATCH_DIR}'/EW/${run}
+    outDir=/dune/data/users/wallbank/Sliced_And_Filtered/both/${run}
+    condorDir='${_CONDOR_SCRATCH_DIR}'/both/${run}
 
     # make output dir
     touch ${outDir}
@@ -40,6 +40,7 @@ mkdir -p $condorDir
 cd $condorDir
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/SliceAndFilter.fcl .
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/reco_dune35tdata.fcl .
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/apa_crossing.fcl .
 copyfile $file .
 
 echo
@@ -50,6 +51,7 @@ echo
 # run the jobs
 lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
 lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
+lar -c apa_crossing.fcl -s reco.root
 
 # copy output files back
 rm -f $filename

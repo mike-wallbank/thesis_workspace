@@ -79,7 +79,7 @@ outputs:{
 # physics.filters.countertrigger.secondset: [31,28]
 
 # both
-physics.filters.countertrigger.firstset:  [16,16,16,16,17,17,17,17,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,26,26,26,26,27,27,27,27, 6, 9]
-physics.filters.countertrigger.secondset: [38,39,42,43,38,39,42,43,38,39,42,43,38,39,42,43, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5,31,28]
+# physics.filters.countertrigger.firstset:  [16,16,16,16,17,17,17,17,20,20,20,20,21,21,21,21,22,22,22,22,23,23,23,23,26,26,26,26,27,27,27,27, 6, 9]
+# physics.filters.countertrigger.secondset: [38,39,42,43,38,39,42,43,38,39,42,43,38,39,42,43, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5, 0, 1, 4, 5,31,28]
 
 #services.user.DatabaseUtil.ShouldConnect: true

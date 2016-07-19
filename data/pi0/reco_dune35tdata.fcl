@@ -156,14 +156,15 @@ physics.producers.daq.RawDigitModuleLabel:             "unstick"
 physics.producers.daq.RawDigitModuleInstance:          "TPC"
 physics.producers.daq.SkipStuckCodes:                  false
 physics.producers.t0counter.TriggerModuleLabel:        "SplitterInput:TRIGGER"
-physics.producers.caldata.DigitModuleLabel:            "daq"
+physics.producers.caldata.DigitModuleLabel:            "unstick:TPC" #"daq"
 #physics.producers.caldata.fSigThrFact:                 2
 #physics.producers.caldata.DoBaselineSub:               true
 
-physics.producers.gaushit.CalDataModuleLabel:          "caldata"
+#physics.producers.hit35t.ChanHitLabel:                 "fasthit"
+physics.producers.gaushit.CalDataModuleLabel:          "caldata:TPC"
 #physics.producers.gaushit.MinSig:                      [100,100,100]
 #physics.producers.gaushit.MinWidth:                    [5,5,5]
-#physics.producers.hit35tcc.ChanHitLabel:              "gaushit"
+#physics.producers.hit35tcc.ChanHitLabel:               "gaushit"
 physics.producers.lineclusterch.HitFinderModuleLabel:  "counterhit"
 physics.producers.trkshowersplit.HitModuleLabel:       "linecluster"
 physics.producers.pmtrack.HitModuleLabel:               "linecluster"
@@ -263,5 +264,5 @@ services.user.SignalShapingServiceDUNE.IndVFilterParams: [ 0.95, 0.125, 0.019, 0
 physics.producers.gaushit.MinSig:   [ 5, 5, 10 ]
 physics.producers.gaushit.MinWidth: [ 1, 1, 1 ]
 
-physics.producers.fasthit.MinSigCol: 80
-physics.producers.fasthit.MinSigInd: 80
+physics.producers.fasthit.MinSigCol: 50
+physics.producers.fasthit.MinSigInd: 50

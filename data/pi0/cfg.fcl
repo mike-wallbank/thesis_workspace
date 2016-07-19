@@ -1,0 +1,1881 @@
+outputs: {
+   out1: {
+      compressionLevel: 1
+      dataTier: "full-reconstructed"
+      fileName: "%ifb_%tc_reco.root"
+      module_label: "out1"
+      module_type: "RootOutput"
+      streamName: "out1"
+   }
+}
+physics: {
+   end_paths: [
+      "stream1"
+   ]
+   producers: {
+      blurredcluster: {
+         BlurredClusterAlg: {
+            BlurTick: 12
+            BlurWire: 6
+            ChargeThreshold: 7e-2
+            ClusterTickDistance: 2
+            ClusterWireDistance: 2
+            Detector: "dune35t"
+            MaxTickWidthBlur: 10
+            MinNeighbours: 0
+            MinSeed: 1e-1
+            MinSize: 2
+            NeighboursThreshold: 0
+            SigmaTick: 6
+            SigmaWire: 4
+            TimeThreshold: 500
+         }
+         CreateDebugPDF: false
+         GlobalTPCRecon: true
+         HitsModuleLabel: "linecluster"
+         MergeClusterAlg: {
+            MaxMergeSeparation: 30
+            MinMergeClusterSize: 3
+            ProjWidthThreshold: 2e-1
+         }
+         MergeClusters: false
+         PFParticleModuleLabel: "pandora"
+         ShowerReconOnly: false
+         TrackModuleLabel: "pmtrack"
+         TrackShowerSeparationAlg: {
+            AngleCut: 15
+            AvTrackHitDistance: 1
+            DistanceCut: 50
+            TrackProximityCut: 4
+            VertexProximityCut: 10
+         }
+         VertexModuleLabel: "linecluster"
+         module_label: "blurredcluster"
+         module_type: "BlurredClustering"
+      }
+      caldata: {
+         DigitModuleLabel: "unstick:TPC"
+         DoBaselineSub: false
+         PlaneROIPad: [
+            50,
+            50
+         ]
+         PostsampleBins: 0
+         fSigThrFact: 3
+         module_label: "caldata"
+         module_type: "CalWireDUNE35t"
+      }
+      calo: {
+         CaloAlg: {
+            CalAmpConstants: [
+               9.033e-4,
+               1.0287e-3,
+               8.8e-4
+            ]
+            CalAreaConstants: [
+               5.1822e-3,
+               5.2682e-3,
+               5.3962e-3
+            ]
+            CaloUseModBox: true
+         }
+         MakeTree: false
+         SpacePointModuleLabel: "costrk"
+         T0ModuleLabel: "photont0costrk"
+         TrackModuleLabel: "costrk"
+         UseArea: true
+         module_label: "calo"
+         module_type: "Calorimetry"
+      }
+      cchit: {
+         CCHitFinderAlg: {
+            AllowNoHitWire: 2
+            CalDataModuleLabel: "caldata"
+            ChiNorms: [
+               3.1e-1,
+               6.2e-1,
+               6e-1
+            ]
+            ChiSplit: 20
+            MaxBumps: 5
+            MaxXtraHits: 1
+            MinPeak: [
+               3,
+               3,
+               3
+            ]
+            MinRMS: [
+               2.3,
+               2.3,
+               2.1
+            ]
+            StudyHits: false
+            UTickRange: [
+               5200,
+               5500
+            ]
+            UWireRange: [
+               300,
+               350
+            ]
+            VTickRange: [
+               1500,
+               1750
+            ]
+            VWireRange: [
+               1050,
+               1080
+            ]
+            WTickRange: [
+               5200,
+               5400
+            ]
+            WWireRange: [
+               200,
+               250
+            ]
+         }
+         CalDataModuleLabel: "caldata"
+         module_label: "cchit"
+         module_type: "HitFinder"
+      }
+      costrk: {
+         AngCut: 2e-1
+         CTAlg: {
+            SMatch: 1
+            SPTAlg: 0
+            TMatch: 2.5
+            TrajOnly: false
+         }
+         ClusterMatch: {
+            EnableU: true
+            EnableV: true
+            EnableZ: true
+            KSCut: 7e-1
+         }
+         ClusterModuleLabel: "linecluster"
+         DisCut: 100
+         SortDirection: "-y"
+         StitchTracks: true
+         TrajOnly: false
+         module_label: "costrk"
+         module_type: "CosmicTracker"
+      }
+      counterhit: {
+         AdjacentTimeWidth: 100
+         AdjacentWireWidth: 10
+         CoincidenceTolerance: 2
+         CollectionTimeWidth: 50
+         CounterDir: "/dune/app/users/mthiesse/larDev/work/"
+         CounterFile: "counterInformation.txt"
+         CounterModuleLabel: "SplitterInput:TRIGGER"
+         Debug: false
+         ExtendCounters: 10
+         HitsModuleLabel: "gaushit"
+         fConvCountTimeToTicks: 32
+         module_label: "counterhit"
+         module_type: "HitFinderCounter35t"
+      }
+      daq: {
+         ChannelMapFile: "rce_channel_map_dune35t.txt"
+         Method: 1
+         RawDigitModuleInstance: "TPC"
+         RawDigitModuleLabel: "unstick:TPC"
+         SkipStuckCodes: false
+         module_label: "daq"
+         module_type: "FilterWF"
+      }
+      dbcluster: {
+         DBScanAlg: {
+            Method: 2
+            Metric: 3
+            eps: 2
+            epstwo: 2
+            minPts: 2
+         }
+         HitsModuleLabel: "ffthit"
+         module_label: "dbcluster"
+         module_type: "DBcluster"
+      }
+      emshower: {
+         ClusterModuleLabel: "blurredcluster"
+         EMShowerAlg: {
+            CalorimetryAlg: {
+               CalAmpConstants: [
+                  9.033e-4,
+                  1.0287e-3,
+                  8.8e-4
+               ]
+               CalAreaConstants: [
+                  5.1822e-3,
+                  5.2682e-3,
+                  5.3962e-3
+               ]
+               CaloUseModBox: true
+            }
+            Detector: "dune35t"
+            MinTrackLength: 3
+            Nfithits: [
+               50,
+               30,
+               20,
+               20
+            ]
+            Nfitpass: 4
+            ProjectionMatchingAlg: {
+               FineTuningEps: 1e-4
+               HitTestingDist2D: 5e-1
+               HitWeightU: 1
+               HitWeightV: 1
+               HitWeightZ: 1
+               MinTwoViewFraction: 4e-1
+               NodeMargin3D: 3
+               OptimizationEps: 1e-2
+               TrkValidationDist2D: 1
+            }
+            ShowerEnergyAlg: {
+               UGradient: 148867
+               UIntercept: -1.51933e3
+               VGradient: 149458
+               VIntercept: -1.23491e3
+               ZGradient: 145372
+               ZIntercept: -1.08973e3
+            }
+            Toler: [
+               30,
+               5,
+               2,
+               2
+            ]
+            dEdxTrackLength: 3
+         }
+         HitsModuleLabel: "linecluster"
+         TrackModuleLabel: "pmtrack"
+         module_label: "emshower"
+         module_type: "EMShower"
+      }
+      emshower3d: {
+         CalorimetryAlg: {
+            CalAmpConstants: [
+               9.033e-4,
+               1.0287e-3,
+               8.8e-4
+            ]
+            CalAreaConstants: [
+               5.1822e-3,
+               5.2682e-3,
+               5.3962e-3
+            ]
+            CaloUseModBox: true
+         }
+         ClustersModuleLabel: "blurredcluster"
+         HitsModuleLabel: "linecluster"
+         ProjectionMatchingAlg: {
+            FineTuningEps: 1e-4
+            HitTestingDist2D: 5e-1
+            HitWeightU: 1
+            HitWeightV: 1
+            HitWeightZ: 1
+            MinTwoViewFraction: 4e-1
+            NodeMargin3D: 3
+            OptimizationEps: 1e-2
+            TrkValidationDist2D: 1
+         }
+         Trk3DModuleLabel: "pmtrack"
+         module_label: "emshower3d"
+         module_type: "EMShower3D"
+      }
+      fasthit: {
+         AreaMethod: 0
+         AreaNorms: [
+            1.325e1,
+            2.631e1
+         ]
+         CalDataModuleLabel: "caldata"
+         ColMinWidth: 6
+         ColWidth: 7.8
+         IndMinWidth: 4
+         IndWidth: 6
+         MaxMultiHit: 3
+         MinSigCol: 50
+         MinSigInd: 50
+         module_label: "fasthit"
+         module_type: "RawHitFinder"
+      }
+      gaushit: {
+         AreaMethod: 0
+         AreaNorms: [
+            1.325e1,
+            1.325e1,
+            1.325e1
+         ]
+         CalDataModuleLabel: "caldata"
+         Chi2NDF: 2000
+         Chi2NDFRetry: 1000
+         FilterHits: false
+         HitFilterAlg: {
+            AlgName: "HitFilterAlg"
+            MinPulseHeight: [
+               5,
+               5,
+               5
+            ]
+            MinPulseSigma: [
+               1,
+               1,
+               1
+            ]
+         }
+         InitWidth: [
+            6,
+            6,
+            6
+         ]
+         MaxMultiHit: 10
+         MinSig: [
+            5,
+            5,
+            10
+         ]
+         MinWidth: [
+            1,
+            1,
+            1
+         ]
+         TryNplus1Fits: 0
+         module_label: "gaushit"
+         module_type: "GausHitFinder"
+      }
+      handscan: {
+         HandScanFileName: "/dune/app/users/mthiesse/handscan.txt"
+         PreviousHitModuleLabel: "hit35t"
+         module_label: "handscan"
+         module_type: "HitHandScan"
+      }
+      hit35t: {
+         Algorithm: "TripletMatch"
+         ChanHitLabel: "gaushit"
+         DisambigAlg: {
+            ColChannelWiggle: 5
+            DBScanAlg: {
+               Method: 0
+               Metric: 3
+               eps: 13
+               epstwo: 15
+               minPts: 2
+            }
+            DistanceCut: 1
+            DistanceCutClu: 4
+            DoCleanUpHits: true
+            TimeCut: 3
+            TimeWiggle: 5
+         }
+         TimeBasedDisambigAlg: {
+            ColChannelWiggle: 5
+            DistanceCut: 1
+            DistanceCutClu: 4
+            TimeCut: 3
+            TimeWiggle: 5
+         }
+         module_label: "hit35t"
+         module_type: "HitFinder35t"
+      }
+      linecluster: {
+         ClusterCrawlerAlg: {
+            AllowNoHitWire: 5
+            ChgCut: [
+               8e-1,
+               8e-1,
+               8e-1
+            ]
+            ChgNearCut: 1.5
+            ChgNearWindow: 40
+            ChiCut: [
+               4,
+               8,
+               10
+            ]
+            ChkClusterDS: true
+            ClProjErrFac: 3
+            DebugHit: 0
+            DebugPlane: -1
+            DebugWire: 0
+            DoMerge: [
+               false,
+               true,
+               true
+            ]
+            FindHammerClusters: false
+            FindStarVertices: false
+            FindVLAClusters: false
+            FindVertices: [
+               true,
+               true,
+               true
+            ]
+            HitErrFac: 8e-1
+            HitMergeChiCut: 4
+            HitMinAmp: 2
+            KillGarbageClusters: 1e-1
+            KinkAngCut: [
+               4e-1,
+               4e-1,
+               4e-1
+            ]
+            KinkChiRat: [
+               1.2,
+               1.2,
+               0
+            ]
+            LAClusAngleCut: 60
+            LAClusMaxHitsFit: 4
+            LACrawl: [
+               true,
+               true,
+               true
+            ]
+            MaxHitsFit: [
+               100,
+               8,
+               4
+            ]
+            MaxWirSkip: [
+               100,
+               100,
+               2
+            ]
+            MergeAllHits: true
+            MergeChgCut: [
+               8e-1,
+               8e-1,
+               8e-1
+            ]
+            MergeOverlapAngCut: 1e-1
+            MinAmp: [
+               5,
+               1,
+               5
+            ]
+            MinHitFrac: 5e-1
+            MinHits: [
+               50,
+               8,
+               3
+            ]
+            MinWirAfterSkip: [
+               2,
+               2,
+               1
+            ]
+            NHitsAve: [
+               20,
+               8,
+               2
+            ]
+            NumPass: 3
+            RefineVertexClusters: false
+            TimeDelta: [
+               10,
+               10,
+               10
+            ]
+            Vertex2DCut: 20
+            Vertex3DCut: 10
+            VtxClusterSplit: true
+            fVertex2DWireErrCut: 3
+         }
+         FilteredDataModuleLabel: "NA"
+         HitFinderModuleLabel: "hit35t"
+         module_label: "linecluster"
+         module_type: "LineCluster"
+      }
+      lineclusterch: {
+         ClusterCrawlerAlg: {
+            AllowNoHitWire: 5
+            ChgCut: [
+               8e-1,
+               8e-1,
+               8e-1
+            ]
+            ChgNearCut: 1.5
+            ChgNearWindow: 40
+            ChiCut: [
+               4,
+               8,
+               10
+            ]
+            ChkClusterDS: true
+            ClProjErrFac: 3
+            DebugHit: 0
+            DebugPlane: -1
+            DebugWire: 0
+            DoMerge: [
+               false,
+               true,
+               true
+            ]
+            FindHammerClusters: false
+            FindStarVertices: false
+            FindVLAClusters: false
+            FindVertices: [
+               true,
+               true,
+               true
+            ]
+            HitErrFac: 8e-1
+            HitMergeChiCut: 4
+            HitMinAmp: 2
+            KillGarbageClusters: 1e-1
+            KinkAngCut: [
+               4e-1,
+               4e-1,
+               4e-1
+            ]
+            KinkChiRat: [
+               1.2,
+               1.2,
+               0
+            ]
+            LAClusAngleCut: 60
+            LAClusMaxHitsFit: 4
+            LACrawl: [
+               true,
+               true,
+               true
+            ]
+            MaxHitsFit: [
+               100,
+               8,
+               4
+            ]
+            MaxWirSkip: [
+               100,
+               100,
+               2
+            ]
+            MergeAllHits: true
+            MergeChgCut: [
+               8e-1,
+               8e-1,
+               8e-1
+            ]
+            MergeOverlapAngCut: 1e-1
+            MinAmp: [
+               5,
+               1,
+               5
+            ]
+            MinHitFrac: 5e-1
+            MinHits: [
+               50,
+               8,
+               3
+            ]
+            MinWirAfterSkip: [
+               2,
+               2,
+               1
+            ]
+            NHitsAve: [
+               20,
+               8,
+               2
+            ]
+            NumPass: 3
+            RefineVertexClusters: false
+            TimeDelta: [
+               10,
+               10,
+               10
+            ]
+            Vertex2DCut: 20
+            Vertex3DCut: 10
+            VtxClusterSplit: true
+            fVertex2DWireErrCut: 3
+         }
+         FilteredDataModuleLabel: "NA"
+         HitFinderModuleLabel: "counterhit"
+         module_label: "lineclusterch"
+         module_type: "LineCluster"
+      }
+      mergeemshower3d: {
+         ClustersModuleLabel: "blurredcluster"
+         HitsModuleLabel: "linecluster"
+         NarrowConeAngle: 15
+         ProjectionMatchingAlg: {
+            FineTuningEps: 1e-4
+            HitTestingDist2D: 5e-1
+            HitWeightU: 1
+            HitWeightV: 1
+            HitWeightZ: 1
+            MinTwoViewFraction: 4e-1
+            NodeMargin3D: 3
+            OptimizationEps: 1e-2
+            TrkValidationDist2D: 1
+         }
+         ShowerEnergyAlg: {
+            UGradient: 148867
+            UIntercept: -1.51933e3
+            VGradient: 149458
+            VIntercept: -1.23491e3
+            ZGradient: 145372
+            ZIntercept: -1.08973e3
+         }
+         Trk3DModuleLabel: "emshower3d"
+         VtxModuleLabel: "emshower3d"
+         WideConeAngle: 20
+         module_label: "mergeemshower3d"
+         module_type: "MergeEMShower3D"
+      }
+      opflash: {
+         BinWidth: 1
+         FlashThreshold: 2
+         InputModule: "ophit"
+         TrigCoinc: 2.5
+         WidthTolerance: 5e-1
+         module_label: "opflash"
+         module_type: "OpFlashFinder"
+      }
+      ophit: {
+         AreaToPE: true
+         ChannelMasks: []
+         GenModule: "generator"
+         HitAlgoPset: {
+            ADCThreshold: 13
+            MinWidth: 10
+            Name: "SiPM"
+            Pedestal: 1500
+            SecondThreshold: 1
+         }
+         HitThreshold: 2e-1
+         InputLabels: [
+            ""
+         ]
+         InputModule: "opdigi"
+         PedAlgoPset: {
+            Method: 0
+            Name: "Edges"
+            NumSampleFront: 3
+            NumSampleTail: 3
+         }
+         SPEArea: 1330
+         module_label: "ophit"
+         module_type: "OpHitFinder"
+         reco_man: {
+            module_type: "PulseRecoManager"
+         }
+      }
+      pandora: {
+         BuildTracks: true
+         ConfigFile: "PandoraSettings_DUNE35t_Cosmic.xml"
+         EnableMCParticles: false
+         EnableMonitoring: false
+         EnableProduction: true
+         GeantModuleLabel: "largeant"
+         HitFinderModuleLabel: "hit35t"
+         StitchingConfigFile: "PandoraSettings_Stitching.xml"
+         UseHitWidths: false
+         UseLongVolume: true
+         UseShortVolume: true
+         module_label: "pandora"
+         module_type: "DUNE35tPandora"
+      }
+      pandoracalo: {
+         CaloAlg: {
+            CalAmpConstants: [
+               9.033e-4,
+               1.0287e-3,
+               8.8e-4
+            ]
+            CalAreaConstants: [
+               5.1822e-3,
+               5.2682e-3,
+               5.3962e-3
+            ]
+            CaloUseModBox: true
+         }
+         MakeTree: false
+         SpacePointModuleLabel: "pandora"
+         T0ModuleLabel: "photont0pandora"
+         TrackModuleLabel: "particlestitcher"
+         UseArea: true
+         module_label: "pandoracalo"
+         module_type: "Calorimetry"
+      }
+      particlestitcher: {
+         EnableMonitoring: false
+         EnableStitching: true
+         PFParticleModuleLabel: "pandora"
+         TrackModuleLabel: "pandora"
+         UseXCoordinate: false
+         module_label: "particlestitcher"
+         module_type: "DUNE35tParticleStitcher"
+      }
+      photont0costrk: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: "linecluster"
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: "costrk"
+         TruthT0ModuleLabel: "mctrutht0"
+         WeightOfDeltaYZ: 1
+         module_label: "photont0costrk"
+         module_type: "PhotonCounterT0Matching"
+      }
+      photont0costrkdc: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: ""
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: ""
+         TruthT0ModuleLabel: ""
+         WeightOfDeltaYZ: 1
+         module_label: "photont0costrkdc"
+         module_type: "PhotonCounterT0Matching"
+      }
+      photont0pandora: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: "hit35t"
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: "particlestitcher"
+         TruthT0ModuleLabel: "mctrutht0pandora"
+         WeightOfDeltaYZ: 1
+         module_label: "photont0pandora"
+         module_type: "PhotonCounterT0Matching"
+      }
+      photont0pandoradc: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: ""
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: ""
+         TruthT0ModuleLabel: ""
+         WeightOfDeltaYZ: 1
+         module_label: "photont0pandoradc"
+         module_type: "PhotonCounterT0Matching"
+      }
+      photont0pmtrack: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: "linecluster"
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: "pmtrack"
+         TruthT0ModuleLabel: "mctrutht0pmtrack"
+         WeightOfDeltaYZ: 1
+         module_label: "photont0pmtrack"
+         module_type: "PhotonCounterT0Matching"
+      }
+      photont0pmtrackdc: {
+         DriftWindowSize: 3200
+         FlashModuleLabel: "opflash"
+         HitsModuleLabel: ""
+         MatchCriteria: 0
+         PEThreshold: 0
+         PredictedExpConstant: 5.22514
+         PredictedExpGradient: -3.94097e-3
+         PredictedXConstant: 2.14841e2
+         ShowerModuleLabel: ""
+         TrackModuleLabel: ""
+         TruthT0ModuleLabel: ""
+         WeightOfDeltaYZ: 1
+         module_label: "photont0pmtrackdc"
+         module_type: "PhotonCounterT0Matching"
+      }
+      pmtrack: {
+         AutoFlip_dQdx: false
+         CluMatchingAlg: 1
+         ClusterModuleLabel: "linecluster"
+         FlipDownward: true
+         FlipToBeam: false
+         HitModuleLabel: "linecluster"
+         MakePFPs: false
+         MatchT0inAPACrossing: false
+         MergeAngle: 2
+         MergeTransverseShift: 2
+         MergeWithinTPC: false
+         MinSeedSize1stPass: 20
+         MinSeedSize2ndPass: 4
+         PMAlgVertexing: {
+            FindKinks: false
+            KinkMinDeg: 2.5
+            KinkMinStd: 5
+            MinTrackLength: 3
+         }
+         ProjectionMatchingAlg: {
+            FineTuningEps: 1e-4
+            HitTestingDist2D: 5e-1
+            HitWeightU: 1
+            HitWeightV: 1
+            HitWeightZ: 1
+            MinTwoViewFraction: 4e-1
+            NodeMargin3D: 3
+            OptimizationEps: 1e-2
+            TrkValidationDist2D: 1
+         }
+         RunVertexing: true
+         SaveOnlyBranchingVtx: false
+         SavePmaNodes: false
+         StitchAngle: 10
+         StitchBetweenTPCs: true
+         StitchDistToWall: 3
+         StitchTransverseShift: 3
+         TrackingOnlyPdg: [
+            0
+         ]
+         TrackingSkipPdg: [
+            11
+         ]
+         module_label: "pmtrack"
+         module_type: "PMAlgTrackMaker"
+      }
+      pmtrackcalo: {
+         CaloAlg: {
+            CalAmpConstants: [
+               9.033e-4,
+               1.0287e-3,
+               8.8e-4
+            ]
+            CalAreaConstants: [
+               5.1822e-3,
+               5.2682e-3,
+               5.3962e-3
+            ]
+            CaloUseModBox: true
+         }
+         MakeTree: false
+         SpacePointModuleLabel: "pmtrack"
+         T0ModuleLabel: "photont0pmtrack"
+         TrackModuleLabel: "pmtrack"
+         UseArea: true
+         module_label: "pmtrackcalo"
+         module_type: "Calorimetry"
+      }
+      pmtrackch: {
+         AutoFlip_dQdx: false
+         CluMatchingAlg: 1
+         ClusterModuleLabel: "lineclusterch"
+         FlipDownward: true
+         FlipToBeam: false
+         HitModuleLabel: "lineclusterch"
+         MakePFPs: false
+         MatchT0inAPACrossing: false
+         MergeAngle: 2
+         MergeTransverseShift: 2
+         MergeWithinTPC: false
+         MinSeedSize1stPass: 20
+         MinSeedSize2ndPass: 4
+         PMAlgVertexing: {
+            FindKinks: false
+            KinkMinDeg: 2.5
+            KinkMinStd: 5
+            MinTrackLength: 3
+         }
+         ProjectionMatchingAlg: {
+            FineTuningEps: 1e-4
+            HitTestingDist2D: 5e-1
+            HitWeightU: 1
+            HitWeightV: 1
+            HitWeightZ: 1
+            MinTwoViewFraction: 4e-1
+            NodeMargin3D: 3
+            OptimizationEps: 1e-2
+            TrkValidationDist2D: 1
+         }
+         RunVertexing: true
+         SaveOnlyBranchingVtx: false
+         SavePmaNodes: false
+         StitchAngle: 10
+         StitchBetweenTPCs: true
+         StitchDistToWall: 3
+         StitchTransverseShift: 3
+         TrackingOnlyPdg: [
+            0
+         ]
+         TrackingSkipPdg: [
+            11
+         ]
+         module_label: "pmtrackch"
+         module_type: "PMAlgTrackMaker"
+      }
+      rns: {
+         module_label: "rns"
+         module_type: "RandomNumberSaver"
+      }
+      t0counter: {
+         ClockSpeedCounter: 64
+         CoincidenceTolerance: 40
+         CombinedTimeDelay: 160
+         MakeTree: false
+         TriggerModuleLabel: "SplitterInput:TRIGGER"
+         Verbose: false
+         module_label: "t0counter"
+         module_type: "T0Counter"
+      }
+      trkshowersplit: {
+         FindHugeShowers: true
+         FindMoreShowers: false
+         HitModuleLabel: "linecluster"
+         Segmentation2DAlg: {
+            DenseHitRadius: 5
+            DenseMinNHits: 100
+            DenseMinNVtx: 5
+            DenseVtxRadius: 1
+            MaxLineDist: 2e-1
+            RadiusMax: 1
+            RadiusMin: 5e-1
+         }
+         module_label: "trkshowersplit"
+         module_type: "TrackShowerHits"
+      }
+      unstick: {
+         DigitModuleLabel: "SplitterInput:TPC"
+         StickyADCCodesLimit: 5
+         module_label: "unstick"
+         module_type: "UnstickADCCodes"
+      }
+   }
+   reco: [
+      "rns",
+      "unstick",
+      "daq",
+      "t0counter",
+      "caldata",
+      "gaushit",
+      "fasthit",
+      "hit35t",
+      "counterhit",
+      "linecluster",
+      "lineclusterch",
+      "pmtrack",
+      "pmtrackch"
+   ]
+   stream1: [
+      "out1"
+   ]
+   trigger_paths: [
+      "reco"
+   ]
+}
+process_name: "Reco"
+services: {
+   CatalogInterface: {
+      service_provider: "TrivialFileDelivery"
+      service_type: "CatalogInterface"
+   }
+   FileCatalogMetadata: {
+      applicationFamily: "art"
+      applicationVersion: "development"
+      fileType: "data"
+      group: "dune"
+      runType: "physics"
+      service_type: "FileCatalogMetadata"
+   }
+   FileTransfer: {
+      service_provider: "TrivialFileTransfer"
+      service_type: "FileTransfer"
+   }
+   RandomNumberGenerator: {
+      service_type: "RandomNumberGenerator"
+   }
+   SimpleMemoryCheck: {
+      ignoreTotal: 1
+      service_type: "SimpleMemoryCheck"
+   }
+   TFileService: {
+      fileName: "reco_hist.root"
+      service_type: "TFileService"
+   }
+   TimeTracker: {
+      service_type: "TimeTracker"
+   }
+   message: {
+      debugModules: [
+         "*"
+      ]
+      destinations: {
+         LogDebugFile: {
+            append: false
+            categories: {
+               AnaBaseDefaultCtor: {
+                  limit: 0
+               }
+               BackTracker: {
+                  limit: 0
+               }
+               CaloPrtHit: {
+                  limit: 0
+               }
+               CaloPrtTrk: {
+                  limit: 0
+               }
+               ChannelFilter: {
+                  limit: 0
+               }
+               ClusterCheater: {
+                  limit: 0
+               }
+               ClusterCrawlerAlg: {
+                  limit: 0
+               }
+               ClusterMergeTQ: {
+                  limit: 0
+               }
+               CosmicTracker: {
+                  limit: 0
+               }
+               DBscan: {
+                  limit: 0
+               }
+               DisambigAlg35t: {
+                  limit: 0
+               }
+               DisambigCheat: {
+                  limit: 0
+               }
+               GeometryBadInputPoint: {
+                  limit: 5
+                  timespan: 1000
+               }
+               HitCheater: {
+                  limit: 0
+               }
+               HoughBaseAlg: {
+                  limit: 0
+               }
+               KalmanFilterAlg: {
+                  limit: 0
+               }
+               LArPandora: {
+                  limit: 0
+               }
+               RecoBaseDefaultCtor: {
+                  limit: 0
+               }
+               SpacePointAlg: {
+                  limit: 0
+               }
+               Summary: {
+                  limit: 0
+               }
+               Track3DKalmanHit: {
+                  limit: 0
+               }
+               Track3DKalmanSPS_GenFit: {
+                  limit: 0
+               }
+               default: {}
+               fuzzyCluster: {
+                  limit: 0
+               }
+            }
+            filename: "debug.log"
+            threshold: "DEBUG"
+            type: "file"
+         }
+         LogStandardError: {
+            categories: {
+               default: {}
+}
+            threshold: "ERROR"
+            type: "cerr"
+}
+         LogStandardOut: {
+            categories: {
+               AnaBaseDefaultCtor: {
+                  limit: 0
+               }
+               GeometryBadInputPoint: {
+                  limit: 5
+                  timespan: 1000
+               }
+               RecoBaseDefaultCtor: {
+                  limit: 0
+               }
+               default: {}
+}
+            threshold: "WARNING"
+            type: "cout"
+}
+}
+}
+   scheduler: {
+      errorOnFailureToPut: true
+      errorOnSIGINT: true
+   }
+   user: {
+      BackTracker: {
+         G4ModuleLabel: "largeant"
+         MinimumHitEnergyFraction: 1e-1
+         service_type: "BackTracker"
+      }
+      ChannelMapService: {
+         FileName: "35tTPCChannelMap_v6.txt"
+         LogLevel: 1
+         service_provider: "ChannelMapService"
+         service_type: "ChannelMapService"
+      }
+      ChannelMappingService: {
+         service_provider: "Dune35tChannelMappingService"
+         service_type: "ChannelMappingService"
+      }
+      ChannelStatusService: {
+         BadChannels: [
+            4,
+            39,
+            51,
+            84,
+            92,
+            110,
+            120,
+            145,
+            146,
+            204,
+            213,
+            240,
+            357,
+            432,
+            433,
+            446,
+            496,
+            451,
+            500,
+            520,
+            524,
+            530,
+            547,
+            574,
+            575,
+            576,
+            577,
+            578,
+            579,
+            580,
+            581,
+            582,
+            583,
+            611,
+            632,
+            656,
+            657,
+            658,
+            659,
+            660,
+            661,
+            662,
+            663,
+            664,
+            665,
+            666,
+            693,
+            694,
+            730,
+            732,
+            744,
+            809,
+            828,
+            829,
+            830,
+            831,
+            832,
+            833,
+            834,
+            835,
+            836,
+            837,
+            838,
+            839,
+            840,
+            841,
+            842,
+            843,
+            844,
+            845,
+            846,
+            847,
+            848,
+            849,
+            850,
+            851,
+            852,
+            853,
+            854,
+            855,
+            884,
+            886,
+            887,
+            888,
+            889,
+            890,
+            891,
+            892,
+            893,
+            894,
+            895,
+            896,
+            897,
+            898,
+            899,
+            900,
+            901,
+            902,
+            903,
+            904,
+            905,
+            906,
+            907,
+            908,
+            909,
+            910,
+            911,
+            965,
+            992,
+            993,
+            1021,
+            1062,
+            1105,
+            1134,
+            1145,
+            1149,
+            1206,
+            1209,
+            1240,
+            1259,
+            1272,
+            1440,
+            1461,
+            1486,
+            1494,
+            1495,
+            1496,
+            1497,
+            1498,
+            1499,
+            1500,
+            1501,
+            1502,
+            1503,
+            1504,
+            1505,
+            1506,
+            1507,
+            1510,
+            1546,
+            1555,
+            1556,
+            1557,
+            1558,
+            1559,
+            1560,
+            1561,
+            1562,
+            1563,
+            1564,
+            1565,
+            1566,
+            1567,
+            1568,
+            1569,
+            1570,
+            1571,
+            1599,
+            1607,
+            1617,
+            1625,
+            1646,
+            1660,
+            1671,
+            1679,
+            1694,
+            1716,
+            1717,
+            1718,
+            1719,
+            1720,
+            1721,
+            1722,
+            1723,
+            1724,
+            1725,
+            1726,
+            1727,
+            1728,
+            1729,
+            1730,
+            1731,
+            1732,
+            1733,
+            1740,
+            1741,
+            1742,
+            1824,
+            1825,
+            1826,
+            1827,
+            1828,
+            1829,
+            1830,
+            1831,
+            1832,
+            1833,
+            1834,
+            1835,
+            1836,
+            1837,
+            1880,
+            1881,
+            1882,
+            1883,
+            1884,
+            1885,
+            1886,
+            1887,
+            1888,
+            1889,
+            1890,
+            1891,
+            1892,
+            1893,
+            1894,
+            1895,
+            1896,
+            1897,
+            1898,
+            1899,
+            1900,
+            1901,
+            1902,
+            1903,
+            1904,
+            1905,
+            1906,
+            1907,
+            1936,
+            1950,
+            1951,
+            1952,
+            1953,
+            1954,
+            1955,
+            1956,
+            1957,
+            1958,
+            1959,
+            1960,
+            1961,
+            1962,
+            1963,
+            2029,
+            2034,
+            2035,
+            2036,
+            2037,
+            2038,
+            2039,
+            2040,
+            2041,
+            2042,
+            2043,
+            2044,
+            2045,
+            2046,
+            2047
+         ]
+         NoisyChannels: []
+         service_provider: "SimpleChannelStatusService"
+         service_type: "ChannelStatusService"
+      }
+      DatabaseUtil: {
+         DBHostName: "fnalpgsdev.fnal.gov"
+         DBName: "dune_dev"
+         DBUser: "dune_reader"
+         PassFileName: ".lpswd"
+         Port: 5438
+         ShouldConnect: false
+         TableName: "main_run"
+         ToughErrorTreatment: false
+         service_type: "DatabaseUtil"
+      }
+      DetPedestalService: {
+         DetPedestalDUNE: {
+            AbortIfNoPeds: "false"
+            CSVFile: ""
+            DefaultMean: 750
+            DefaultMeanErr: 0
+            DefaultMeanErrU: 0
+            DefaultMeanErrV: 0
+            DefaultMeanErrZ: 0
+            DefaultMeanU: 1800
+            DefaultMeanV: 1800
+            DefaultMeanZ: 500
+            DefaultRms: 5
+            DefaultRmsErr: 0
+            DefaultRmsErrU: 0
+            DefaultRmsErrV: 0
+            DefaultRmsErrZ: 0
+            DefaultRmsU: 5
+            DefaultRmsV: 5
+            DefaultRmsZ: 5
+            DetID: 1
+            LogLevel: 2
+            Run: 0
+            UseDB: "true"
+            UseDefaults: "false"
+         }
+         service_provider: "DetPedestalServiceDUNE"
+         service_type: "DetPedestalService"
+      }
+      DetectorClocksService: {
+         ClockSpeedExternal: 3.125e1
+         ClockSpeedOptical: 128
+         ClockSpeedTPC: 2
+         ClockSpeedTrigger: 16
+         DefaultBeamTime: 0
+         DefaultTrigTime: 0
+         FramePeriod: 1600
+         G4RefTime: 0
+         InheritClockConfig: false
+         TrigModuleName: ""
+         TriggerOffsetTPC: 0
+         service_provider: "DetectorClocksServiceStandard"
+         service_type: "DetectorClocksService"
+      }
+      DetectorPropertiesService: {
+         Efield: [
+            2.5e-1,
+            7.82e-1,
+            1.734
+         ]
+         Electronlifetime: 3000
+         ElectronsToADC: 6.8906513e-3
+         NumberTimeSamples: 15000
+         ReadOutWindowSize: 15000
+         SternheimerA: 1.956e-1
+         SternheimerCbar: 5.2146
+         SternheimerK: 3
+         SternheimerX0: 2e-1
+         SternheimerX1: 3
+         Temperature: 87
+         TimeOffsetU: 0
+         TimeOffsetV: 0
+         TimeOffsetZ: 0
+         service_provider: "DetectorPropertiesServiceStandard"
+         service_type: "DetectorPropertiesService"
+      }
+      ExptGeoHelperInterface: {
+         service_provider: "DUNEGeometryHelper"
+         service_type: "ExptGeoHelperInterface"
+      }
+      Geometry: {
+         DisableWiresInG4: true
+         GDML: "dune35t4apa_v6.gdml"
+         Name: "dune35t4apa_v6"
+         ROOT: "dune35t4apa_v6.gdml"
+         SortingParameters: {
+            DetectorVersion: "dune35t4apa_v6"
+         }
+         SurfaceY: 0
+         service_type: "Geometry"
+      }
+      LArFFT: {
+         FFTOption: ""
+         FFTSize: 0
+         FitBins: 5
+         service_type: "LArFFT"
+      }
+      LArPropertiesService: {
+         AbsLengthEnergies: [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+         ]
+         AbsLengthSpectrum: [
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000,
+            2000
+         ]
+         AlphaScintYield: 16800
+         AlphaScintYieldRatio: 5.6e-1
+         Argon39DecayRate: 0
+         AtomicMass: 3.9948e1
+         AtomicNumber: 18
+         ElectronScintYield: 20000
+         ElectronScintYieldRatio: 2.7e-1
+         EnableCerenkovLight: true
+         ExcitationEnergy: 188
+         FastScintEnergies: [
+            6,
+            6.7,
+            7.1,
+            7.4,
+            7.7,
+            7.9,
+            8.1,
+            8.4,
+            8.5,
+            8.6,
+            8.8,
+            9,
+            9.1,
+            9.4,
+            9.8,
+            1.04e1,
+            1.07e1
+         ]
+         FastScintSpectrum: [
+            0,
+            4e-2,
+            1.2e-1,
+            2.7e-1,
+            4.4e-1,
+            6.2e-1,
+            8e-1,
+            9.1e-1,
+            9.2e-1,
+            8.5e-1,
+            7e-1,
+            5e-1,
+            3.1e-1,
+            1.3e-1,
+            4e-2,
+            1e-2,
+            0
+         ]
+         KaonScintYield: 24000
+         KaonScintYieldRatio: 2.3e-1
+         MuonScintYield: 24000
+         MuonScintYieldRatio: 2.3e-1
+         PionScintYield: 24000
+         PionScintYieldRatio: 2.3e-1
+         ProtonScintYield: 19200
+         ProtonScintYieldRatio: 2.9e-1
+         RIndexEnergies: [
+            1.9,
+            2.934,
+            3.592,
+            5.566,
+            6.694,
+            7.54,
+            8.574,
+            9.044,
+            9.232,
+            9.42,
+            9.514,
+            9.608,
+            9.702,
+            9.796,
+            9.89,
+            9.984,
+            1.008e1,
+            1.027e1,
+            1.045e1,
+            1.074e1,
+            1.092e1
+         ]
+         RIndexSpectrum: [
+            1.232,
+            1.236,
+            1.24,
+            1.261,
+            1.282,
+            1.306,
+            1.353,
+            1.387,
+            1.404,
+            1.423,
+            1.434,
+            1.446,
+            1.459,
+            1.473,
+            1.488,
+            1.505,
+            1.524,
+            1.569,
+            1.627,
+            1.751,
+            1.879
+         ]
+         RadiationLength: 1.955e1
+         RayleighEnergies: [
+            2.8,
+            3,
+            3.5,
+            4,
+            5,
+            6,
+            7,
+            8,
+            8.5,
+            9,
+            9.2,
+            9.4,
+            9.5,
+            9.6,
+            9.7,
+            9.8,
+            9.9,
+            10,
+            1.02e1,
+            1.04e1,
+            1.06e1,
+            1.08e1
+         ]
+         RayleighSpectrum: [
+            47923,
+            35981,
+            18825,
+            10653,
+            3972,
+            1681,
+            7.509e2,
+            3.347e2,
+            2.168e2,
+            135,
+            1.097e2,
+            8.806e1,
+            7.832e1,
+            6.934e1,
+            6.106e1,
+            5.346e1,
+            4.65e1,
+            4.013e1,
+            2.891e1,
+            1.981e1,
+            1.261e1,
+            7.2
+         ]
+         ReflectiveSurfaceDiffuseFractions: [
+            [
+               5e-1,
+               5e-1,
+               5e-1
+            ],
+         ]
+         ReflectiveSurfaceEnergies: [
+            7,
+            9,
+            10
+         ]
+         ReflectiveSurfaceNames: [
+            "STEEL_STAINLESS_Fe7Cr2Ni"
+         ]
+         ReflectiveSurfaceReflectances: [
+            [
+               2.5e-1,
+               2.5e-1,
+               2.5e-1
+            ],
+         ]
+         ScintBirksConstant: 6.9e-2
+         ScintByParticleType: false
+         ScintFastTimeConst: 6
+         ScintPreScale: 3e-2
+         ScintResolutionScale: 1
+         ScintSlowTimeConst: 1590
+         ScintYield: 24000
+         ScintYieldRatio: 3e-1
+         SlowScintEnergies: [
+            6,
+            6.7,
+            7.1,
+            7.4,
+            7.7,
+            7.9,
+            8.1,
+            8.4,
+            8.5,
+            8.6,
+            8.8,
+            9,
+            9.1,
+            9.4,
+            9.8,
+            1.04e1,
+            1.07e1
+         ]
+         SlowScintSpectrum: [
+            0,
+            4e-2,
+            1.2e-1,
+            2.7e-1,
+            4.4e-1,
+            6.2e-1,
+            8e-1,
+            9.1e-1,
+            9.2e-1,
+            8.5e-1,
+            7e-1,
+            5e-1,
+            3.1e-1,
+            1.3e-1,
+            4e-2,
+            1e-2,
+            0
+         ]
+         service_provider: "LArPropertiesServiceStandard"
+         service_type: "LArPropertiesService"
+      }
+      LArSeedService: {
+         endOfJobSummary: true
+         policy: "random"
+         service_type: "LArSeedService"
+      }
+      SignalShapingServiceDUNE: {
+         ADCPerPCAtLowestASICGain: 11700
+         ASICGainInMVPerFC: [
+            14,
+            14,
+            14
+         ]
+         CalibResponseTOffset: [
+            0,
+            0,
+            0
+         ]
+         Col3DCorrection: 2.5
+         ColFieldParams: [
+            8,
+            16,
+            7.5e-1
+         ]
+         ColFieldRespAmp: 1
+         ColFieldShape: "x^[2]/(1.0+(x/[0])^[1])"
+         ColFilter: "(x>0.001)*[0]*(1-1/(1+exp(-(x-[1])/[2])))"
+         ColFilterParams: [
+            1,
+            1.5e-1,
+            2.5e-2
+         ]
+         DebugFieldShape: false
+         DeconNorm: 200
+         FieldBins: 400
+         FieldResponseFname: "FieldResponse/dune35t_response_v1.0.root"
+         FieldResponseHistoName: "FieldResponse"
+         FieldResponseTOffset: [
+            -32500,
+            -32500,
+            -32500
+         ]
+         FilterFunctionFname: "uboone_filters_v0.1.root"
+         FilterHistoName: "noisefilter_%d"
+         GetFilterFromHisto: false
+         Ind3DCorrection: 1.5
+         IndUFieldParams: [
+            8.43e-3,
+            1.534e-1,
+            1.77,
+            0,
+            5e-1
+         ]
+         IndUFieldRespAmp: 1
+         IndUFieldShape: "[0]*(1.0+[3]*tanh(x-[4]))*([4]-x)*exp(-0.5*((x-[4])/[2])^2.0)"
+         IndUFilter: "(x>0.03)*[0]*(1-1/(1+exp(-(x-[1])/[2])))*(1/(1+exp(-(x-[3])/[4])))"
+         IndUFilterParams: [
+            1,
+            1.05e-1,
+            1.9e-2,
+            1.8e-2,
+            1e-2
+         ]
+         IndVFieldParams: [
+            8.43e-3,
+            1.534e-1,
+            1.77,
+            0,
+            5e-1
+         ]
+         IndVFieldRespAmp: 1
+         IndVFieldShape: "[0]*(1.0+[3]*tanh(x-[4]))*([4]-x)*exp(-0.5*((x-[4])/[2])^2.0)"
+         IndVFilter: "(x>0.03)*[0]*(1-1/(1+exp(-(x-[1])/[2])))*(1/(1+exp(-(x-[3])/[4])))"
+         IndVFilterParams: [
+            9.5e-1,
+            1.25e-1,
+            1.9e-2,
+            1e-2,
+            1.09e-2
+         ]
+         InputFieldRespSamplingPeriod: 100
+         NoiseFactVec: [
+            [
+               1.12,
+               8.6e-1,
+               6,
+               5.5e-1
+            ],
+            [
+               1.12,
+               8.6e-1,
+               6,
+               5.5e-1
+            ],
+            [
+               8.9e-1,
+               6.6e-1,
+               4.8,
+               4.3e-1
+            ],
+         ]
+         ShapeTimeConst: [
+            3,
+            3,
+            3
+         ]
+         UseFunctionFieldShape: false
+         UseHistogramFieldShape: true
+         service_type: "SignalShapingServiceDUNE"
+      }
+      SpaceCharge: {
+         EnableCorrectionsSCE: false
+         EnableSimulationSCE: false
+         InputFilename: "SCEoffsets_DUNE35t_E500.root"
+         RepresentationType: "Parametric"
+         service_provider: "SpaceChargeServiceDUNE35t"
+         service_type: "SpaceCharge"
+      }
+   }
+}
+source: {
+   maxEvents: 10
+   module_label: "source"
+   module_type: "RootInput"
+}
+trigger_paths: {
+   trigger_paths: [
+      "reco"
+   ]
+}

@@ -31,8 +31,8 @@ source.maxEvents: 10000
 source.ADCdiffThreshold:  50
 source.ADCsOverThreshold: 100
 source.TrigSeparation:   10
-source.PreTriggerTicks:   300
-source.PostTriggerTicks: 5200
+# source.PreTriggerTicks:   300
+# source.PostTriggerTicks: 5200
 source.WhichTrigger:  [3]
 #source.PTBTrigs:      [111]
 source.PTBTrigs:      [111, 112, 113]

@@ -1,4 +1,5 @@
 *.root
 *.png
 *.log
-*/logs/*
+*/jobs/*
+*/jobs_nf/*

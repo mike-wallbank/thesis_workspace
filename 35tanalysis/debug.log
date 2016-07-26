@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 %MSG-i MF_INIT_OK:  lar 26-Jul-2016 13:57:11 BST JobSetup
 Messagelogger initialization complete.
 %MSG
@@ -51,18 +52,78 @@ New detector geometry loaded from
 Sorting...
 %MSG
 %MSG-i ChannelMap35OptAlg:  lar 26-Jul-2016 13:57:17 BST JobSetup
+=======
+%MSG-i MF_INIT_OK:  lar 19-Jul-2016 18:02:15 CDT JobSetup
+Messagelogger initialization complete.
+%MSG
+%MSG-w CONFIG:  lar 19-Jul-2016 18:02:17 CDT JobSetup
+Use of services.user parameter set is deprecated.
+Define all services in services parameter set.
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Import() 19-Jul-2016 18:02:17 CDT  JobSetup
+Reading geometry from file: /dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6.gdml
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::TGeoManager()  19-Jul-2016 18:02:17 CDT JobSetup
+Geometry GDMLImport, Geometry imported from GDML created
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::SetTopVolume()  19-Jul-2016 18:02:21 CDT JobSetup
+Top volume is volWorld. Master volume is volWorld
+%MSG
+%MSG-i Root_Information:  lar TGeoNavigator::BuildCache()  19-Jul-2016 18:02:21 CDT JobSetup
+--- Maximum geometry depth set to 100
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+Fixing runtime shapes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CheckGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+...Nothing to fix
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+Counting nodes...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::Voxelize() 19-Jul-2016 18:02:21 CDT  JobSetup
+Voxelizing...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+Building cache...
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CountLevels()  19-Jul-2016 18:02:21 CDT JobSetup
+max level = 5, max placements = 359
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+5627 nodes/ 2528 volume UID's in Geometry imported from GDML
+%MSG
+%MSG-i Root_Information:  lar TGeoManager::CloseGeometry()  19-Jul-2016 18:02:21 CDT JobSetup
+----------------modeler ready----------------
+%MSG
+%MSG-i GeometryCore:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+New detector geometry loaded from 
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6.gdml
+	/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v05_15_00_e9_prof/dunetpc/v05_14_01/gdml/dune35t4apa_v6_nowires.gdml
+
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+Sorting...
+%MSG
+%MSG-i ChannelMap35OptAlg:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+>>>>>>> Stashed changes
 Initializing...
 %MSG
 fNchannels = 2048
 U channels per APA = 144
 V channels per APA = 144
 Z channels per APA side = 112
+<<<<<<< Updated upstream
 %MSG-i SimpleChannelStatusService:  lar 26-Jul-2016 13:57:17 BST JobSetup
+=======
+%MSG-i SimpleChannelStatusService:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+>>>>>>> Stashed changes
 Loaded from configuration:
   - 259 bad channels
   - 0 noisy channels
   - largest channel ID: 2047, largest present: 2047
 %MSG
+<<<<<<< Updated upstream
 %MSG-i setupProvider<DetectorPropertiesStandard>:  lar 26-Jul-2016 13:57:17 BST  JobSetup
 Asked to ignore 1 keys: 'InheritNumberTimeSamples'
 %MSG
@@ -73,10 +134,23 @@ Getting Filter from .fcl file
  using the field response provided from a .root file 
 %MSG
 %MSG-w CONFIG:  lar 26-Jul-2016 13:57:17 BST JobSetup
+=======
+%MSG-i setupProvider<DetectorPropertiesStandard>:  lar 19-Jul-2016 18:02:21 CDT  JobSetup
+Asked to ignore 1 keys: 'InheritNumberTimeSamples'
+%MSG
+%MSG-i SignalShapingServiceDUNE:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+Getting Filter from .fcl file
+%MSG
+%MSG-i SignalShapingServiceDUNE:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+ using the field response provided from a .root file 
+%MSG
+%MSG-w CONFIG:  lar 19-Jul-2016 18:02:21 CDT JobSetup
+>>>>>>> Stashed changes
 
  <<< 'SimpleMemoryCheck' is deprecated.  Please use 'MemoryTracker'. >>>
 
 %MSG
+<<<<<<< Updated upstream
 26-Jul-2016 13:57:17 BST  Initiating request to open file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco.root
 26-Jul-2016 13:57:18 BST  Successfully opened file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014427/reco.root
 %MSG-w LoadNewGeometry:  PostSourceRun 26-Jul-2016 13:57:21 BST run: 14427
@@ -425,11 +499,17 @@ MemoryCheck: module APACrossingMuons:apacrossing VSIZE 920.348 0 RSS 265.938 0.0
 26-Jul-2016 13:57:32 BST  Initiating request to open file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014448/reco.root
 26-Jul-2016 13:57:32 BST  Successfully opened file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014448/reco.root
 %MSG-w LoadNewGeometry:  PostSourceRun 26-Jul-2016 13:57:32 BST run: 14448
+=======
+19-Jul-2016 18:02:21 CDT  Initiating request to open file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
+19-Jul-2016 18:02:21 CDT  Successfully opened file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
+%MSG-w LoadNewGeometry:  PostSourceRun 19-Jul-2016 18:02:21 CDT run: 14427
+>>>>>>> Stashed changes
 cannot find sumdata::RunData object to grab detector name
 this is expected if generating MC files
 using default geometry from configuration file
 
 %MSG
+<<<<<<< Updated upstream
 Begin processing the 20th record. run: 14448 subRun: 1 event: 3 at 26-Jul-2016 13:57:33 BST
 %MSG-w MemoryCheck:  Source 26-Jul-2016 13:57:33 BST PostBeginSubRun
 MemoryCheck: module source:source VSIZE 921.348 1 RSS 265.938 0
@@ -513,10 +593,15 @@ MemoryCheck: module source:source VSIZE 926.348 4 RSS 265.949 0
 
 %MSG
 %MSG-d RANDOM:  PostSource 26-Jul-2016 13:57:37 BST  run: 14453 subRun: 1 event: 19
+=======
+Begin processing the 1st record. run: 14427 subRun: 1 event: 5 at 19-Jul-2016 18:02:21 CDT
+%MSG-d RANDOM:  PostSource 19-Jul-2016 18:02:21 CDT  run: 14427 subRun: 1 event: 5
+>>>>>>> Stashed changes
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
+<<<<<<< Updated upstream
 26-Jul-2016 13:57:37 BST  Closed file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014453/reco.root
 26-Jul-2016 13:57:37 BST  Initiating request to open file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014454/reco.root
 26-Jul-2016 13:57:37 BST  Successfully opened file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014454/reco.root
@@ -550,10 +635,19 @@ MemoryCheck: module source:source VSIZE 929.348 3 RSS 265.949 0
 
 %MSG
 %MSG-d RANDOM:  PostSource 26-Jul-2016 13:57:39 BST  run: 14456 subRun: 1 event: 53
+=======
+Begin processing the 2nd record. run: 14427 subRun: 1 event: 16 at 19-Jul-2016 18:02:21 CDT
+%MSG-w MemoryCheck:  Source 19-Jul-2016 18:02:21 CDT PostProcessEvent
+MemoryCheck: module source:source VSIZE 655.461 0 RSS 101.445 0.0078125
+
+%MSG
+%MSG-d RANDOM:  PostSource 19-Jul-2016 18:02:21 CDT  run: 14427 subRun: 1 event: 16
+>>>>>>> Stashed changes
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
+<<<<<<< Updated upstream
 %MSG-w MemoryCheck:  APACrossingMuons:apacrossing 26-Jul-2016 13:57:39 BST  run: 14456 subRun: 1 event: 53
 MemoryCheck: module APACrossingMuons:apacrossing VSIZE 929.348 0 RSS 265.984 0.0351562
 
@@ -583,10 +677,23 @@ MemoryCheck: module source:source VSIZE 930.348 1 RSS 265.988 0
 
 %MSG
 %MSG-d RANDOM:  PostSource 26-Jul-2016 13:57:40 BST  run: 14457 subRun: 1 event: 13
+=======
+%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 19-Jul-2016 18:02:21 CDT  run: 14427 subRun: 1 event: 16
+MemoryCheck: module APACrossingMuons:apacrossing VSIZE 655.461 0 RSS 101.531 0.0859375
+
+%MSG
+Begin processing the 3rd record. run: 14427 subRun: 1 event: 51 at 19-Jul-2016 18:02:21 CDT
+%MSG-w MemoryCheck:  Source 19-Jul-2016 18:02:21 CDT PostProcessEvent
+MemoryCheck: module source:source VSIZE 655.461 0 RSS 101.539 0.0078125
+
+%MSG
+%MSG-d RANDOM:  PostSource 19-Jul-2016 18:02:21 CDT  run: 14427 subRun: 1 event: 51
+>>>>>>> Stashed changes
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
+<<<<<<< Updated upstream
 %MSG-w MemoryCheck:  APACrossingMuons:apacrossing 26-Jul-2016 13:57:40 BST  run: 14457 subRun: 1 event: 13
 MemoryCheck: module APACrossingMuons:apacrossing VSIZE 930.348 0 RSS 265.992 0.00390625
 
@@ -805,6 +912,13 @@ using default geometry from configuration file
 
 %MSG
 26-Jul-2016 13:57:54 BST  Closed file /data/wallbank/dune/35t/data/Sliced_And_Filtered/EW/014470/reco.root
+=======
+%MSG-w MemoryCheck:  APACrossingMuons:apacrossing 19-Jul-2016 18:02:21 CDT  run: 14427 subRun: 1 event: 51
+MemoryCheck: module APACrossingMuons:apacrossing VSIZE 655.609 0.148438 RSS 101.566 0.0273438
+
+%MSG
+19-Jul-2016 18:02:21 CDT  Closed file /dune/data/users/wallbank/Sliced_And_Filtered/EW/014427/reco.root
+>>>>>>> Stashed changes
 
 TrigReport ---------- Event  Summary ------------
 TrigReport Events total = 35 passed = 35 failed = 0
@@ -814,11 +928,16 @@ TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
 TrigReport     0    0         35         35          0          0 apacrossing
 
 TimeReport ---------- Time  Summary ---[sec]----
+<<<<<<< Updated upstream
 TimeReport CPU = 1.265830 Real = 1.170825
+=======
+TimeReport CPU = 0.096758 Real = 0.098984
+>>>>>>> Stashed changes
 
 ===========================================================================================================================
 TimeTracker printout (sec)                   Min           Avg           Max         Median          RMS         nEvts   
 ===========================================================================================================================
+<<<<<<< Updated upstream
 Full event                               0.000339369    0.0361803     0.0909005     0.0250873     0.0317826       35     
 ---------------------------------------------------------------------------------------------------------------------------
 end_path:apacrossing:APACrossingMuons    0.000297017    0.0360553     0.0908395     0.0249939     0.0318052       35     
@@ -838,15 +957,39 @@ Key events with largest vsize:
 [3] run: 14465 subRun: 1 event: 52  vsize = 938.668
 
 %MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 26-Jul-2016 13:57:54 BST  PostEndRun
+=======
+Full event                               0.000578887    0.0322882     0.0740538     0.0222318     0.0308274        3     
+---------------------------------------------------------------------------------------------------------------------------
+end_path:apacrossing:APACrossingMuons    0.000474268    0.0320753     0.0739269     0.0218246     0.0308505        3     
+===========================================================================================================================
+
+MemoryReport> Peak virtual size 655.609 Mbytes
+Key events increasing vsize:
+[1] run: 14427 subRun: 1 event: 51  vsize = 655.609 deltaVsize = 0.148438
+
+Key events with largest vsize:
+[1] run: 14427 subRun: 1 event: 51  vsize = 655.609
+[2] run: 14427 subRun: 1 event: 16  vsize = 655.461
+
+%MSG-d RANDOM:  APACrossingMuons:apacrossing@EndJob 19-Jul-2016 18:02:21 CDT  PostEndRun
+>>>>>>> Stashed changes
 RNGservice::takeSnapshot_() of the following engine labels:
  |
 
 %MSG
+<<<<<<< Updated upstream
 %MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  26-Jul-2016 13:57:54 BST PostEndRun
 
 Summary of seeds computed by the LArSeedService
 Random policy: 'random'
   master seed: 366221527
+=======
+%MSG-i LArSeedService:  APACrossingMuons:apacrossing@EndJob  19-Jul-2016 18:02:21 CDT PostEndRun
+
+Summary of seeds computed by the LArSeedService
+Random policy: 'random'
+  master seed: 105280848
+>>>>>>> Stashed changes
   seed within: [ 1 ; 900000000 ]
 
 %MSG

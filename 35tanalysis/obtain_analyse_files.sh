@@ -2,6 +2,10 @@
 
 # Script to get files out of samweb matching runs we're interested in and run analysis over them
 
+outputDirTag=both_nofilter
+jobDir=jobs_nf
+filter=0
+
 while read run; do
 
     # ignore the line if it's a comment or empty line
@@ -17,8 +21,8 @@ while read run; do
     file=/pnfs/lbne${path:29}
 
     # get the directories
-    outDir=/dune/data/users/wallbank/Sliced_And_Filtered/both/${run}
-    condorDir='${_CONDOR_SCRATCH_DIR}'/both/${run}
+    outDir=/dune/data/users/wallbank/Sliced_And_Filtered/${outputDirTag}/${run}
+    condorDir='${_CONDOR_SCRATCH_DIR}'/${outputDirTag}/${run}
 
     # make output dir
     touch ${outDir}
@@ -26,7 +30,7 @@ while read run; do
     mkdir ${outDir}
 
     # write a script to run the job
-    cat > "jobs/job_r${run}.sh" <<EOF
+    cat > "${jobDir}/job_r${run}.sh" <<EOF
 #!/bin/bash
 
 echo Start of analysing run $run
@@ -42,6 +46,7 @@ source ${MRB_DIR}/bin/setup_local_products
 # copy the necessary files
 mkdir -p $condorDir
 cd $condorDir
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/RunSplitterDefault.fcl .
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/SliceAndFilter.fcl .
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/reco_dune35tdata.fcl .
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/apa_crossing.fcl .
@@ -53,7 +58,12 @@ ls
 echo
 
 # run the jobs
+if [ ${filter} -eq 1 ]
+then
 lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
+else
+lar -c RunSplitterDefault.fcl -s $filename -o sliced_and_filtered.root
+fi
 lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
 lar -c apa_crossing.fcl -s reco.root
 
@@ -69,7 +79,7 @@ echo End of script
 EOF
 
     # submit job
-    chmod +x jobs/job_r${run}.sh
-    jobsub_submit --group=dune --use_gftp --resource-provides=usage_model=OPPORTUNISTIC file:///dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/jobs/job_r${run}.sh
+    chmod +x ${jobDir}/job_r${run}.sh
+    jobsub_submit --group=dune --use_gftp --resource-provides=usage_model=OPPORTUNISTIC file:///dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/${jobDir}/job_r${run}.sh
 
 done < "$1"

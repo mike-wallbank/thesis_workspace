@@ -32,10 +32,13 @@ physics:
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
-      CounterMapFile: "${BASE}/larsoft-base/workspace/35tanalysis/CounterPositions.txt"
-      CounterWidth: 20.
-      HitDensityThresh: 2
+      CounterMapFile: "counterInformation.txt"
+      CounterWidth: 15.
+      HitDensityThresh: 6
+      HitLineDistThresh: 2.
       DriftVelocityScale: 1
+      ExpectedT0: 300
+      ExpectedT0Tolerance: 20
       SaveImages: false
     }
   }

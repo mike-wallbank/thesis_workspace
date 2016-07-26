@@ -122,7 +122,7 @@ physics:
          , pmtrack, pmtrackch
          #, photont0pmtrack, pmtrackcalo
 	 #shower reconstruction
-	 #, blurredcluster, emshower, emshower3d, mergeemshower3d
+	 , blurredcluster, emshower #, emshower3d, mergeemshower3d
 ]
 
  #define the output stream, there could be more than one if using filters 
@@ -152,7 +152,7 @@ outputs:
 }
 ### Here, we overwrite ALL module labels with the ones defined above.
 physics.producers.unstick.DigitModuleLabel:            "SplitterInput:TPC"
-physics.producers.daq.RawDigitModuleLabel:             "unstick"
+physics.producers.daq.RawDigitModuleLabel:             "unstick:TPC"
 physics.producers.daq.RawDigitModuleInstance:          "TPC"
 physics.producers.daq.SkipStuckCodes:                  false
 physics.producers.t0counter.TriggerModuleLabel:        "SplitterInput:TRIGGER"
@@ -164,7 +164,7 @@ physics.producers.caldata.DigitModuleLabel:            "unstick:TPC" #"daq"
 physics.producers.gaushit.CalDataModuleLabel:          "caldata:TPC"
 #physics.producers.gaushit.MinSig:                      [100,100,100]
 #physics.producers.gaushit.MinWidth:                    [5,5,5]
-#physics.producers.hit35tcc.ChanHitLabel:               "gaushit"
+#physics.producers.hit35tcc.ChanHitLabel:              "gaushit"
 physics.producers.lineclusterch.HitFinderModuleLabel:  "counterhit"
 physics.producers.trkshowersplit.HitModuleLabel:       "linecluster"
 physics.producers.pmtrack.HitModuleLabel:               "linecluster"
@@ -264,5 +264,5 @@ services.user.SignalShapingServiceDUNE.IndVFilterParams: [ 0.95, 0.125, 0.019, 0
 physics.producers.gaushit.MinSig:   [ 5, 5, 10 ]
 physics.producers.gaushit.MinWidth: [ 1, 1, 1 ]
 
-physics.producers.fasthit.MinSigCol: 50
-physics.producers.fasthit.MinSigInd: 50
+physics.producers.fasthit.MinSigCol: 80
+physics.producers.fasthit.MinSigInd: 80

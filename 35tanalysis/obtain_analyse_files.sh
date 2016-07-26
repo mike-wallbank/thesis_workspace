@@ -72,4 +72,4 @@ EOF
     chmod +x jobs/job_r${run}.sh
     jobsub_submit --group=dune --use_gftp --resource-provides=usage_model=OPPORTUNISTIC file:///dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/jobs/job_r${run}.sh
 
-done < good_runs.txt
+done < "$1"

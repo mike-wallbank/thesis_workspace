@@ -2,8 +2,12 @@
 
 # Script to get files out of samweb matching runs we're interested in and run analysis over them
 
-for run in `cat good_runs.txt`
-do
+while read run; do
+
+    # ignore the line if it's a comment or empty line
+    if [[ $run == \#* ]] || [[ -z $run ]]; then
+	continue
+    fi
 
     echo Analysing run $run
 
@@ -68,4 +72,4 @@ EOF
     chmod +x jobs/job_r${run}.sh
     jobsub_submit --group=dune --use_gftp --resource-provides=usage_model=OPPORTUNISTIC file:///dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/jobs/job_r${run}.sh
 
-done
+done < good_runs.txt

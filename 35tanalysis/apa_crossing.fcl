@@ -37,7 +37,7 @@ physics:
       HitDensityThresh: 6
       HitLineDistThresh: 2.
       DriftVelocityScale: 1
-      ExpectedT0: 300
+      ExpectedT0: 1
       ExpectedT0Tolerance: 20
       SaveImages: false
     }

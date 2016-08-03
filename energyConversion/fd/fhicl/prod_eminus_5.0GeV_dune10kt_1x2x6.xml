@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v05_11_00">
+<!ENTITY release "v06_00_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "prod_eminus_5.0GeV_dune10kt_1x2x6">
@@ -68,7 +68,7 @@
   </stage>
 
   <stage name="reco">
-    <fcl>standard_reco_dune10kt_1x2x6.fcl</fcl>
+    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/energyConversion/fd/fhicl/hit_reco_dune10kt_1x2x6.fcl</fcl>
     <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reco/&name;</outdir>
     <workdir>/dune/app/users/wallbank/work/&release;/reco/&name;</workdir>
     <numjobs>10</numjobs>

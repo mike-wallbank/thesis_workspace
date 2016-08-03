@@ -1,0 +1,13 @@
+#include "prodsingle_common_dune35t.fcl"
+
+process_name: SinglesGen
+
+outputs.out1.fileName: "prod_eminus_0.1GeV_dune35t_%tc_gen.root"
+
+source.firstRun: 10000005
+source.maxEvents: 1000
+
+physics.producers.generator.PDG: [ 11 ]            # e-
+physics.producers.generator.P0: [0.5]              # GeV
+physics.producers.generator.PDist: 0
+physics.producers.generator.SigmaP: [0.0]

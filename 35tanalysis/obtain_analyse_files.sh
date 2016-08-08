@@ -8,13 +8,15 @@ if [ -z $1 ]; then
     echo
 fi
 
-export OUTPUTDIRTAG=EW
-export RUNFILE=ew_filter_runs.txt
-export FILTER=1
+export OUTPUTDIRTAG=both_nofilter
+export RUNFILE=both_nofilter_runs.txt
+export FILTER=0
 
 # make sure output dir is empty
 export OUTDIR=/pnfs/dune/persistent/users/wallbank/Sliced_And_Filtered/${OUTPUTDIRTAG}
+echo Ensuring empty output directory exists at $OUTDIR
 touch $OUTDIR
+chmod +xrw $OUTDIR
 rm -rf $OUTDIR
 mkdir $OUTDIR
 

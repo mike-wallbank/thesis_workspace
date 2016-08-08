@@ -1,5 +1,6 @@
 # Good run list for analysis
 # Place each run on new line, use # for comments
+# STOP on any line will end processing at this point!
 
 # Alex's
 014427
@@ -41,8 +42,6 @@
 014468
 014469
 014470
-
-STOP
 
 # Matt's
 015483

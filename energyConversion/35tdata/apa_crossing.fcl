@@ -32,16 +32,15 @@ physics:
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
-      CorrectGap: false
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.
       HitDensityThresh: 6
       HitLineDistThresh: 2.
       DriftVelocityScale: 1
-      ExpectedT0: 1
-      ExpectedT0Tolerance: 20
-      EnergyConversionMinHits: 0
-      EnergyConversionMaxHits: 0
+      ExpectedT0: 300
+      ExpectedT0Tolerance: 50
+      EnergyConversionMinHits: 20
+      EnergyConversionMaxHits: 10000
       SaveImages: false
     }
   }

@@ -2,9 +2,20 @@
 #include "TTree.h"
 #include "TGraphErrors.h"
 #include "TH1D.h"
+#include <vector>
 
 const std::vector<int> kEnergyBins = {0,200,300,350,400,450,1000};
 //const std::vector<int> kEnergyBins = {0,200,300,350,400,450};
+
+// const std::vector<int> kEnergyBins;// = {0,200,300,350,400,450,590,1000};
+// kEnergyBins.push_back(0);
+// kEnergyBins.push_back(200);
+// kEnergyBins.push_back(300);
+// kEnergyBins.push_back(350);
+// kEnergyBins.push_back(400);
+// kEnergyBins.push_back(450);
+// kEnergyBins.push_back(590);
+// kEnergyBins.push_back(1000);
 
 class EMEnergyConversion {
 public:

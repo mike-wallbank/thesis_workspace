@@ -1,0 +1,37 @@
+#include "services_dune.fcl"
+
+process_name: fdanafilter
+
+services:
+{
+  TFileService: { fileName: "fdana_filter.root" }
+  TimeTracker:       {}
+  RandomNumberGenerator: {}
+  user:         @local::dunefd_services
+}
+
+physics:
+{
+  filters:
+  {
+    fdanafilter:
+    {
+      module_type: NuMuPi0Analysis
+    }
+  }
+
+  filter:    [ fdanafilter ]
+  stream1:   [ out1 ]
+  end_paths: [ stream1 ]
+
+}
+
+outputs:
+{
+  out1:
+  {
+    module_type:  RootOutput
+    fileName:    "filtered.root"
+    SelectEvents: {SelectEvents:[filter]}
+  }
+}

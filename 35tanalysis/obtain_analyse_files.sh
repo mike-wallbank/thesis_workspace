@@ -8,7 +8,7 @@ if [ -z $1 ]; then
     echo
 fi
 
-export OUTPUTDIRTAG=EW_1
+export OUTPUTDIRTAG=EW_300_angledist
 export RUNFILE=ew_filter_runs.txt
 export FILTER=1
 

@@ -1,8 +1,10 @@
 #include "TFile.h"
 #include "TTree.h"
+#include "TGraphErrors.h"
 #include "TH1D.h"
 
-const std::vector<int> kEnergyBins = {0,200,300,350,400,450,590,1000};
+const std::vector<int> kEnergyBins = {0,200,300,350,400,450,1000};
+//const std::vector<int> kEnergyBins = {0,200,300,350,400,450};
 
 class EMEnergyConversion {
 public:
@@ -87,36 +89,54 @@ void EMEnergyConversion::Run() {
   hChargeHists.reserve(kEnergyBins.size()-1);
   for (int bin = 0; bin < kEnergyBins.size()-1; ++bin) {
     hEnergyHists[bin] = new TH1D(TString("EnergyDist")+TString(std::to_string(bin)),";Energy (MeV);",100,kEnergyBins[bin],kEnergyBins[bin+1]);
-    hChargeHists[bin] = new TH1D(TString("ChargeDist")+TString(std::to_string(bin)),";Charge (ADC);",100,lowerCharge[bin]-100,upperCharge[bin]+100);
+    hChargeHists[bin] = new TH1D(TString("ChargeDist")+TString(std::to_string(bin)),";Charge (ADC);",40,lowerCharge[bin]-100,TMath::Min(upperCharge[bin]+100,1e6));
   }
 
   // Fill the histograms
   for (int event = 0; event < fTree->GetEntriesFast(); ++event) {
     fTree->GetEntry(event);
+    if (depositZ == 0 or correctedChargeZ == 0)
+      continue;
+    if (nhits < 20 or nhits > 100)
+      continue;
     int bin = GetEnergyBin(depositZ);
     hEnergyHists[bin]->Fill(depositZ);
     hChargeHists[bin]->Fill(correctedChargeZ);
   }
 
   // Analyse and write the histograms
-  TGraph* energycharge = new TGraph();
+  TGraphErrors* energycharge = new TGraphErrors();
   outFile->cd();
   for (int bin = 0; bin < kEnergyBins.size()-1; ++bin) {
     double energy = hEnergyHists[bin]->GetMean();
-    hChargeHists[bin]->Fit("gaus");
+    double charge_mean = hChargeHists[bin]->GetMean();
+    double charge_rms = hChargeHists[bin]->GetRMS();
+    hChargeHists[bin]->Fit("gaus","","",charge_mean-2*charge_rms,charge_mean+2*charge_rms);
     TF1* fit = hChargeHists[bin]->GetFunction("gaus");
     double charge = fit->GetParameter(1);
+    double charge_width = fit->GetParameter(2);
     hEnergyHists[bin]->Write();
     hChargeHists[bin]->Write();
-    energycharge->SetPoint(energycharge->GetN(), charge, energy);
+    int point = energycharge->GetN();
+    energycharge->SetPoint(point, charge, energy);
+    energycharge->SetPointError(point, charge_width, hEnergyHists[bin]->GetRMS());
   }
   energycharge->SetNameTitle("EnergyCharge",";Charge (ADC);Energy (MeV);");
+  energycharge->SetMarkerStyle(8);
+  energycharge->SetMarkerSize(1);
+  energycharge->Fit("pol1");
   energycharge->Write();
+  fit = energycharge->GetFunction("pol1");
+  std::pair<double,double> fitParameters = std::make_pair(fit->GetParameter(0), fit->GetParameter(1));
+  delete fit;
+  delete energycharge;
 
   for (int bin = 0; bin < kEnergyBins.size()-1; ++bin) {
     delete hEnergyHists[bin];
     delete hChargeHists[bin];
   }
+
+  std::cout << "Fit parameters are gradient " << fitParameters.second << " and intercept " << fitParameters.first << std::endl;
 
   return;
 

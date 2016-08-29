@@ -28,17 +28,20 @@ physics:
     apacrossing:
     {
       module_type: "APACrossingMuons"
-      HitsModuleLabel: "fasthit"
+      HitsModuleLabel: "gaushit" # "fasthit"
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
       CorrectGap: false
+      CorrectDrift: true
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.
       HitDensityThresh: 6
       HitLineDistThresh: 2.
+      NeighbourDistThresh: 5.
+      NoisyWireThresh: 5
       DriftVelocityScale: 1
-      ExpectedT0: 1
+      ExpectedT0: 300
       ExpectedT0Tolerance: 20
       EnergyConversionMinHits: 0
       EnergyConversionMaxHits: 0

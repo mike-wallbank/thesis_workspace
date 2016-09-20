@@ -32,8 +32,9 @@ physics:
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
+      T0Correction: 0 #64
       CorrectGap: false
-      CorrectDrift: true
+      CorrectDrift: false
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.
       HitDensityThresh: 6
@@ -41,7 +42,7 @@ physics:
       NeighbourDistThresh: 5.
       NoisyWireThresh: 5
       DriftVelocityScale: 1
-      ExpectedT0: 300
+      ExpectedT0: 300 #364
       ExpectedT0Tolerance: 20
       EnergyConversionMinHits: 0
       EnergyConversionMaxHits: 0

@@ -33,6 +33,7 @@ physics:
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
       T0Correction: 0 #64
+      CalorimetryConst: 3e16
       CorrectGap: false
       CorrectDrift: false
       CounterMapFile: "counterInformation.txt"

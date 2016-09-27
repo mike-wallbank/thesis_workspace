@@ -113,21 +113,27 @@ physics.producers.blurredcluster.VertexModuleLabel:  "linecluster"
 physics.producers.pmtrack.HitModuleLabel:            "linecluster"
 physics.producers.pmtrack.ClusterModuleLabel:        "linecluster"
 
+physics.producers.pandoradc.HitFinderModuleLabel: "lineclusterdc"
+physics.producers.pandora.HitFinderModuleLabel: "linecluster"
+
 physics.producers.emshowerdc.HitsModuleLabel:    "lineclusterdc"
-physics.producers.emshowerdc.ClusterModuleLabel: "blurredclusterdc"
-physics.producers.emshowerdc.TrackModuleLabel:   "pmtrackdc"
+# physics.producers.emshowerdc.ClusterModuleLabel: "blurredclusterdc"
+# physics.producers.emshowerdc.TrackModuleLabel:   "pmtrackdc"
+physics.producers.emshowerdc.ClusterModuleLabel: "pandoradc"
+physics.producers.emshowerdc.TrackModuleLabel: "pandoradc"
+physics.producers.emshowerdc.PFParticleModuleLabel: "pandoradc"
 physics.producers.emshowerdc.MinTrackLength:     3
 
 physics.producers.emshower.HitsModuleLabel:    "linecluster"
-physics.producers.emshower.ClusterModuleLabel: "blurredcluster"
-physics.producers.emshower.TrackModuleLabel:   "pmtrack"
+# physics.producers.emshower.ClusterModuleLabel: "blurredcluster"
+# physics.producers.emshower.TrackModuleLabel:   "pmtrack"
+physics.producers.emshower.ClusterModuleLabel: "pandora"
+physics.producers.emshower.TrackModuleLabel: "pandora"
+physics.producers.emshower.PFParticleModuleLabel: "pandora"
 physics.producers.emshower.MinTrackLength:     3
 
-physics.producers.pandoradc.HitFinderModuleLabel: "lineclusterdc"
-physics.producers.blurredclusterdc.PFParticleModuleLabel: "pandoradc"
-
-physics.producers.pandora.HitFinderModuleLabel: "linecluster"
-physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+#physics.producers.blurredclusterdc.PFParticleModuleLabel: "pandoradc"
+#physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
 
 # cluster
 physics.producers.blurredclusterdc.CreateDebugPDF: false
@@ -152,8 +158,8 @@ physics.producers.blurredclusterdc.ShowerReconOnly: false
 physics.producers.emshowerdc.SaveNonCompleteShowers: true
 physics.producers.emshowerdc.FindBadPlanes: false
 physics.producers.emshowerdc.Debug: 0
-physics.producers.emshowerdc.EMShowerAlg.MakeRMSGradientPlot: true
-physics.producers.emshowerdc.EMShowerAlg.MakeGradientPlot: true
+physics.producers.emshowerdc.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshowerdc.EMShowerAlg.MakeGradientPlot: false
 physics.producers.emshowerdc.EMShowerAlg.NumShowerSegments: 4
 physics.producers.emshowerdc.Shower: -1
 physics.producers.emshowerdc.Plane: -1

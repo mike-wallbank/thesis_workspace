@@ -13,7 +13,7 @@
 #include "showerfindermodules_dune.fcl"
 #include "emshower3d.fcl"
 
-process_name: ShowerReco
+process_name: NuEReco
 
 services:
 {

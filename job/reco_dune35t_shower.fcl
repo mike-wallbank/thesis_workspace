@@ -60,12 +60,12 @@ physics:
    }
  }
 
- reco: [ blurredclusterdc
-        #rns, caldata,
-         #gaushit, dcheat,
+ reco: [ #blurredclusterdc
+         rns, caldata,
+         gaushit, dcheat,
          #lineclusterdc, blurredclusterdc
          #lineclusterdc, pmtrackdc, blurredclusterdc, emshowerdc
-         #lineclusterdc, pandoradc, pmtrackdc, blurredclusterdc, emshowerdc
+         lineclusterdc, pandoradc, pmtrackdc, blurredclusterdc, emshowerdc
          #hit35t, linecluster, pmtrack, blurredcluster, emshower
        ]
 

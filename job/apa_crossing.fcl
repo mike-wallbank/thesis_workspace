@@ -1,4 +1,10 @@
 #include "services_dune.fcl"
+#include "calorimetry_dune35t.fcl"
+
+BEGIN_PROLOG
+dune35t_calorimetryalgdata.CalAmpConstants:  [ 6.5e-3, 6.5e-3, 6.5e-3 ]
+dune35t_calorimetryalgdata.CalAreaConstants: [ 6.5e-3, 6.5e-3, 6.5e-3 ]
+END_PROLOG
 
 process_name: APACrossing
 
@@ -28,14 +34,13 @@ physics:
     apacrossing:
     {
       module_type: "APACrossingMuons"
+      CalorimetryAlg: @local::dune35t_calorimetryalgdata
       HitsModuleLabel: "gaushit" # "fasthit"
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
       T0Correction: 0 #64
-      CalorimetryConst: 3e16
-      CorrectGap: false
-      CorrectDrift: false
+      CalorimetryConst: 6.5e-3
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.
       HitDensityThresh: 6
@@ -45,8 +50,6 @@ physics:
       DriftVelocityScale: 1
       ExpectedT0: 300 #364
       ExpectedT0Tolerance: 20
-      EnergyConversionMinHits: 0
-      EnergyConversionMaxHits: 0
       SaveImages: false
     }
   }

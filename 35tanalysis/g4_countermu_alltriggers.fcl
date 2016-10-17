@@ -1,0 +1,6 @@
+#include "standard_g4_dune35t_countermu.fcl"
+
+physics.filters.filter.UseEWCounterPair: true
+physics.filters.filter.UseNupSdownCounterPair: true
+physics.filters.filter.UseNdownSupCounterPair: true
+

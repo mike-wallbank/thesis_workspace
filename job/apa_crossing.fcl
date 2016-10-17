@@ -2,8 +2,8 @@
 #include "calorimetry_dune35t.fcl"
 
 BEGIN_PROLOG
-dune35t_calorimetryalgdata.CalAmpConstants:  [ 6.5e-3, 6.5e-3, 6.5e-3 ]
-dune35t_calorimetryalgdata.CalAreaConstants: [ 6.5e-3, 6.5e-3, 6.5e-3 ]
+dune35t_calorimetryalgdata.CalAmpConstants:  [ 7.4e-3, 7.4e-3, 7.4e-3 ]
+dune35t_calorimetryalgdata.CalAreaConstants: [ 7.4e-3, 7.4e-3, 7.4e-3 ]
 END_PROLOG
 
 process_name: APACrossing
@@ -40,7 +40,7 @@ physics:
       TrackModuleLabel: "pmtrackcht"
       T0ModuleLabel: "t0counter"
       T0Correction: 0 #64
-      CalorimetryConst: 6.5e-3
+      CalorimetryConst: 7.4e-3
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.
       HitDensityThresh: 6

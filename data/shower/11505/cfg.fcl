@@ -2,15 +2,39 @@ outputs: {
    out1: {
       compressionLevel: 1
       dataTier: "full-reconstructed"
-      fileName: "shower_reco.root"
+      fileName: "%ifb_%tc_reco.root"
       module_label: "out1"
       module_type: "RootOutput"
       streamName: "out1"
    }
 }
 physics: {
+   analyze: [
+      "opflashana"
+   ]
+   analyzers: {
+      opflashana: {
+         MakeFlashBreakdownTree: true
+         MakeFlashHitMatchTree: true
+         MakeFlashPosHist: false
+         MakeFlashTimeHist: false
+         MakePerEventFlashTree: false
+         MakePerFlashHists: false
+         MakePerFlashTree: true
+         MakePerOpHitTree: true
+         OpFlashModuleLabel: "opflash"
+         OpHitModuleLabel: "ophit"
+         YMax: 50
+         YMin: -50
+         ZMax: 1200
+         ZMin: 0
+         module_label: "opflashana"
+         module_type: "OpFlashAna"
+      }
+   }
    end_paths: [
-      "stream1"
+      "stream1",
+      "analyze"
    ]
    producers: {
       blurredcluster: {
@@ -223,12 +247,12 @@ physics: {
                TrkValidationDist2D: 1
             }
             ShowerEnergyAlg: {
-               UGradient: 5.53072e-3
-               UIntercept: -3.36764e1
-               VGradient: 5.53072e-3
-               VIntercept: -3.36764e1
-               ZGradient: 5.53072e-3
-               ZIntercept: -3.36764e1
+               UGradient: 5.88161e-3
+               UIntercept: -1.36686
+               VGradient: 5.88161e-3
+               VIntercept: -1.36686
+               ZGradient: 5.88161e-3
+               ZIntercept: -1.36686
             }
             Toler: [
                30,
@@ -640,7 +664,7 @@ physics: {
          InputLabels: [
             ""
          ]
-         InputModule: "opdigi"
+         InputModule: "SplitterInput:PHOTON"
          PedAlgoPset: {
             Method: 0
             Name: "Edges"
@@ -935,6 +959,15 @@ physics: {
       }
    }
    reco: [
+      "rns",
+      "ophit",
+      "opflash",
+      "t0counter",
+      "caldata",
+      "gaushit",
+      "hit35t",
+      "linecluster",
+      "pmtrack",
       "blurredcluster",
       "emshower"
    ]
@@ -1929,11 +1962,12 @@ services: {
 }
 source: {
    fileNames: [
-      "track_reco.root"
+      "split.root"
    ]
-   maxEvents: 1
+   maxEvents: 2
    module_label: "source"
    module_type: "RootInput"
+   skipEvents: 41
 }
 trigger_paths: {
    trigger_paths: [

@@ -207,7 +207,7 @@ physics.producers.pandoracalo.SpacePointModuleLabel:        "pandora"
 physics.producers.pandoracalo.T0ModuleLabel:                "photont0pandora"
 
 #Optical detector configuration
-physics.producers.ophit.InputModule:                        "opdigi"
+physics.producers.ophit.InputModule:                        "SplitterInput:PHOTON"
 physics.producers.opflash.InputModule:                      "ophit"
 
 #physics.producers.linecluster.ClusterCrawlerAlg.TimeDelta:    [2,3,3]

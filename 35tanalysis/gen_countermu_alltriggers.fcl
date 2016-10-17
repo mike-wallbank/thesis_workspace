@@ -1,0 +1,5 @@
+#include "prodcosmics_dune35t_milliblock_countermu.fcl"
+
+physics.filters.filter.UseEWCounterPair: true
+physics.filters.filter.UseNupSdownCounterPair: true
+physics.filters.filter.UseNdownSupCounterPair: true

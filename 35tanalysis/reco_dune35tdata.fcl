@@ -30,7 +30,7 @@ services:
 source:
 {
   module_type: RootInput
-  maxEvents:  10        # Number of events to create
+  maxEvents:  -1        # Number of events to create
 }
 
 # Define and configure some modules to do work on each event.
@@ -101,7 +101,7 @@ physics:
  #filters reject all following items.  see lines starting physics.producers below
  reco: [ rns, unstick, daq
          #optical hit reco, flash, counter, TPC wire signals
-         #ophit, opflash
+         , ophit, opflash
          , t0counter 
          ,caldata
          #hit reco with cheated disambiguation
@@ -206,8 +206,9 @@ physics.producers.pandoracalo.SpacePointModuleLabel:        "pandora"
 physics.producers.pandoracalo.T0ModuleLabel:                "photont0pandora"
 
 #Optical detector configuration
-physics.producers.ophit.InputModule:                        "opdigi"
-physics.producers.opflash.InputModule:                      "ophit"
+physics.producers.ophit.InputModule:     "SplitterInput"
+physics.producers.ophit.InputLabels:     [ "PHOTON" ]
+physics.producers.opflash.InputModule:   "ophit"
 
 #physics.producers.linecluster.ClusterCrawlerAlg.TimeDelta:    [2,3,3]
 #shower configuration

@@ -1,0 +1,3 @@
+#include "RunSplitterDefault.fcl"
+
+source.SkipNInputEvents: 4700

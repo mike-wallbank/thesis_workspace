@@ -76,11 +76,11 @@ outputs:{
 
 # EW triggers
 # [specifically to get a track as close as possible to the APA but with enough in both drift regions!]
-# physics.filters.countertrigger.firstset:  [ 6, 9]
-# physics.filters.countertrigger.secondset: [31,28]
+physics.filters.countertrigger.firstset:  [ 6, 9]
+physics.filters.countertrigger.secondset: [31,28]
 # [to try to get a range of angles]
-physics.filters.countertrigger.firstset:  [ 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 9, 9,14,14,15,15]
-physics.filters.countertrigger.secondset: [30,31,36,37,30,31,36,37,28,29,28,29,28,29,28,29]
+# physics.filters.countertrigger.firstset:  [ 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 9, 9,14,14,15,15]
+# physics.filters.countertrigger.secondset: [30,31,36,37,30,31,36,37,28,29,28,29,28,29,28,29]
 # [just straight triggers]
 # physics.filters.countertrigger.firstset:  [ 6, 7, 8, 9,10,11,12,13,14,15]
 # physics.filters.countertrigger.secondset: [28,29,30,31,32,33,34,35,36,37]

@@ -35,11 +35,13 @@ physics:
     {
       module_type: "APACrossingMuons"
       CalorimetryAlg: @local::dune35t_calorimetryalgdata
-      HitsModuleLabel: "gaushit" # "fasthit"
+      HitsModuleLabel: "gaushit" # "linecluster" # "fasthit"
       TriggerModuleLabel: "SplitterInput:TRIGGER"
-      TrackModuleLabel: "pmtrackcht"
+      OpFlashModuleLabel: "opflash"
+      TrackModuleLabel: "none" # "pmtrackcht"
       T0ModuleLabel: "t0counter"
       T0Correction: 0 #64
+      CalorimetryMinHits: 20
       CalorimetryConst: 7.4e-3
       CounterMapFile: "counterInformation.txt"
       CounterWidth: 15.

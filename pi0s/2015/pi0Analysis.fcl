@@ -4,7 +4,8 @@ process_name: Pi0Analysis
 
 services:
 {
-  TFileService: { fileName: "pi0_ana.root" }
+  # Load the service that manages root files for histograms.
+  TFileService: { fileName: "pi0_hist.root" }
   TimeTracker:       {}
   SimpleMemoryCheck:     { ignoreTotal: 1 } # default is one
   RandomNumberGenerator: {} #ART native random number generator
@@ -12,8 +13,6 @@ services:
   FileCatalogMetadata:  @local::art_file_catalog_mc
   user:         @local::dune35t_services
 }
-
-services.scheduler.SkipEvent: [ProductNotFound]
 
 source:
 {
@@ -23,14 +22,28 @@ source:
 
 physics:
 {
-  analyzers:
-  {
-    pi0ana: {
-      module_type: Pi0Analysis
-    }
-  }
+ analyzers:
+ {
+   pi0Analysis: {
+     module_type:       "Pi0Analysis"
+     ShowerModuleLabel: "emshowerdc"
+     HitsModuleLabel:   "lineclusterdc"
+   }
+ }
 
-  a1: [ pi0ana ]
-  end_paths: [ a1 ]
+ a1: [ pi0Analysis ]
+ stream1:   [ out1 ]
+ end_paths: [ a1 ]
 
+}
+
+outputs:
+{
+ out1:
+ {
+   module_type: RootOutput
+   fileName:    "%ifb_%tc_reco.root"
+   dataTier:    "full-reconstructed"
+   compressionLevel: 1
+ }
 }

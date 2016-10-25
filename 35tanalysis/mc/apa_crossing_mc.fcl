@@ -1,6 +1,8 @@
 #include "../../job/apa_crossing.fcl"
 
+physics.analyzers.apacrossing.HitsModuleLabel: "lineclusterdc"
 physics.analyzers.apacrossing.TriggerModuleLabel: "simcounter"
+physics.analyzers.apacrossing.TrackModuleLabel: "pmtrackdc"
 physics.analyzers.apacrossing.ExpectedT0Tolerance: 1e10
-physics.analyzers.apacrossing.SaveImages: true
+physics.analyzers.apacrossing.SaveImages: false
 physics.analyzers.apacrossing.CounterWidth: 20.

@@ -1,4 +1,0 @@
-#include "../../job/apa_crossing.fcl"
-
-physics.analyzers.apacrossing.TriggerModuleLabel: "simcounter"
-physics.analyzers.apacrossing.ExpectedT0Tolerance: 1e10

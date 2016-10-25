@@ -38,7 +38,7 @@ physics:
       HitsModuleLabel: "gaushit" # "linecluster" # "fasthit"
       TriggerModuleLabel: "SplitterInput:TRIGGER"
       OpFlashModuleLabel: "opflash"
-      TrackModuleLabel: "none" # "pmtrackcht"
+      TrackModuleLabel: "pmtrackdc"
       T0ModuleLabel: "t0counter"
       T0Correction: 0 #64
       CalorimetryMinHits: 20

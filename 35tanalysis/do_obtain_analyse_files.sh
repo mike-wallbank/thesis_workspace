@@ -34,23 +34,23 @@ file=/pnfs/lbne${path:29}
 
 # copy the necessary files
 cd $CONDORRUNDIR
-# copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/RunSplitterDefault.fcl .
-# copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/SliceAndFilter.fcl .
-# copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/reco_dune35tdata.fcl .
-# copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/apa_crossing.fcl .
-copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/bad_timings.fcl .
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/RunSplitterDefault.fcl .
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/SliceAndFilter.fcl .
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/reco_dune35tdata.fcl .
+copyfile /dune/app/users/wallbank/larsoft-base/workspace/job/apa_crossing.fcl .
+#copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/bad_timings.fcl .
 copyfile $file .
 
 # run the jobs
-# if [ ${FILTER} -eq 1 ]
-# then
-# lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
-# else
-# lar -c RunSplitterDefault.fcl -s $filename -o sliced_and_filtered.root
-# fi
-# lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
-# lar -c apa_crossing.fcl -s reco.root
-lar -c bad_timings.fcl -s $filename
+if [ ${FILTER} -eq 1 ]
+then
+lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
+else
+lar -c RunSplitterDefault.fcl -s $filename -o sliced_and_filtered.root
+fi
+lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
+lar -c apa_crossing.fcl -s reco.root
+#lar -c bad_timings.fcl -s $filename
 
 # copy output files back
 rm -f $filename

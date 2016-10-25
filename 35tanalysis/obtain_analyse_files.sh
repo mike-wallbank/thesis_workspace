@@ -8,8 +8,8 @@ if [ -z $1 ]; then
     echo
 fi
 
-export OUTPUTDIRTAG=bad_timings
-export RUNFILE=badtimings_runs.txt
+export OUTPUTDIRTAG=EW_300
+export RUNFILE=ew_filter_runs.txt
 export FILTER=1
 
 # make sure output dir is empty

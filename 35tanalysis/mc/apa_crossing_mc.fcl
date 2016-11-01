@@ -1,4 +1,4 @@
-#include "../../job/apa_crossing.fcl"
+#include "apa_crossing.fcl"
 
 physics.analyzers.apacrossing.HitsModuleLabel: "lineclusterdc"
 physics.analyzers.apacrossing.MC: true

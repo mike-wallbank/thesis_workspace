@@ -1,110 +1,57 @@
-MemoryTracker: {}
-outputs: {
-   out1: {
-      compressionLevel: 1
-      dataTier: "detector-simulated"
-      fastCloning: false
-      fileName: "%ifb_%tc_detsim_milliblock.root"
-      module_label: "out1"
-      module_type: "RootOutput"
-      streamName: "out1"
-   }
-}
 physics: {
-   end_paths: [
-      "stream1"
+   a1: [
+      "apacrossing"
    ]
-   producers: {
-      daq: {
-         DistortOn: false
-         KeepEmptyChannels: false
-         NoiseOn: true
-         PedestalOn: true
-         SimChannelLabel: "largeant"
-         SuppressOn: true
-         module_label: "daq"
-         module_type: "SimWireDUNE"
-      }
-      opdigi: {
-         BackTime: 4.76e-1
-         CrossTalk: 1.65e-1
-         DarkNoiseRate: 10
-         DefaultSimWindow: true
-         FrontTime: 9e-3
-         FullWaveformOutput: false
-         InputModule: "largeant"
-         LineNoiseRMS: 2.6
-         MaxAmplitude: 1.2e-1
-         Padding: 100
-         PeakTime: 2.6e-1
-         Pedestal: 1500
-         PreTrigger: 100
-         PulseLength: 4
-         ReadoutWindow: 1000
-         TimeBegin: 0
-         TimeEnd: 1600
-         VoltageToADC: 1.515e2
-         algo_threshold: {
-            ADCThreshold: 13
-            MinWidth: 10
-            Name: "SiPM"
-            Pedestal: 1500
-            SecondThreshold: 1
+   analyzers: {
+      apacrossing: {
+         CalorimetryAlg: {
+            CalAmpConstants: [
+               9.033e-4,
+               1.0287e-3,
+               8.8e-4
+            ]
+            CalAreaConstants: [
+               5.1822e-3,
+               5.2682e-3,
+               5.3962e-3
+            ]
+            CaloLifeTimeForm: 0
+            CaloUseModBox: true
          }
-         module_label: "opdigi"
-         module_type: "OpDetDigitizerDUNE"
-      }
-      rns: {
-         module_label: "rns"
-         module_type: "RandomNumberSaver"
-      }
-      simcounter: {
-         BSUTriggerThreshold: 5e-1
-         ClockSpeedCounter: 64
-         CombinedTimeDelay: 160
-         LArGeantModuleLabel: "largeant"
-         MakeTree: false
-         TSUTriggerThreshold: 2.5e-1
-         TriggerEfficiency: 1
-         module_label: "simcounter"
-         module_type: "SimCounter35t"
+         CalorimetryConst: 5.3962e-3
+         CalorimetryMinHits: 20
+         CounterMapFile: "counterInformation.txt"
+         CounterWidth: 20
+         DriftVelocityScale: 1
+         ExpectedT0: 300
+         ExpectedT0Tolerance: 1e10
+         HitDensityThresh: 6
+         HitLineDistThresh: 2
+         HitsModuleLabel: "lineclusterdc"
+         MC: true
+         NeighbourDistThresh: 5
+         NoisyWireThresh: 5
+         OpFlashModuleLabel: "opflash"
+         RecombinationFactor: 5.2e-1
+         SaveImages: false
+         T0Correction: 0
+         T0ModuleLabel: "t0counter"
+         TrackModuleLabel: "pmtrackdc"
+         TriggerModuleLabel: "simcounter"
+         module_label: "apacrossing"
+         module_type: "APACrossingMuons"
       }
    }
-   simulate: [
-      "rns",
-      "daq",
-      "simcounter",
-      "opdigi"
-   ]
-   stream1: [
-      "out1"
-   ]
-   trigger_paths: [
-      "simulate"
+   end_paths: [
+      "a1"
    ]
 }
-process_name: "detsim"
+process_name: "APACrossing"
 services: {
-   AdcCompressService: {
-      UseBlock: "true"
-      UseHuffman: "false"
-      service_provider: "LarsoftHuffmanCompressService"
-      service_type: "AdcCompressService"
-   }
-   AdcDistortService: {
-      StuckBitsOverflowProbHistoName: "pCorrFracOverflowVsInputLsbCell"
-      StuckBitsProbabilitiesFname: "ADCStuckCodeProbabilities35t/output_produceDcScanSummaryPlots_20150827_coldTest_0p1to1p4_step0p0010.root"
-      StuckBitsUnderflowProbHistoName: "pCorrFracUnderflowVsInputLsbCell"
-      service_provider: "StuckBitAdcDistortionService"
-      service_type: "AdcDistortService"
-   }
-   AdcSuppressService: {
-      AdcThreshold: 10
-      MinTickGap: 2
-      SuppressStickyBits: false
-      TickRange: 10
-      service_provider: "Legacy35tZeroSuppressService"
-      service_type: "AdcSuppressService"
+   BackTracker: {
+      G4ModuleLabel: "largeant"
+      MinimumHitEnergyFraction: 1e-1
+      service_type: "BackTracker"
    }
    CatalogInterface: {
       service_provider: "TrivialFileDelivery"
@@ -119,21 +66,6 @@ services: {
    ChannelMappingService: {
       service_provider: "Dune35tChannelMappingService"
       service_type: "ChannelMappingService"
-   }
-   ChannelNoiseService: {
-      LowCutoffU: 7.5
-      LowCutoffV: 7.5
-      LowCutoffZ: 7.5
-      NoiseArrayPoints: 1000
-      NoiseNormU: 3.16
-      NoiseNormV: 3.16
-      NoiseNormZ: 3.16
-      NoiseWidthU: 2000
-      NoiseWidthV: 2000
-      NoiseWidthZ: 2000
-      OldNoiseIndex: true
-      service_provider: "ExponentialChannelNoiseService"
-      service_type: "ChannelNoiseService"
    }
    ChannelStatusService: {
       BadChannels: [
@@ -413,21 +345,32 @@ services: {
       service_type: "DatabaseUtil"
    }
    DetPedestalService: {
-      FixedDetPedestal: {
-         PedMeanErrU: 1e-1
-         PedMeanErrV: 1e-1
-         PedMeanErrZ: 1e-1
-         PedMeanU: 1800
-         PedMeanV: 1800
-         PedMeanZ: 500
-         PedRmsErrU: 1e-1
-         PedRmsErrV: 1e-1
-         PedRmsErrZ: 1e-1
-         PedRmsU: 2.5
-         PedRmsV: 2.5
-         PedRmsZ: 2.5
+      DetPedestalDUNE: {
+         AbortIfNoPeds: "false"
+         CSVFile: ""
+         DefaultMean: 750
+         DefaultMeanErr: 0
+         DefaultMeanErrU: 0
+         DefaultMeanErrV: 0
+         DefaultMeanErrZ: 0
+         DefaultMeanU: 1800
+         DefaultMeanV: 1800
+         DefaultMeanZ: 500
+         DefaultRms: 5
+         DefaultRmsErr: 0
+         DefaultRmsErrU: 0
+         DefaultRmsErrV: 0
+         DefaultRmsErrZ: 0
+         DefaultRmsU: 5
+         DefaultRmsV: 5
+         DefaultRmsZ: 5
+         DetID: 1
+         LogLevel: 2
+         Run: 0
+         UseDB: "true"
+         UseDefaults: "false"
       }
-      service_provider: "FixedDetPedestalService"
+      service_provider: "DetPedestalServiceDUNE"
       service_type: "DetPedestalService"
    }
    DetectorClocksService: {
@@ -437,7 +380,7 @@ services: {
       ClockSpeedTrigger: 16
       DefaultBeamTime: 0
       DefaultTrigTime: 0
-      FramePeriod: 1600
+      FramePeriod: 2600
       G4RefTime: 0
       InheritClockConfig: false
       TrigModuleName: ""
@@ -453,8 +396,8 @@ services: {
       ]
       Electronlifetime: 3000
       ElectronsToADC: 6.8906513e-3
-      NumberTimeSamples: 15000
-      ReadOutWindowSize: 15000
+      NumberTimeSamples: 5200
+      ReadOutWindowSize: 5200
       SternheimerA: 1.956e-1
       SternheimerCbar: 5.2146
       SternheimerK: 3
@@ -500,76 +443,6 @@ services: {
       FFTSize: 0
       FitBins: 5
       service_type: "LArFFT"
-   }
-   LArG4Parameters: {
-      CosmogenicK0Bias: 0
-      CosmogenicXSMNBiasFactor: 1
-      CosmogenicXSMNBiasOn: 0
-      DisableWireplanes: false
-      ElectronClusterSize: 600
-      EnabledPhysics: [
-         "Em",
-         "FastOptical",
-         "SynchrotronAndGN",
-         "Ion",
-         "Hadron",
-         "Decay",
-         "HadronElastic",
-         "Stopping",
-         "NeutronTrackingCut"
-      ]
-      KeepEMShowerDaughters: false
-      LongitudinalDiffusion: 6.2e-9
-      MinNumberOfElCluster: 0
-      OpticalParamModels: [
-         "OverlaidWireplanes"
-      ]
-      OpticalParamOrientations: [
-         0
-      ]
-      OpticalParamParameters: [
-         [
-            [
-               30,
-               3,
-               1.5e-1
-            ],
-            [
-               -30,
-               3,
-               1.5e-1
-            ],
-            [
-               0,
-               3,
-               1.5e-1
-            ],
-            [
-               90,
-               3.5,
-               2e-1
-            ],
-            [
-               0,
-               3.5,
-               2e-1
-            ]
-         ]
-      ]
-      OpticalParamVolumes: [
-         "volTPCPlaneVert_PV"
-      ]
-      OpticalSimVerbosity: 0
-      ParticleKineticEnergyCut: 1e-5
-      SkipWireSignalInTPCs: []
-      StoreTrajectories: true
-      TransverseDiffusion: 1.63e-8
-      UseCustomPhysics: true
-      UseLitePhotons: true
-      UseModBoxRecomb: true
-      VisualizationEnergyCut: 1e-2
-      VisualizeNeutrals: false
-      service_type: "LArG4Parameters"
    }
    LArPropertiesService: {
       AbsLengthEnergies: [
@@ -767,7 +640,7 @@ services: {
       ScintBirksConstant: 6.9e-2
       ScintByParticleType: false
       ScintFastTimeConst: 6
-      ScintPreScale: 2.3e-3
+      ScintPreScale: 3e-2
       ScintResolutionScale: 1
       ScintSlowTimeConst: 1590
       ScintYield: 24000
@@ -818,20 +691,9 @@ services: {
       policy: "random"
       service_type: "LArSeedService"
    }
-   OpDetResponseInterface: {
-      ChannelConversion: "fast"
-      LightGuideAttenuation: true
-      LongAxis: "y"
-      QuantumEfficiency: 2.3e-3
-      WavelengthCutHigh: 10000
-      WavelengthCutLow: 0
-      service_provider: "DUNE35tonOpDetResponse"
-      service_type: "OpDetResponseInterface"
-   }
-   PedestalAdditionService: {
-      NoiseScale: 0
-      service_provider: "ProvidedPedestalAdditionService"
-      service_type: "PedestalAdditionService"
+   MemoryTracker: {
+      ignoreTotal: 1
+      service_type: "MemoryTracker"
    }
    RandomNumberGenerator: {
       service_type: "RandomNumberGenerator"
@@ -941,10 +803,6 @@ services: {
       UseHistogramFieldShape: true
       service_type: "SignalShapingServiceDUNE"
    }
-   SimChannelExtractService: {
-      service_provider: "GenericSimChannelExtractService"
-      service_type: "SimChannelExtractService"
-   }
    SpaceCharge: {
       EnableCorrSCE: false
       EnableSimEfieldSCE: false
@@ -955,40 +813,132 @@ services: {
       service_type: "SpaceCharge"
    }
    TFileService: {
-      fileName: "detsim_hist.root"
+      fileName: "hit_maps.root"
       service_type: "TFileService"
    }
    TimeTracker: {
       service_type: "TimeTracker"
    }
    message: {
+      debugModules: [
+         "*"
+      ]
       destinations: {
-         STDOUT: {
+         LogDebugFile: {
+            append: false
             categories: {
-               ArtReport: {
-                  limit: 100
+               AnaBaseDefaultCtor: {
+                  limit: 0
                }
-               default: {
-                  limit: -1
+               BackTracker: {
+                  limit: 0
+               }
+               CaloPrtHit: {
+                  limit: 0
+               }
+               CaloPrtTrk: {
+                  limit: 0
+               }
+               ChannelFilter: {
+                  limit: 0
+               }
+               ClusterCheater: {
+                  limit: 0
+               }
+               ClusterCrawlerAlg: {
+                  limit: 0
+               }
+               ClusterMergeTQ: {
+                  limit: 0
+               }
+               CosmicTracker: {
+                  limit: 0
+               }
+               DBscan: {
+                  limit: 0
+               }
+               DisambigAlg35t: {
+                  limit: 0
+               }
+               DisambigCheat: {
+                  limit: 0
+               }
+               GeometryBadInputPoint: {
+                  limit: 5
+                  timespan: 1000
+               }
+               HitCheater: {
+                  limit: 0
+               }
+               HoughBaseAlg: {
+                  limit: 0
+               }
+               KalmanFilterAlg: {
+                  limit: 0
+               }
+               LArPandora: {
+                  limit: 0
+               }
+               RecoBaseDefaultCtor: {
+                  limit: 0
+               }
+               SpacePointAlg: {
+                  limit: 0
+               }
+               Summary: {
+                  limit: 0
+               }
+               Track3DKalmanHit: {
+                  limit: 0
+               }
+               Track3DKalmanSPS_GenFit: {
+                  limit: 0
+               }
+               default: {}
+               fuzzyCluster: {
+                  limit: 0
                }
             }
-            threshold: "INFO"
-            type: "cout"
+            filename: "debug.log"
+            threshold: "DEBUG"
+            type: "file"
          }
-      }
-   }
+         LogStandardError: {
+            categories: {
+               default: {}
+}
+            threshold: "ERROR"
+            type: "cerr"
+}
+         LogStandardOut: {
+            categories: {
+               AnaBaseDefaultCtor: {
+                  limit: 0
+               }
+               GeometryBadInputPoint: {
+                  limit: 5
+                  timespan: 1000
+               }
+               RecoBaseDefaultCtor: {
+                  limit: 0
+               }
+               default: {}
+}
+            threshold: "WARNING"
+            type: "cout"
+}
+}
+}
    scheduler: {
+      SkipEvent: [
+         "ProductNotFound"
+      ]
       errorOnFailureToPut: true
       errorOnSIGINT: true
    }
 }
 source: {
-   maxEvents: 10
+   maxEvents: -1
    module_label: "source"
    module_type: "RootInput"
-}
-trigger_paths: {
-   trigger_paths: [
-      "simulate"
-   ]
 }

@@ -1,31 +1,31 @@
 #include "evd_dune.fcl"
 process_name: EVD
 
-services.user: @local::dune35t_disp_data
+services.      @table::dune35t_disp_data
 
-#services.user.RawDrawingOptions.RawDataLabel: "SplitterInput:TPC"
+#services.RawDrawingOptions.RawDataLabel: "SplitterInput:TPC"
 # Change vertical scale to 15000 ticks
-services.user.RawDrawingOptions.DrawRawDataOrCalibWires:       1
-services.user.RawDrawingOptions.TotalTicks:               15000
-#services.user.RawDrawingOptions.TotalTicks:               3200
-#services.user.RecoDrawingOptions.WireModuleLabels: ["caldata:TPC"]
-services.user.DetPedestalService.DetPedestalDUNE.UseDB: true
-services.user.DetectorPropertiesService.Efield: [0.25, 0.782, 1.734]
-#services.user.IDetPedestalService.DetPedestalDUNE.CSVFile: "/dune/app/users/mstancar/evdisp/offline_databaseRun_9754.csv"
-#services.user.IDetPedestalService.DetPedestalDUNE.CSVFile: "offline_databaseRun_10873.csv"
-#services.user.IDetPedestalService.DetPedestalDUNE.UseDefaults: true
-#services.user.IDetPedestalService.DetPedestalDUNE.DefaultMean: 0
-services.user.ColorDrawingOptions.RawQHigh: [200]
-services.user.ColorDrawingOptions.RawQLow: [-200]
-#services.user.ChannelMapService.FileName: "channelMap.txt"
-services.user.RecoDrawingOptions.TrackModuleLabels: [ "pmtrack" ]
-services.user.RecoDrawingOptions.ShowerModuleLabels: [ "emshower" ]
-services.user.RecoDrawingOptions.ClusterModuleLabels: [ "blurredcluster" ]
-services.user.RecoDrawingOptions.DrawShowers: 1
-services.user.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
-services.user.RecoDrawingOptions.DrawTracks: 0
-services.user.RecoDrawingOptions.DrawTrackTrajectoryPoints: 0
-services.user.RecoDrawingOptions.DrawVertices: 0
-services.user.RecoDrawingOptions.DrawHits: 0
-services.user.RecoDrawingOptions.DrawClusters: 0
-services.user.RecoDrawingOptions.DrawOpFlashes: 0
+services.RawDrawingOptions.DrawRawDataOrCalibWires:       1
+services.RawDrawingOptions.TotalTicks:               15000
+#services.RawDrawingOptions.TotalTicks:               3200
+#services.RecoDrawingOptions.WireModuleLabels: ["caldata:TPC"]
+services.DetPedestalService.DetPedestalDUNE.UseDB: true
+services.DetectorPropertiesService.Efield: [0.25, 0.782, 1.734]
+#services.IDetPedestalService.DetPedestalDUNE.CSVFile: "/dune/app/users/mstancar/evdisp/offline_databaseRun_9754.csv"
+#services.IDetPedestalService.DetPedestalDUNE.CSVFile: "offline_databaseRun_10873.csv"
+#services.IDetPedestalService.DetPedestalDUNE.UseDefaults: true
+#services.IDetPedestalService.DetPedestalDUNE.DefaultMean: 0
+services.ColorDrawingOptions.RawQHigh: [200]
+services.ColorDrawingOptions.RawQLow: [-200]
+#services.ChannelMapService.FileName: "channelMap.txt"
+services.RecoDrawingOptions.TrackModuleLabels: [ "pmtrack" ]
+services.RecoDrawingOptions.ShowerModuleLabels: [ "emshower" ]
+services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredcluster" ]
+services.RecoDrawingOptions.DrawShowers: 1
+services.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
+services.RecoDrawingOptions.DrawTracks: 0
+services.RecoDrawingOptions.DrawTrackTrajectoryPoints: 0
+services.RecoDrawingOptions.DrawVertices: 0
+services.RecoDrawingOptions.DrawHits: 0
+services.RecoDrawingOptions.DrawClusters: 0
+services.RecoDrawingOptions.DrawOpFlashes: 0

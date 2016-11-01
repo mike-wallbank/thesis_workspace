@@ -17,13 +17,631 @@ physics: {
 }
 process_name: "EVD"
 services: {
+   AnalysisDrawingOptions: {
+      CaloPlane: -1
+      CalorTemplateFileName: "dEdxKinErestemplate"
+      CalorimetryModuleLabels: [
+         "pmtrackcalodc"
+      ]
+      DrawCalorimetry: 1
+      DrawParticleID: 1
+      DrawShowerCalor: 0
+      ParticleIDModuleLabels: [
+         "pmtrackpiddc"
+      ]
+      service_type: "AnalysisDrawingOptions"
+   }
    CatalogInterface: {
       service_provider: "TrivialFileDelivery"
       service_type: "CatalogInterface"
    }
+   ChannelStatusService: {
+      BadChannels: []
+      NoisyChannels: []
+      service_provider: "SimpleChannelStatusService"
+      service_type: "ChannelStatusService"
+   }
+   ColorDrawingOptions: {
+      ColorOrGrayScale: 0
+      RawDiv: [
+         100
+      ]
+      RawQHigh: [
+         60
+      ]
+      RawQLow: [
+         -20
+      ]
+      RecoDiv: [
+         100
+      ]
+      RecoQHigh: [
+         60
+      ]
+      RecoQLow: [
+         -20
+      ]
+      service_type: "ColorDrawingOptions"
+   }
+   DatabaseUtil: {
+      DBHostName: "fnalpgsdev.fnal.gov"
+      DBName: "dune_dev"
+      DBUser: "dune_reader"
+      PassFileName: ".lpswd"
+      Port: 5438
+      ShouldConnect: false
+      TableName: "main_run"
+      ToughErrorTreatment: false
+      service_type: "DatabaseUtil"
+   }
+   DetPedestalService: {
+      DetPedestalRetrievalAlg: {
+         DefaultCollMean: 500
+         DefaultIndMean: 1800
+      }
+      FixedDetPedestal: {
+         PedMeanErrU: 1e-1
+         PedMeanErrV: 1e-1
+         PedMeanErrZ: 1e-1
+         PedMeanU: 1800
+         PedMeanV: 1800
+         PedMeanZ: 500
+         PedRmsErrU: 1e-1
+         PedRmsErrV: 1e-1
+         PedRmsErrZ: 1e-1
+         PedRmsU: 2.5
+         PedRmsV: 2.5
+         PedRmsZ: 2.5
+      }
+      service_provider: "FixedDetPedestalService"
+      service_type: "DetPedestalService"
+   }
+   DetectorClocksService: {
+      ClockSpeedExternal: 3.125e1
+      ClockSpeedOptical: 128
+      ClockSpeedTPC: 2
+      ClockSpeedTrigger: 16
+      DefaultBeamTime: 0
+      DefaultTrigTime: 0
+      FramePeriod: 1600
+      G4RefTime: 0
+      InheritClockConfig: false
+      TrigModuleName: ""
+      TriggerOffsetTPC: 0
+      service_provider: "DetectorClocksServiceStandard"
+      service_type: "DetectorClocksService"
+   }
+   DetectorPropertiesService: {
+      Efield: [
+         5e-1,
+         6.66e-1,
+         8e-1
+      ]
+      Electronlifetime: 3000
+      ElectronsToADC: 6.8906513e-3
+      NumberTimeSamples: 4492
+      ReadOutWindowSize: 4492
+      SternheimerA: 1.956e-1
+      SternheimerCbar: 5.2146
+      SternheimerK: 3
+      SternheimerX0: 2e-1
+      SternheimerX1: 3
+      Temperature: 87
+      TimeOffsetU: 0
+      TimeOffsetV: 0
+      TimeOffsetZ: 0
+      service_provider: "DetectorPropertiesServiceStandard"
+      service_type: "DetectorPropertiesService"
+   }
+   EvdLayoutOptions: {
+      AutoZoomInterest: 1
+      ChangeWire: 1
+      EnableMCTruthCheckBox: 1
+      MakeClusters: 0
+      MakeSeeds: 0
+      PrintTotalCharge: 1
+      ShowClusterSection: 0
+      ShowEndPointMarkers: 1
+      ShowEndPointSection: 1
+      ShowSideBar: 1
+      service_type: "EvdLayoutOptions"
+   }
+   EventDisplay: {
+      AutoAdvanceInterval: 1000
+      service_type: "EventDisplay"
+   }
+   ExptGeoHelperInterface: {
+      service_provider: "DUNEGeometryHelper"
+      service_type: "ExptGeoHelperInterface"
+   }
    FileTransfer: {
       service_provider: "TrivialFileTransfer"
       service_type: "FileTransfer"
+   }
+   Geometry: {
+      DisableWiresInG4: true
+      GDML: "dune10kt_v1.gdml"
+      Name: "dune10kt_v1"
+      ROOT: "dune10kt_v1.gdml"
+      SortingParameters: {
+         ChannelsPerOpDet: 12
+      }
+      SurfaceY: 147828
+      service_type: "Geometry"
+   }
+   LArG4Parameters: {
+      CosmogenicK0Bias: 0
+      CosmogenicXSMNBiasFactor: 1
+      CosmogenicXSMNBiasOn: 0
+      DisableWireplanes: false
+      ElectronClusterSize: 600
+      EnabledPhysics: [
+         "Em",
+         "SynchrotronAndGN",
+         "Ion",
+         "Hadron",
+         "Decay",
+         "HadronElastic",
+         "Stopping",
+         "NeutronTrackingCut"
+      ]
+      KeepEMShowerDaughters: false
+      LongitudinalDiffusion: 6.2e-9
+      MinNumberOfElCluster: 0
+      OpticalParamModels: [
+         "OverlaidWireplanes"
+      ]
+      OpticalParamOrientations: [
+         0
+      ]
+      OpticalParamParameters: [
+         [
+            [
+               60,
+               3,
+               1.5e-1
+            ],
+            [
+               -60,
+               3,
+               1.5e-1
+            ],
+            [
+               0,
+               3,
+               1.5e-1
+            ]
+         ]
+      ]
+      OpticalParamVolumes: [
+         "volTPCPlaneVert_PV"
+      ]
+      OpticalSimVerbosity: 0
+      ParticleKineticEnergyCut: 1e-5
+      SkipWireSignalInTPCs: []
+      StoreTrajectories: true
+      TransverseDiffusion: 1.63e-8
+      UseCustomPhysics: false
+      UseLitePhotons: true
+      UseModBoxRecomb: true
+      VisualizationEnergyCut: 1e-2
+      VisualizeNeutrals: false
+      service_type: "LArG4Parameters"
+   }
+   LArPropertiesService: {
+      AbsLengthEnergies: [
+         4,
+         5,
+         6,
+         7,
+         8,
+         9,
+         10,
+         11
+      ]
+      AbsLengthSpectrum: [
+         2000,
+         2000,
+         2000,
+         2000,
+         2000,
+         2000,
+         2000,
+         2000
+      ]
+      AlphaScintYield: 16800
+      AlphaScintYieldRatio: 5.6e-1
+      Argon39DecayRate: 0
+      AtomicMass: 3.9948e1
+      AtomicNumber: 18
+      ElectronScintYield: 20000
+      ElectronScintYieldRatio: 2.7e-1
+      EnableCerenkovLight: true
+      ExcitationEnergy: 188
+      FastScintEnergies: [
+         6,
+         6.7,
+         7.1,
+         7.4,
+         7.7,
+         7.9,
+         8.1,
+         8.4,
+         8.5,
+         8.6,
+         8.8,
+         9,
+         9.1,
+         9.4,
+         9.8,
+         1.04e1,
+         1.07e1
+      ]
+      FastScintSpectrum: [
+         0,
+         4e-2,
+         1.2e-1,
+         2.7e-1,
+         4.4e-1,
+         6.2e-1,
+         8e-1,
+         9.1e-1,
+         9.2e-1,
+         8.5e-1,
+         7e-1,
+         5e-1,
+         3.1e-1,
+         1.3e-1,
+         4e-2,
+         1e-2,
+         0
+      ]
+      KaonScintYield: 24000
+      KaonScintYieldRatio: 2.3e-1
+      MuonScintYield: 24000
+      MuonScintYieldRatio: 2.3e-1
+      PionScintYield: 24000
+      PionScintYieldRatio: 2.3e-1
+      ProtonScintYield: 19200
+      ProtonScintYieldRatio: 2.9e-1
+      RIndexEnergies: [
+         1.9,
+         2.934,
+         3.592,
+         5.566,
+         6.694,
+         7.54,
+         8.574,
+         9.044,
+         9.232,
+         9.42,
+         9.514,
+         9.608,
+         9.702,
+         9.796,
+         9.89,
+         9.984,
+         1.008e1,
+         1.027e1,
+         1.045e1,
+         1.074e1,
+         1.092e1
+      ]
+      RIndexSpectrum: [
+         1.232,
+         1.236,
+         1.24,
+         1.261,
+         1.282,
+         1.306,
+         1.353,
+         1.387,
+         1.404,
+         1.423,
+         1.434,
+         1.446,
+         1.459,
+         1.473,
+         1.488,
+         1.505,
+         1.524,
+         1.569,
+         1.627,
+         1.751,
+         1.879
+      ]
+      RadiationLength: 1.955e1
+      RayleighEnergies: [
+         2.8,
+         3,
+         3.5,
+         4,
+         5,
+         6,
+         7,
+         8,
+         8.5,
+         9,
+         9.2,
+         9.4,
+         9.5,
+         9.6,
+         9.7,
+         9.8,
+         9.9,
+         10,
+         1.02e1,
+         1.04e1,
+         1.06e1,
+         1.08e1
+      ]
+      RayleighSpectrum: [
+         47923,
+         35981,
+         18825,
+         10653,
+         3972,
+         1681,
+         7.509e2,
+         3.347e2,
+         2.168e2,
+         135,
+         1.097e2,
+         8.806e1,
+         7.832e1,
+         6.934e1,
+         6.106e1,
+         5.346e1,
+         4.65e1,
+         4.013e1,
+         2.891e1,
+         1.981e1,
+         1.261e1,
+         7.2
+      ]
+      ReflectiveSurfaceDiffuseFractions: [
+         [
+            5e-1,
+            5e-1,
+            5e-1
+         ]
+      ]
+      ReflectiveSurfaceEnergies: [
+         7,
+         9,
+         10
+      ]
+      ReflectiveSurfaceNames: [
+         "STEEL_STAINLESS_Fe7Cr2Ni"
+      ]
+      ReflectiveSurfaceReflectances: [
+         [
+            2.5e-1,
+            2.5e-1,
+            2.5e-1
+         ]
+      ]
+      ScintBirksConstant: 6.9e-2
+      ScintByParticleType: false
+      ScintFastTimeConst: 6
+      ScintPreScale: 3e-2
+      ScintResolutionScale: 1
+      ScintSlowTimeConst: 1590
+      ScintYield: 24000
+      ScintYieldRatio: 3e-1
+      SlowScintEnergies: [
+         6,
+         6.7,
+         7.1,
+         7.4,
+         7.7,
+         7.9,
+         8.1,
+         8.4,
+         8.5,
+         8.6,
+         8.8,
+         9,
+         9.1,
+         9.4,
+         9.8,
+         1.04e1,
+         1.07e1
+      ]
+      SlowScintSpectrum: [
+         0,
+         4e-2,
+         1.2e-1,
+         2.7e-1,
+         4.4e-1,
+         6.2e-1,
+         8e-1,
+         9.1e-1,
+         9.2e-1,
+         8.5e-1,
+         7e-1,
+         5e-1,
+         3.1e-1,
+         1.3e-1,
+         4e-2,
+         1e-2,
+         0
+      ]
+      service_provider: "LArPropertiesServiceStandard"
+      service_type: "LArPropertiesService"
+   }
+   LArVoxelCalculator: {
+      VoxelEnergyCut: 1e-6
+      VoxelOffsetT: -2500
+      VoxelOffsetX: 0
+      VoxelOffsetY: 0
+      VoxelOffsetZ: 0
+      VoxelSizeT: 5000
+      VoxelSizeX: 3e-2
+      VoxelSizeY: 3e-2
+      VoxelSizeZ: 3e-2
+      service_type: "LArVoxelCalculator"
+   }
+   RawDrawingOptions: {
+      AxisOrientation: 0
+      Cryostat: 0
+      DrawRawDataOrCalibWires: 0
+      MinimumSignal: 20
+      RawDataLabel: "daq"
+      ScaleDigitsByCharge: 0
+      StartTick: 0
+      TPC: 1
+      TicksPerPoint: 1
+      TotalTicks: 4492
+      UncompressWithPed: true
+      service_type: "RawDrawingOptions"
+   }
+   RecoDrawingOptions: {
+      BezierTrackModuleLabels: [
+         "beziertracker"
+      ]
+      CalorimetryAlgorithm: {
+         CalAmpConstants: [
+            5.82554e-4,
+            1.16594e-3
+         ]
+         CalAreaConstants: [
+            5.44391e-3,
+            2.0376e-2
+         ]
+         CaloLifeTimeForm: 0
+         CaloUseModBox: true
+      }
+      ClusterModuleLabels: [
+         "lineclusterdc"
+      ]
+      ColorProngsByLabel: 0
+      ColorSpacePointsByChisq: 0
+      CosmicTagModuleLabels: [
+         ""
+      ]
+      Draw2DEndPoints: 0
+      Draw2DSlopeEndPoints: 0
+      DrawBestPCAAxisOnly: true
+      DrawBezierTracks: 0
+      DrawClusters: 1
+      DrawCosmicTags: 0
+      DrawEvents: 0
+      DrawHits: 1
+      DrawOpFlashes: 1
+      DrawPFParticles: 0
+      DrawProngs: 0
+      DrawSeeds: 0
+      DrawShowers: 0
+      DrawSkeleton3DHitsOnly: false
+      DrawSpacePoints: 0
+      DrawTrackSpacePoints: 0
+      DrawTrackTrajectoryPoints: 1
+      DrawTrackVertexAssns: false
+      DrawTracks: 1
+      DrawVertices: 1
+      EndPoint2DModuleLabels: [
+         ""
+      ]
+      EventModuleLabels: [
+         ""
+      ]
+      FlashMinPE: 0
+      FlashTMax: 1e9
+      FlashTMin: -1e9
+      HitModuleLabels: [
+         "lineclusterdc"
+      ]
+      OpFlashModuleLabels: [
+         "opflash"
+      ]
+      PFParticleModuleLabels: [
+         "pandora"
+      ]
+      ProngModuleLabels: [
+         ""
+      ]
+      SeedModuleLabels: [
+         "seedfinder"
+      ]
+      SelectedHitColor: 6
+      ShowerModuleLabels: [
+         "showerreco"
+      ]
+      SpacePointModuleLabels: [
+         "spacepts"
+      ]
+      TrackModuleLabels: [
+         "pmtrackdc"
+      ]
+      TrkVtxCosmicLabels: [
+         ""
+      ]
+      TrkVtxFilterLabels: [
+         ""
+      ]
+      TrkVtxTrackLabels: [
+         ""
+      ]
+      UseHitSelector: false
+      VertexModuleLabels: [
+         "pmtrackdc"
+      ]
+      WireModuleLabels: [
+         "caldata"
+      ]
+      service_type: "RecoDrawingOptions"
+   }
+   ScanOptions: {
+      Categories: [
+         "Neutrino",
+         "Induction Plane",
+         "Collection Plane"
+      ]
+      FieldLabels: [
+         "No_nu",
+         "Possible_nu",
+         "nu",
+         "Tracks",
+         "Showers",
+         "Vertex_w",
+         "Vertex_t",
+         "Tracks",
+         "Showers",
+         "Vertex_w",
+         "Vertex_t"
+      ]
+      FieldTypes: [
+         "RadioButton",
+         "RadioButton",
+         "RadioButton",
+         "Number",
+         "Number",
+         "Number",
+         "Number",
+         "Number",
+         "Number",
+         "Number",
+         "Number"
+      ]
+      FieldsPerCategory: [
+         3,
+         4,
+         4
+      ]
+      FileNameBase: "ScanFile"
+      IncludeMCInfo: false
+      service_type: "ScanOptions"
+   }
+   SimulationDrawingOptions: {
+      G4ModuleLabel: "largeant"
+      MinimumEnergyDeposition: 5e-5
+      ShowMCTruthColors: true
+      ShowMCTruthFullSize: true
+      ShowMCTruthText: false
+      ShowMCTruthTrajectories: false
+      ShowMCTruthVectors: false
+      service_type: "SimulationDrawingOptions"
    }
    message: {
       debugModules: [
@@ -75,624 +693,34 @@ services: {
       errorOnSIGINT: true
    }
    user: {
-      AnalysisDrawingOptions: {
-         CaloPlane: -1
-         CalorTemplateFileName: "dEdxKinErestemplate"
-         CalorimetryModuleLabels: [
-            "pmtrackcalodc"
-         ]
-         DrawCalorimetry: 1
-         DrawParticleID: 1
-         DrawShowerCalor: 0
-         ParticleIDModuleLabels: [
-            "pmtrackpiddc"
-         ]
-         service_type: "AnalysisDrawingOptions"
-      }
-      ChannelStatusService: {
-         BadChannels: []
-         NoisyChannels: []
-         service_provider: "SimpleChannelStatusService"
-         service_type: "ChannelStatusService"
-      }
       ColorDrawingOptions: {
-         ColorOrGrayScale: 0
-         RawDiv: [
-            100
-         ]
-         RawQHigh: [
-            60
-         ]
-         RawQLow: [
-            -20
-         ]
-         RecoDiv: [
-            100
-         ]
-         RecoQHigh: [
-            60
-         ]
-         RecoQLow: [
-            -20
-         ]
-         service_type: "ColorDrawingOptions"
-      }
-      DatabaseUtil: {
-         DBHostName: "fnalpgsdev.fnal.gov"
-         DBName: "dune_dev"
-         DBUser: "dune_reader"
-         PassFileName: ".lpswd"
-         Port: 5438
-         ShouldConnect: false
-         TableName: "main_run"
-         ToughErrorTreatment: false
-         service_type: "DatabaseUtil"
-      }
-      DetPedestalService: {
-         DetPedestalRetrievalAlg: {
-            DefaultCollMean: 500
-            DefaultIndMean: 1800
-         }
-         FixedDetPedestal: {
-            PedMeanErrU: 1e-1
-            PedMeanErrV: 1e-1
-            PedMeanErrZ: 1e-1
-            PedMeanU: 1800
-            PedMeanV: 1800
-            PedMeanZ: 500
-            PedRmsErrU: 1e-1
-            PedRmsErrV: 1e-1
-            PedRmsErrZ: 1e-1
-            PedRmsU: 2.5
-            PedRmsV: 2.5
-            PedRmsZ: 2.5
-         }
-         service_provider: "FixedDetPedestalService"
-         service_type: "DetPedestalService"
-      }
-      DetectorClocksService: {
-         ClockSpeedExternal: 3.125e1
-         ClockSpeedOptical: 128
-         ClockSpeedTPC: 2
-         ClockSpeedTrigger: 16
-         DefaultBeamTime: 0
-         DefaultTrigTime: 0
-         FramePeriod: 1600
-         G4RefTime: 0
-         InheritClockConfig: false
-         TrigModuleName: ""
-         TriggerOffsetTPC: 0
-         service_provider: "DetectorClocksServiceStandard"
-         service_type: "DetectorClocksService"
-      }
-      DetectorPropertiesService: {
-         Efield: [
-            5e-1,
-            6.66e-1,
-            8e-1
-         ]
-         Electronlifetime: 3000
-         ElectronsToADC: 6.8906513e-3
-         NumberTimeSamples: 4492
-         ReadOutWindowSize: 4492
-         SternheimerA: 1.956e-1
-         SternheimerCbar: 5.2146
-         SternheimerK: 3
-         SternheimerX0: 2e-1
-         SternheimerX1: 3
-         Temperature: 87
-         TimeOffsetU: 0
-         TimeOffsetV: 0
-         TimeOffsetZ: 0
-         service_provider: "DetectorPropertiesServiceStandard"
-         service_type: "DetectorPropertiesService"
-      }
-      EvdLayoutOptions: {
-         AutoZoomInterest: 1
-         ChangeWire: 1
-         EnableMCTruthCheckBox: 1
-         MakeClusters: 0
-         MakeSeeds: 0
-         PrintTotalCharge: 1
-         ShowClusterSection: 0
-         ShowEndPointMarkers: 1
-         ShowEndPointSection: 1
-         ShowSideBar: 1
-         service_type: "EvdLayoutOptions"
-      }
-      EventDisplay: {
-         AutoAdvanceInterval: 1000
-         service_type: "EventDisplay"
-      }
-      ExptGeoHelperInterface: {
-         service_provider: "DUNEGeometryHelper"
-         service_type: "ExptGeoHelperInterface"
-      }
-      Geometry: {
-         DisableWiresInG4: true
-         GDML: "dune10kt_v1.gdml"
-         Name: "dune10kt_v1"
-         ROOT: "dune10kt_v1.gdml"
-         SortingParameters: {
-            ChannelsPerOpDet: 12
-         }
-         SurfaceY: 147828
-         service_type: "Geometry"
-      }
-      LArG4Parameters: {
-         CosmogenicK0Bias: 0
-         CosmogenicXSMNBiasFactor: 1
-         CosmogenicXSMNBiasOn: 0
-         DisableWireplanes: false
-         ElectronClusterSize: 600
-         EnabledPhysics: [
-            "Em",
-            "SynchrotronAndGN",
-            "Ion",
-            "Hadron",
-            "Decay",
-            "HadronElastic",
-            "Stopping",
-            "NeutronTrackingCut"
-         ]
-         KeepEMShowerDaughters: false
-         LongitudinalDiffusion: 6.2e-9
-         MinNumberOfElCluster: 0
-         OpticalParamModels: [
-            "OverlaidWireplanes"
-         ]
-         OpticalParamOrientations: [
-            0
-         ]
-         OpticalParamParameters: [
-            [
-               [
-                  60,
-                  3,
-                  1.5e-1
-               ],
-               [
-                  -60,
-                  3,
-                  1.5e-1
-               ],
-               [
-                  0,
-                  3,
-                  1.5e-1
-               ]
-            ]
-         ]
-         OpticalParamVolumes: [
-            "volTPCPlaneVert_PV"
-         ]
-         OpticalSimVerbosity: 0
-         ParticleKineticEnergyCut: 1e-5
-         SkipWireSignalInTPCs: []
-         StoreTrajectories: true
-         TransverseDiffusion: 1.63e-8
-         UseCustomPhysics: false
-         UseLitePhotons: true
-         UseModBoxRecomb: true
-         VisualizationEnergyCut: 1e-2
-         VisualizeNeutrals: false
-         service_type: "LArG4Parameters"
-      }
-      LArPropertiesService: {
-         AbsLengthEnergies: [
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11
-         ]
-         AbsLengthSpectrum: [
-            2000,
-            2000,
-            2000,
-            2000,
-            2000,
-            2000,
-            2000,
-            2000
-         ]
-         AlphaScintYield: 16800
-         AlphaScintYieldRatio: 5.6e-1
-         Argon39DecayRate: 0
-         AtomicMass: 3.9948e1
-         AtomicNumber: 18
-         ElectronScintYield: 20000
-         ElectronScintYieldRatio: 2.7e-1
-         EnableCerenkovLight: true
-         ExcitationEnergy: 188
-         FastScintEnergies: [
-            6,
-            6.7,
-            7.1,
-            7.4,
-            7.7,
-            7.9,
-            8.1,
-            8.4,
-            8.5,
-            8.6,
-            8.8,
-            9,
-            9.1,
-            9.4,
-            9.8,
-            1.04e1,
-            1.07e1
-         ]
-         FastScintSpectrum: [
-            0,
-            4e-2,
-            1.2e-1,
-            2.7e-1,
-            4.4e-1,
-            6.2e-1,
-            8e-1,
-            9.1e-1,
-            9.2e-1,
-            8.5e-1,
-            7e-1,
-            5e-1,
-            3.1e-1,
-            1.3e-1,
-            4e-2,
-            1e-2,
-            0
-         ]
-         KaonScintYield: 24000
-         KaonScintYieldRatio: 2.3e-1
-         MuonScintYield: 24000
-         MuonScintYieldRatio: 2.3e-1
-         PionScintYield: 24000
-         PionScintYieldRatio: 2.3e-1
-         ProtonScintYield: 19200
-         ProtonScintYieldRatio: 2.9e-1
-         RIndexEnergies: [
-            1.9,
-            2.934,
-            3.592,
-            5.566,
-            6.694,
-            7.54,
-            8.574,
-            9.044,
-            9.232,
-            9.42,
-            9.514,
-            9.608,
-            9.702,
-            9.796,
-            9.89,
-            9.984,
-            1.008e1,
-            1.027e1,
-            1.045e1,
-            1.074e1,
-            1.092e1
-         ]
-         RIndexSpectrum: [
-            1.232,
-            1.236,
-            1.24,
-            1.261,
-            1.282,
-            1.306,
-            1.353,
-            1.387,
-            1.404,
-            1.423,
-            1.434,
-            1.446,
-            1.459,
-            1.473,
-            1.488,
-            1.505,
-            1.524,
-            1.569,
-            1.627,
-            1.751,
-            1.879
-         ]
-         RadiationLength: 1.955e1
-         RayleighEnergies: [
-            2.8,
-            3,
-            3.5,
-            4,
-            5,
-            6,
-            7,
-            8,
-            8.5,
-            9,
-            9.2,
-            9.4,
-            9.5,
-            9.6,
-            9.7,
-            9.8,
-            9.9,
-            10,
-            1.02e1,
-            1.04e1,
-            1.06e1,
-            1.08e1
-         ]
-         RayleighSpectrum: [
-            47923,
-            35981,
-            18825,
-            10653,
-            3972,
-            1681,
-            7.509e2,
-            3.347e2,
-            2.168e2,
-            135,
-            1.097e2,
-            8.806e1,
-            7.832e1,
-            6.934e1,
-            6.106e1,
-            5.346e1,
-            4.65e1,
-            4.013e1,
-            2.891e1,
-            1.981e1,
-            1.261e1,
-            7.2
-         ]
-         ReflectiveSurfaceDiffuseFractions: [
-            [
-               5e-1,
-               5e-1,
-               5e-1
-            ]
-         ]
-         ReflectiveSurfaceEnergies: [
-            7,
-            9,
-            10
-         ]
-         ReflectiveSurfaceNames: [
-            "STEEL_STAINLESS_Fe7Cr2Ni"
-         ]
-         ReflectiveSurfaceReflectances: [
-            [
-               2.5e-1,
-               2.5e-1,
-               2.5e-1
-            ]
-         ]
-         ScintBirksConstant: 6.9e-2
-         ScintByParticleType: false
-         ScintFastTimeConst: 6
-         ScintPreScale: 3e-2
-         ScintResolutionScale: 1
-         ScintSlowTimeConst: 1590
-         ScintYield: 24000
-         ScintYieldRatio: 3e-1
-         SlowScintEnergies: [
-            6,
-            6.7,
-            7.1,
-            7.4,
-            7.7,
-            7.9,
-            8.1,
-            8.4,
-            8.5,
-            8.6,
-            8.8,
-            9,
-            9.1,
-            9.4,
-            9.8,
-            1.04e1,
-            1.07e1
-         ]
-         SlowScintSpectrum: [
-            0,
-            4e-2,
-            1.2e-1,
-            2.7e-1,
-            4.4e-1,
-            6.2e-1,
-            8e-1,
-            9.1e-1,
-            9.2e-1,
-            8.5e-1,
-            7e-1,
-            5e-1,
-            3.1e-1,
-            1.3e-1,
-            4e-2,
-            1e-2,
-            0
-         ]
-         service_provider: "LArPropertiesServiceStandard"
-         service_type: "LArPropertiesService"
-      }
-      LArVoxelCalculator: {
-         VoxelEnergyCut: 1e-6
-         VoxelOffsetT: -2500
-         VoxelOffsetX: 0
-         VoxelOffsetY: 0
-         VoxelOffsetZ: 0
-         VoxelSizeT: 5000
-         VoxelSizeX: 3e-2
-         VoxelSizeY: 3e-2
-         VoxelSizeZ: 3e-2
-         service_type: "LArVoxelCalculator"
-      }
-      RawDrawingOptions: {
-         AxisOrientation: 0
-         Cryostat: 0
-         DrawRawDataOrCalibWires: 0
-         MinimumSignal: 20
-         RawDataLabel: "daq"
-         ScaleDigitsByCharge: 0
-         StartTick: 0
-         TPC: 1
-         TicksPerPoint: 1
-         TotalTicks: 4492
-         UncompressWithPed: true
-         service_type: "RawDrawingOptions"
+         ColorOrGrayScale: 1
       }
       RecoDrawingOptions: {
-         BezierTrackModuleLabels: [
-            "beziertracker"
-         ]
-         CalorimetryAlgorithm: {
-            CalAmpConstants: [
-               5.82554e-4,
-               1.16594e-3
-            ]
-            CalAreaConstants: [
-               5.44391e-3,
-               2.0376e-2
-            ]
-            CaloLifeTimeForm: 0
-            CaloUseModBox: true
-         }
          ClusterModuleLabels: [
             "blurredclusterdc"
          ]
-         ColorProngsByLabel: 0
-         ColorSpacePointsByChisq: 0
-         CosmicTagModuleLabels: [
-            ""
-         ]
-         Draw2DEndPoints: 0
-         Draw2DSlopeEndPoints: 1
-         DrawBestPCAAxisOnly: true
-         DrawBezierTracks: 0
+         Draw2DSlopeEndPoints: 0
          DrawClusters: 0
-         DrawCosmicTags: 0
-         DrawEvents: 0
          DrawHits: 0
          DrawOpFlashes: 0
-         DrawPFParticles: 0
-         DrawProngs: 0
-         DrawSeeds: 0
-         DrawShowers: 1
-         DrawSkeleton3DHitsOnly: false
-         DrawSpacePoints: 0
-         DrawTrackSpacePoints: 0
+         DrawShowers: 0
+         DrawSpacePoints: 1
+         DrawTrackSpacePoints: 1
          DrawTrackTrajectoryPoints: 1
-         DrawTrackVertexAssns: false
          DrawTracks: 1
          DrawVertices: 1
-         EndPoint2DModuleLabels: [
-            ""
-         ]
-         EventModuleLabels: [
-            ""
-         ]
-         FlashMinPE: 0
-         FlashTMax: 1e9
-         FlashTMin: -1e9
-         HitModuleLabels: [
-            "lineclusterdc"
-         ]
-         OpFlashModuleLabels: [
-            "opflash"
-         ]
-         PFParticleModuleLabels: [
-            "pandora"
-         ]
-         ProngModuleLabels: [
-            ""
-         ]
-         SeedModuleLabels: [
-            "seedfinder"
-         ]
-         SelectedHitColor: 6
          ShowerModuleLabels: [
             "emshowerdc"
-         ]
-         SpacePointModuleLabels: [
-            "spacepts"
          ]
          TrackModuleLabels: [
             "pmtrackdc"
          ]
-         TrkVtxCosmicLabels: [
-            ""
-         ]
-         TrkVtxFilterLabels: [
-            ""
-         ]
-         TrkVtxTrackLabels: [
-            ""
-         ]
-         UseHitSelector: false
-         VertexModuleLabels: [
-            "pmtrackdc"
-         ]
-         WireModuleLabels: [
-            "caldata"
-         ]
-         service_type: "RecoDrawingOptions"
-      }
-      ScanOptions: {
-         Categories: [
-            "Neutrino",
-            "Induction Plane",
-            "Collection Plane"
-         ]
-         FieldLabels: [
-            "No_nu",
-            "Possible_nu",
-            "nu",
-            "Tracks",
-            "Showers",
-            "Vertex_w",
-            "Vertex_t",
-            "Tracks",
-            "Showers",
-            "Vertex_w",
-            "Vertex_t"
-         ]
-         FieldTypes: [
-            "RadioButton",
-            "RadioButton",
-            "RadioButton",
-            "Number",
-            "Number",
-            "Number",
-            "Number",
-            "Number",
-            "Number",
-            "Number",
-            "Number"
-         ]
-         FieldsPerCategory: [
-            3,
-            4,
-            4
-         ]
-         FileNameBase: "ScanFile"
-         IncludeMCInfo: false
-         service_type: "ScanOptions"
       }
       SimulationDrawingOptions: {
-         G4ModuleLabel: "largeant"
-         MinimumEnergyDeposition: 5e-5
-         ShowMCTruthColors: true
-         ShowMCTruthFullSize: true
-         ShowMCTruthText: false
          ShowMCTruthTrajectories: false
-         ShowMCTruthVectors: false
-         service_type: "SimulationDrawingOptions"
       }
+      service_type: "user"
    }
 }
 source: {

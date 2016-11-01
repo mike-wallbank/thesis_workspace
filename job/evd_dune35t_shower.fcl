@@ -1,14 +1,14 @@
 #include "evd_dune35t.fcl"
 
-services.user.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
-services.user.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
-services.user.RecoDrawingOptions.DrawShowers: 1
-services.user.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
-services.user.RecoDrawingOptions.DrawTracks: 0
-services.user.RecoDrawingOptions.DrawTrackTrajectoryPoints: 0
-services.user.RecoDrawingOptions.DrawVertices: 0
-services.user.RecoDrawingOptions.DrawHits: 0
-services.user.RecoDrawingOptions.DrawClusters: 0
-services.user.RecoDrawingOptions.DrawOpFlashes: 0
-services.user.SimulationDrawingOptions.ShowMCTruthTrajectories: true
-#services.user.EventDisplay.AutoAdvanceInterval: 5000
+services.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
+services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
+services.RecoDrawingOptions.DrawShowers: 1
+services.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
+services.RecoDrawingOptions.DrawTracks: 0
+services.RecoDrawingOptions.DrawTrackTrajectoryPoints: 0
+services.RecoDrawingOptions.DrawVertices: 0
+services.RecoDrawingOptions.DrawHits: 0
+services.RecoDrawingOptions.DrawClusters: 0
+services.RecoDrawingOptions.DrawOpFlashes: 0
+services.SimulationDrawingOptions.ShowMCTruthTrajectories: true
+#services.EventDisplay.AutoAdvanceInterval: 5000

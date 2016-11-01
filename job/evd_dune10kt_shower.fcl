@@ -1,14 +1,17 @@
-#include "evd_dune35t.fcl"
+#include "evd_dune10kt.fcl"
 
 services.user.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
 services.user.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
 services.user.RecoDrawingOptions.DrawShowers: 1
 services.user.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
+services.user.RecoDrawingOptions.DrawSpacePoints: 1
 services.user.RecoDrawingOptions.DrawTracks: 0
 services.user.RecoDrawingOptions.DrawTrackTrajectoryPoints: 0
+services.user.RecoDrawingOptions.DrawTrackSpacePoints: 0
 services.user.RecoDrawingOptions.DrawVertices: 0
 services.user.RecoDrawingOptions.DrawHits: 0
 services.user.RecoDrawingOptions.DrawClusters: 0
 services.user.RecoDrawingOptions.DrawOpFlashes: 0
-services.user.SimulationDrawingOptions.ShowMCTruthTrajectories: true
+services.user.SimulationDrawingOptions.ShowMCTruthTrajectories: false
+services.user.ColorDrawingOptions.ColorOrGrayScale: 1
 #services.user.EventDisplay.AutoAdvanceInterval: 5000

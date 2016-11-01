@@ -1,0 +1,33 @@
+#include "standard_reco_dune10kt_1x2x6.fcl"
+#include "shower_ana.fcl"
+process_name: Reco
+
+physics.reco: [ rns, caldata,
+                gaushit, dcheat,
+                #lineclusterdc, blurredclusterdc
+                lineclusterdc, pmtrackdc, blurredclusterdc, emshowerdc
+                #lineclusterdc, pandoradc, pmtrackdc, blurredclusterdc, emshowerdc
+                #hitfd, linecluster, pmtrack, blurredcluster, emshower
+              ]
+
+physics.analyzers.trackshower: @local::trackshowerana
+physics.a1: [ trackshower ]
+physics.end_paths: [ stream1, a1 ]
+#physics.trigger_paths: [ reco ]
+
+physics.producers.pmtrackdc.EmClusterModuleLabel: ""
+
+physics.producers.blurredclusterdc.CreateDebugPDF: false
+physics.producers.blurredclusterdc.MergeClusters: false
+physics.producers.blurredclusterdc.GlobalTPCRecon: true
+physics.producers.blurredclusterdc.BlurredClusterAlg.Debug: false
+
+physics.producers.blurredclusterdc.ShowerReconOnly: true
+physics.producers.emshowerdc.SaveNonCompleteShowers: true
+physics.producers.emshowerdc.FindBadPlanes: false
+physics.producers.emshowerdc.Debug: 1
+physics.producers.emshowerdc.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshowerdc.EMShowerAlg.MakeGradientPlot: false
+physics.producers.emshowerdc.EMShowerAlg.NumShowerSegments: 4
+physics.producers.emshowerdc.Shower: -1
+physics.producers.emshowerdc.Plane: -1

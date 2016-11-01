@@ -1,6 +1,4 @@
-#include "hitfindermodules_dune.fcl"
-#include "cluster_dune.fcl"
-#include "showerfindermodules_dune.fcl"
+#include "shower_ana.fcl"
 #include "services_dune.fcl"
 
 services:
@@ -22,12 +20,7 @@ physics:
 {
   analyzers:
   {
-     trackshower: {
-        module_type: "TrackShowerSep"
-        HitsModuleLabel: "lineclusterdc"
-        TrackModuleLabel: "pmtrackdc"
-        SpacePointModuleLabel: "pmtrackdc"
-     }
+     trackshower: @local::trackshowerana
   }
 
  a1: [ trackshower ]

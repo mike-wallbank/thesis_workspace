@@ -1,5 +1,4 @@
-#include "hitfindermodules_dune.fcl"
-#include "cluster_dune.fcl"
+#include "shower_ana.fcl"
 #include "services_dune.fcl"
 
 services:
@@ -18,12 +17,7 @@ physics:
 {
   analyzers:
   {
-     showerAnalysis: {
-        module_type: "ShowerAnalysis"
-        HitsModuleLabel: "lineclusterdc"
-        ClusterModuleLabel: "blurredclusterdc"
-        ShowerModuleLabel: "emshowerdc"
-     }
+     showerAnalysis: @local::showerana
   }
 
  a1: [ showerAnalysis ]

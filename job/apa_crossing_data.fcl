@@ -38,3 +38,5 @@ physics:
   end_paths: [ a1 ]
 
 }
+
+physics.analyzers.apacrossing.ExpectedT0: 300

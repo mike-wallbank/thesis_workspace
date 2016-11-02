@@ -47,9 +47,9 @@ ls
 # run the jobs
 if [ ${FILTER} -eq 1 ]
 then
-lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
+lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root -n 5
 else
-lar -c RunSplitterDefault.fcl -s $filename -o sliced_and_filtered.root
+lar -c RunSplitterDefault.fcl -s $filename -o sliced_and_filtered.root -n 5
 fi
 lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
 #lar -c apa_crossing.fcl -s reco.root

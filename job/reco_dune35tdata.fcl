@@ -1,0 +1,33 @@
+#include "standard_reco_dune35tdata.fcl"
+process_name: Reco
+
+source.maxEvents: -1
+
+physics.reco: [ rns
+                #optical hit reco, flash, counter, TPC wire signals
+                , ophit, opflash
+                , t0counter 
+                , caldata
+                #hit reco with cheated disambiguation
+                , gaushit #, fasthit
+                #real disambiguation
+                , hit35t
+                # #manual real-from-noise hit selection
+                # #, handscan
+                # # disambiguation using the counters.
+                # , counterhit
+                # #cluster reco
+                # #, dbcluster
+                # , linecluster, lineclusterch
+                # #pandora
+                # #, pandora, particlestitcher
+                # #, photont0pandora, pandoracalo
+                # #pmatrack
+                # , pmtrack, pmtrackch
+                # #, photont0pmtrack, pmtrackcalo
+                # #shower reconstruction
+                # #, blurredcluster, emshower, emshower3d, mergeemshower3d
+              ]
+
+services.DetectorPropertiesService.NumberTimeSamples: 5500 # 15000
+services.DetectorPropertiesService.ReadOutWindowSize: 5500 # 15000

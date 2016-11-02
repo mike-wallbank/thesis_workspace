@@ -1,0 +1,73 @@
+Tue Oct 25 04:10:16 CDT 2016 BEGIN EXECUTION ./do_obtain_analyse_files.sh
+Setting up larsoft UPS area... /grid/fermiapp/products/larsoft/
+Setting up DUNE UPS area... /grid/fermiapp/products/dune/
+
+MRB_PROJECT=larsoft
+MRB_PROJECT_VERSION=v06_12_00
+MRB_QUALS=e10:prof
+MRB_TOP=/dune/app/users/wallbank/larsoft-base/prof
+MRB_SOURCE=/dune/app/users/wallbank/larsoft-base/srcs
+MRB_BUILDDIR=/dune/app/users/wallbank/larsoft-base/prof/build_slf6.x86_64
+MRB_INSTALL=/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v06_12_00_e10_prof
+
+PRODUCTS=/dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v06_12_00_e10_prof:/grid/fermiapp/products/dune:/grid/fermiapp/products/larsoft:/grid/fermiapp/products/common/db
+
+local product directory is /dune/app/users/wallbank/larsoft-base/prof/localProducts_larsoft_v06_12_00_e10_prof
+----------- this block should be empty ------------------
+---------------------------------------------------------
+Start of analysing run 014427
+%MSG-w CONFIG:  lar 25-Oct-2016 09:20:03 CDT JobSetup
+Use of services.user parameter set is deprecated.
+Define all services in services parameter set.
+%MSG
+TPC Channel Map: Building TPC map from file 35tTPCChannelMap_v6.txt
+Dune35tChannelMappingService::ctor:      LogLevel: 1
+DetPedestalDUNE::Configure:             UseDB: 1
+DetPedestalDUNE::Configure:               Run: 0
+DetPedestalDUNE::Configure:           CSVFile: 
+DetPedestalDUNE::Configure:       UseDefaults: 0
+DetPedestalDUNE::Configure:    DefaultMean[U]: 1800
+DetPedestalDUNE::Configure: DefaultMeanErr[U]: 0
+DetPedestalDUNE::Configure:     DefaultRms[U]: 5
+DetPedestalDUNE::Configure:  DefaultRmsErr[U]: 0
+DetPedestalDUNE::Configure:    DefaultMean[V]: 1800
+DetPedestalDUNE::Configure: DefaultMeanErr[V]: 0
+DetPedestalDUNE::Configure:     DefaultRms[V]: 5
+DetPedestalDUNE::Configure:  DefaultRmsErr[V]: 0
+DetPedestalDUNE::Configure:    DefaultMean[Z]: 500
+DetPedestalDUNE::Configure: DefaultMeanErr[Z]: 0
+DetPedestalDUNE::Configure:     DefaultRms[Z]: 5
+DetPedestalDUNE::Configure:  DefaultRmsErr[Z]: 0
+DetPedestalDUNE::Configure:          LogLevel: 2
+%MSG-w FastCloning:  RootOutput:out1@Construction 25-Oct-2016 09:20:05 CDT  ModuleConstruction
+Fast cloning deactivated due to presence of
+event selection configuration.
+%MSG
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 0 passed = 0 failed = 0
+
+TrigReport ------ Modules in End-Path: end_path ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     0    0          0          0          0          0 out1
+
+TimeReport ---------- Time  Summary ---[sec]----
+TimeReport CPU = 0.000000 Real = 0.000000
+
+====================================================================================================================
+TimeTracker printout (sec)            Min           Avg           Max         Median          RMS         nEvts   
+====================================================================================================================
+[ No processed events ]
+====================================================================================================================
+
+%MSG-s ArtException:  RootOutput:out1@EndJob 25-Oct-2016 09:20:05 CDT  BeforeEvents
+cet::exception caught in art
+---- CatalogServiceError BEGIN
+  Input file not found: lbne_r014427_sr01_20160303T204444.root.
+  cet::exception caught in EventProcessor and rethrown
+---- CatalogServiceError END
+%MSG
+Art has completed and will exit with status 65.
+Art has completed and will exit with status 90.
+Art has completed and will exit with status 90.
+Tue Oct 25 09:20:07 CDT 2016 ./do_obtain_analyse_files.sh COMPLETED with exit status 0

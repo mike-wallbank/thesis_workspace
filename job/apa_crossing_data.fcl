@@ -1,9 +1,9 @@
-#include "apa_crossing.fcl"
-
 BEGIN_PROLOG
 dune35t_calorimetryalgdata.CalAmpConstants:  [ 7.4e-3, 7.4e-3, 7.4e-3 ]
 dune35t_calorimetryalgdata.CalAreaConstants: [ 7.4e-3, 7.4e-3, 7.4e-3 ]
 END_PROLOG
+
+#include "apa_crossing.fcl"
 
 process_name: APACrossing
 

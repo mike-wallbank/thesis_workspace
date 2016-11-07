@@ -2,6 +2,9 @@
 #include "shower_ana.fcl"
 process_name: Reco
 
+services.scheduler.SkipEvent: [ProductNotFound]
+source.maxEvents: -1
+
 physics.reco: [ rns, caldata,
                 gaushit, dcheat,
                 #lineclusterdc, blurredclusterdc
@@ -14,8 +17,8 @@ physics.analyzers.trackshower: @local::trackshowerana
 physics.analyzers.reconana: @local::reconana
 
 #physics.a1: [ trackshower ]
-physics.a1: [ reconana ]
-physics.end_paths: [ stream1, a1 ]
+#physics.a1: [ reconana ]
+#physics.end_paths: [ stream1, a1 ]
 #physics.trigger_paths: [ reco ]
 
 physics.producers.pmtrackdc.EmClusterModuleLabel: ""

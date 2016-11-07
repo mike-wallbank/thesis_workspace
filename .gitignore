@@ -1,4 +1,5 @@
 *.root
 *.png
 *.log
+*.out
 grid_output/

@@ -1,0 +1,6 @@
+#include "RunSplitterDefault.fcl"
+
+source.WhichTrigger: [ 3 ]
+source.PTBTrigs:     [ 111, 112, 113 ]
+source.PreTriggerTicks: 300
+source.PostTriggerTicks: 5200

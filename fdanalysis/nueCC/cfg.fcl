@@ -1,35 +1,35 @@
-outputs: {}
 physics: {
+   a1: [
+      "trackshower"
+   ]
    analyzers: {
-      evdisp: {
-         module_label: "evdisp"
-         module_type: "EVD"
+      trackshower: {
+         Angle: 10
+         Debug: 1
+         FillTree: true
+         HitsModuleLabel: "lineclusterdc"
+         SpacePointModuleLabel: "pmtrackdc"
+         TrackModuleLabel: "pmtrackdc"
+         module_label: "trackshower"
+         module_type: "TrackShowerSep"
       }
    }
    end_paths: [
-      "evd"
+      "a1"
    ]
-   evd: [
-      "evdisp"
-   ]
-   filters: {}
-   producers: {}
 }
-process_name: "EVD"
+process_name: "DUMMY"
+reconana: {
+   HitsModuleLabel: "lineclusterdc"
+   ShowerModuleLabel: "emshowerdc"
+   TrackModuleLabel: "pmtrackdc"
+   module_type: "NuEReconAna"
+}
 services: {
-   AnalysisDrawingOptions: {
-      CaloPlane: -1
-      CalorTemplateFileName: "dEdxKinErestemplate"
-      CalorimetryModuleLabels: [
-         "pmtrackcalodc"
-      ]
-      DrawCalorimetry: 1
-      DrawParticleID: 1
-      DrawShowerCalor: 0
-      ParticleIDModuleLabels: [
-         "pmtrackpiddc"
-      ]
-      service_type: "AnalysisDrawingOptions"
+   BackTracker: {
+      G4ModuleLabel: "largeant"
+      MinimumHitEnergyFraction: 1e-1
+      service_type: "BackTracker"
    }
    CatalogInterface: {
       service_provider: "TrivialFileDelivery"
@@ -41,28 +41,6 @@ services: {
       service_provider: "SimpleChannelStatusService"
       service_type: "ChannelStatusService"
    }
-   ColorDrawingOptions: {
-      ColorOrGrayScale: 0
-      RawDiv: [
-         100
-      ]
-      RawQHigh: [
-         60
-      ]
-      RawQLow: [
-         -20
-      ]
-      RecoDiv: [
-         100
-      ]
-      RecoQHigh: [
-         60
-      ]
-      RecoQLow: [
-         -20
-      ]
-      service_type: "ColorDrawingOptions"
-   }
    DatabaseUtil: {
       DBHostName: "fnalpgsdev.fnal.gov"
       DBName: "dune_dev"
@@ -73,28 +51,6 @@ services: {
       TableName: "main_run"
       ToughErrorTreatment: false
       service_type: "DatabaseUtil"
-   }
-   DetPedestalService: {
-      DetPedestalRetrievalAlg: {
-         DefaultCollMean: 500
-         DefaultIndMean: 1800
-      }
-      FixedDetPedestal: {
-         PedMeanErrU: 1e-1
-         PedMeanErrV: 1e-1
-         PedMeanErrZ: 1e-1
-         PedMeanU: 1800
-         PedMeanV: 1800
-         PedMeanZ: 500
-         PedRmsErrU: 1e-1
-         PedRmsErrV: 1e-1
-         PedRmsErrZ: 1e-1
-         PedRmsU: 2.5
-         PedRmsV: 2.5
-         PedRmsZ: 2.5
-      }
-      service_provider: "FixedDetPedestalService"
-      service_type: "DetPedestalService"
    }
    DetectorClocksService: {
       ClockSpeedExternal: 3.125e1
@@ -133,26 +89,17 @@ services: {
       service_provider: "DetectorPropertiesServiceStandard"
       service_type: "DetectorPropertiesService"
    }
-   EvdLayoutOptions: {
-      AutoZoomInterest: 1
-      ChangeWire: 1
-      EnableMCTruthCheckBox: 1
-      MakeClusters: 0
-      MakeSeeds: 0
-      PrintTotalCharge: 1
-      ShowClusterSection: 0
-      ShowEndPointMarkers: 1
-      ShowEndPointSection: 1
-      ShowSideBar: 1
-      service_type: "EvdLayoutOptions"
-   }
-   EventDisplay: {
-      AutoAdvanceInterval: 1000
-      service_type: "EventDisplay"
-   }
    ExptGeoHelperInterface: {
       service_provider: "DUNEGeometryHelper"
       service_type: "ExptGeoHelperInterface"
+   }
+   FileCatalogMetadata: {
+      applicationFamily: "art"
+      applicationVersion: "development"
+      fileType: "mc"
+      group: "dune"
+      runType: "physics"
+      service_type: "FileCatalogMetadata"
    }
    FileTransfer: {
       service_provider: "TrivialFileTransfer"
@@ -160,73 +107,20 @@ services: {
    }
    Geometry: {
       DisableWiresInG4: true
-      GDML: "dune10kt_v1.gdml"
-      Name: "dune10kt_v1"
-      ROOT: "dune10kt_v1.gdml"
+      GDML: "dune10kt_v1_1x2x6.gdml"
+      Name: "dune10kt_v1_1x2x6"
+      ROOT: "dune10kt_v1_1x2x6.gdml"
       SortingParameters: {
          ChannelsPerOpDet: 12
       }
       SurfaceY: 147828
       service_type: "Geometry"
    }
-   LArG4Parameters: {
-      CosmogenicK0Bias: 0
-      CosmogenicXSMNBiasFactor: 1
-      CosmogenicXSMNBiasOn: 0
-      DisableWireplanes: false
-      ElectronClusterSize: 600
-      EnabledPhysics: [
-         "Em",
-         "SynchrotronAndGN",
-         "Ion",
-         "Hadron",
-         "Decay",
-         "HadronElastic",
-         "Stopping",
-         "NeutronTrackingCut"
-      ]
-      KeepEMShowerDaughters: false
-      LongitudinalDiffusion: 6.2e-9
-      MinNumberOfElCluster: 0
-      OpticalParamModels: [
-         "OverlaidWireplanes"
-      ]
-      OpticalParamOrientations: [
-         0
-      ]
-      OpticalParamParameters: [
-         [
-            [
-               60,
-               3,
-               1.5e-1
-            ],
-            [
-               -60,
-               3,
-               1.5e-1
-            ],
-            [
-               0,
-               3,
-               1.5e-1
-            ]
-         ]
-      ]
-      OpticalParamVolumes: [
-         "volTPCPlaneVert_PV"
-      ]
-      OpticalSimVerbosity: 0
-      ParticleKineticEnergyCut: 1e-5
-      SkipWireSignalInTPCs: []
-      StoreTrajectories: true
-      TransverseDiffusion: 1.63e-8
-      UseCustomPhysics: false
-      UseLitePhotons: true
-      UseModBoxRecomb: true
-      VisualizationEnergyCut: 1e-2
-      VisualizeNeutrals: false
-      service_type: "LArG4Parameters"
+   LArFFT: {
+      FFTOption: ""
+      FFTSize: 0
+      FitBins: 5
+      service_type: "LArFFT"
    }
    LArPropertiesService: {
       AbsLengthEnergies: [
@@ -470,264 +364,168 @@ services: {
       service_provider: "LArPropertiesServiceStandard"
       service_type: "LArPropertiesService"
    }
-   LArVoxelCalculator: {
-      VoxelEnergyCut: 1e-6
-      VoxelOffsetT: -2500
-      VoxelOffsetX: 0
-      VoxelOffsetY: 0
-      VoxelOffsetZ: 0
-      VoxelSizeT: 5000
-      VoxelSizeX: 3e-2
-      VoxelSizeY: 3e-2
-      VoxelSizeZ: 3e-2
-      service_type: "LArVoxelCalculator"
+   LArSeedService: {
+      endOfJobSummary: true
+      policy: "random"
+      service_type: "LArSeedService"
    }
-   RawDrawingOptions: {
-      AxisOrientation: 0
-      Cryostat: 0
-      DrawRawDataOrCalibWires: 0
-      MinimumSignal: 20
-      RawDataLabel: "daq"
-      ScaleDigitsByCharge: 0
-      StartTick: 0
-      TPC: 1
-      TicksPerPoint: 1
-      TotalTicks: 4492
-      UncompressWithPed: true
-      service_type: "RawDrawingOptions"
-   }
-   RecoDrawingOptions: {
-      BezierTrackModuleLabels: [
-         "beziertracker"
+   SignalShapingServiceDUNE: {
+      ADCPerPCAtLowestASICGain: 13160
+      ASICGainInMVPerFC: [
+         14,
+         14,
+         14
       ]
-      CalorimetryAlgorithm: {
-         CalAmpConstants: [
-            5.82554e-4,
-            1.16594e-3
+      CalibResponseTOffset: [
+         0,
+         0,
+         0
+      ]
+      Col3DCorrection: 2.5
+      ColFieldParams: [
+         8,
+         16,
+         7.5e-1
+      ]
+      ColFieldRespAmp: 1
+      ColFieldShape: "x^[2]/(1.0+(x/[0])^[1])"
+      ColFilter: "[0]*exp(-0.5*(((x-[1])/[2])^2)^[3])"
+      ColFilterParams: [
+         1.03,
+         8e-2,
+         1.5e-1,
+         2.17
+      ]
+      DebugFieldShape: false
+      DeconNorm: 200
+      FieldBins: 400
+      FieldResponseFname: "FieldResponse/dune35t_response_v1.0.root"
+      FieldResponseHistoName: "FieldResponse"
+      FieldResponseTOffset: [
+         -32500,
+         -32500,
+         -32500
+      ]
+      FilterFunctionFname: "uboone_filters_v0.1.root"
+      FilterHistoName: "noisefilter_%d"
+      GetFilterFromHisto: false
+      Ind3DCorrection: 1.5
+      IndUFieldParams: [
+         8.43e-3,
+         1.534e-1,
+         1.77,
+         0,
+         5e-1
+      ]
+      IndUFieldRespAmp: 1
+      IndUFieldShape: "[0]*(1.0+[3]*tanh(x-[4]))*([4]-x)*exp(-0.5*((x-[4])/[2])^2.0)"
+      IndUFilter: "gaus(0)*exp(-0.5*pow(x/[3],[4]))"
+      IndUFilterParams: [
+         1.73,
+         1.69,
+         1.55,
+         1.9e-1,
+         3.75
+      ]
+      IndVFieldParams: [
+         8.43e-3,
+         1.534e-1,
+         1.77,
+         0,
+         5e-1
+      ]
+      IndVFieldRespAmp: 1
+      IndVFieldShape: "[0]*(1.0+[3]*tanh(x-[4]))*([4]-x)*exp(-0.5*((x-[4])/[2])^2.0)"
+      IndVFilter: "gaus(0)*exp(-0.5*pow(x/[3],[4]))"
+      IndVFilterParams: [
+         1.73,
+         1.69,
+         1.55,
+         1.9e-1,
+         3.75
+      ]
+      InputFieldRespSamplingPeriod: 100
+      NoiseFactVec: [
+         [
+            1.12,
+            8.6e-1,
+            6e-1,
+            5.5e-1
+         ],
+         [
+            1.12,
+            8.6e-1,
+            6e-1,
+            5.5e-1
+         ],
+         [
+            8.9e-1,
+            6.6e-1,
+            4.8e-1,
+            4.3e-1
          ]
-         CalAreaConstants: [
-            5.44391e-3,
-            2.0376e-2
-         ]
-         CaloLifeTimeForm: 0
-         CaloUseModBox: true
-      }
-      ClusterModuleLabels: [
-         "lineclusterdc"
       ]
-      ColorProngsByLabel: 0
-      ColorSpacePointsByChisq: 0
-      CosmicTagModuleLabels: [
-         ""
+      ShapeTimeConst: [
+         2,
+         2,
+         2
       ]
-      Draw2DEndPoints: 0
-      Draw2DSlopeEndPoints: 0
-      DrawBestPCAAxisOnly: true
-      DrawBezierTracks: 0
-      DrawClusters: 1
-      DrawCosmicTags: 0
-      DrawEvents: 0
-      DrawHits: 1
-      DrawOpFlashes: 1
-      DrawPFParticles: 0
-      DrawProngs: 0
-      DrawSeeds: 0
-      DrawShowers: 0
-      DrawSkeleton3DHitsOnly: false
-      DrawSpacePoints: 0
-      DrawTrackSpacePoints: 0
-      DrawTrackTrajectoryPoints: 1
-      DrawTrackVertexAssns: false
-      DrawTracks: 1
-      DrawVertices: 1
-      EndPoint2DModuleLabels: [
-         ""
-      ]
-      EventModuleLabels: [
-         ""
-      ]
-      FlashMinPE: 0
-      FlashTMax: 1e9
-      FlashTMin: -1e9
-      HitModuleLabels: [
-         "lineclusterdc"
-      ]
-      OpFlashModuleLabels: [
-         "opflash"
-      ]
-      PFParticleModuleLabels: [
-         "pandora"
-      ]
-      ProngModuleLabels: [
-         ""
-      ]
-      SeedModuleLabels: [
-         "seedfinder"
-      ]
-      SelectedHitColor: 6
-      ShowerModuleLabels: [
-         "showerreco"
-      ]
-      SpacePointModuleLabels: [
-         "spacepts"
-      ]
-      TrackModuleLabels: [
-         "pmtrackdc"
-      ]
-      TrkVtxCosmicLabels: [
-         ""
-      ]
-      TrkVtxFilterLabels: [
-         ""
-      ]
-      TrkVtxTrackLabels: [
-         ""
-      ]
-      UseHitSelector: false
-      VertexModuleLabels: [
-         "pmtrackdc"
-      ]
-      WireModuleLabels: [
-         "caldata"
-      ]
-      service_type: "RecoDrawingOptions"
+      UseFunctionFieldShape: false
+      UseHistogramFieldShape: true
+      service_type: "SignalShapingServiceDUNE"
    }
-   ScanOptions: {
-      Categories: [
-         "Neutrino",
-         "Induction Plane",
-         "Collection Plane"
-      ]
-      FieldLabels: [
-         "No_nu",
-         "Possible_nu",
-         "nu",
-         "Tracks",
-         "Showers",
-         "Vertex_w",
-         "Vertex_t",
-         "Tracks",
-         "Showers",
-         "Vertex_w",
-         "Vertex_t"
-      ]
-      FieldTypes: [
-         "RadioButton",
-         "RadioButton",
-         "RadioButton",
-         "Number",
-         "Number",
-         "Number",
-         "Number",
-         "Number",
-         "Number",
-         "Number",
-         "Number"
-      ]
-      FieldsPerCategory: [
-         3,
-         4,
-         4
-      ]
-      FileNameBase: "ScanFile"
-      IncludeMCInfo: false
-      service_type: "ScanOptions"
+   SpaceCharge: {
+      EnableCorrSCE: false
+      EnableSimEfieldSCE: false
+      EnableSimSpatialSCE: false
+      InputFilename: "SCEoffsets.root"
+      RepresentationType: "Parametric"
+      service_provider: "SpaceChargeServiceStandard"
+      service_type: "SpaceCharge"
    }
-   SimulationDrawingOptions: {
-      G4ModuleLabel: "largeant"
-      MinimumEnergyDeposition: 5e-5
-      ShowMCTruthColors: true
-      ShowMCTruthFullSize: true
-      ShowMCTruthText: false
-      ShowMCTruthTrajectories: false
-      ShowMCTruthVectors: false
-      service_type: "SimulationDrawingOptions"
+   TFileService: {
+      fileName: "trackshower.root"
+      service_type: "TFileService"
    }
    message: {
-      debugModules: [
-         "*"
-      ]
       destinations: {
-         Drawers: {
+         STDOUT: {
             categories: {
-               ConfigurationChecker: {
-                  limit: 5
-                  timespan: 100
+               ArtReport: {
+                  limit: 100
                }
-               GraphCluster: {
-                  limit: 5
-                  timespan: 100
-               }
-               HitSelector: {
-                  limit: 5
-                  timespan: 100
-               }
-               InfoTransfer: {
-                  limit: 5
-                  timespan: 100
-               }
-               RawDataDrawer: {
-                  limit: 5
-                  timespan: 100
-               }
-               RecoBaseDefaultCtor: {
-                  limit: 1
-                  timespan: 100
-               }
-               RecoBaseDrawer: {
-                  limit: 5
-                  timespan: 100
-               }
-               SimulationDrawer: {
-                  limit: 5
-                  timespan: 100
+               default: {
+                  limit: -1
                }
             }
             threshold: "INFO"
-            type: "cerr"
+            type: "cout"
          }
       }
    }
    scheduler: {
+      SkipEvent: [
+         "ProductNotFound"
+      ]
       errorOnFailureToPut: true
       errorOnSIGINT: true
    }
-   user: {
-      ColorDrawingOptions: {
-         ColorOrGrayScale: 1
-      }
-      RecoDrawingOptions: {
-         ClusterModuleLabels: [
-            "blurredclusterdc"
-         ]
-         Draw2DSlopeEndPoints: 0
-         DrawClusters: 0
-         DrawHits: 0
-         DrawOpFlashes: 0
-         DrawShowers: 0
-         DrawSpacePoints: 1
-         DrawTrackSpacePoints: 1
-         DrawTrackTrajectoryPoints: 1
-         DrawTracks: 1
-         DrawVertices: 1
-         ShowerModuleLabels: [
-            "emshowerdc"
-         ]
-         TrackModuleLabels: [
-            "pmtrackdc"
-         ]
-      }
-      SimulationDrawingOptions: {
-         ShowMCTruthTrajectories: false
-      }
-      service_type: "user"
-   }
+}
+showerana: {
+   ClusterModuleLabel: "blurredclusterdc"
+   HitsModuleLabel: "lineclusterdc"
+   ShowerModuleLabel: "emshowerdc"
+   module_type: "ShowerAnalysis"
 }
 source: {
-   fileNames: [
-      "single_gen.root"
-   ]
    maxEvents: -1
    module_label: "source"
    module_type: "RootInput"
+}
+trackshowerana: {
+   Angle: 10
+   HitsModuleLabel: "lineclusterdc"
+   SpacePointModuleLabel: "pmtrackdc"
+   TrackModuleLabel: "pmtrackdc"
+   module_type: "TrackShowerSep"
 }

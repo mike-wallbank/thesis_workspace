@@ -11,16 +11,27 @@ physics.reco: [ rns, caldata,
               ]
 
 physics.analyzers.trackshower: @local::trackshowerana
-physics.a1: [ trackshower ]
+physics.analyzers.reconana: @local::reconana
+
+#physics.a1: [ trackshower ]
+physics.a1: [ reconana ]
 physics.end_paths: [ stream1, a1 ]
 #physics.trigger_paths: [ reco ]
 
 physics.producers.pmtrackdc.EmClusterModuleLabel: ""
 
+physics.analyzers.trackshower.Debug: 2
+physics.analyzers.trackshower.IsolationRadius: 1
+
 physics.producers.blurredclusterdc.CreateDebugPDF: false
 physics.producers.blurredclusterdc.MergeClusters: false
 physics.producers.blurredclusterdc.GlobalTPCRecon: true
 physics.producers.blurredclusterdc.BlurredClusterAlg.Debug: false
+physics.producers.blurredclusterdc.TrackShowerSeparationAlg.ConeAngle: 15
+physics.producers.blurredclusterdc.TrackShowerSeparationAlg.CylinderRadius: 20
+physics.producers.blurredclusterdc.TrackShowerSeparationAlg.TrackVertexCut: 5.
+physics.producers.blurredclusterdc.TrackShowerSeparationAlg.CylinderCut: 0.2
+physics.producers.blurredclusterdc.TrackShowerSeparationAlg.ShowerConeCut: 5.
 
 physics.producers.blurredclusterdc.ShowerReconOnly: true
 physics.producers.emshowerdc.SaveNonCompleteShowers: true

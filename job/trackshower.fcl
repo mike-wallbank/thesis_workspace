@@ -1,5 +1,5 @@
-#include "shower_ana.fcl"
 #include "services_dune.fcl"
+#include "shower_ana.fcl"
 
 services:
 {
@@ -28,4 +28,9 @@ physics:
 
 }
 
-
+physics.analyzers.trackshower.Debug: 1
+physics.analyzers.trackshower.MakeTree: true
+physics.analyzers.trackshower.ConeAngle: 10
+physics.analyzers.trackshower.CylinderRadius: 20
+physics.analyzers.trackshower.SphereRadius: 3
+physics.analyzers.trackshower.IsolationRadius: 40

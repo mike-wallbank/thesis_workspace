@@ -1,0 +1,18 @@
+#include "evd_dune10kt.fcl"
+
+services.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
+services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
+services.RecoDrawingOptions.TrackModuleLabels: [ "trackshower:track" ]
+services.RecoDrawingOptions.DrawShowers: 1
+services.RecoDrawingOptions.Draw2DSlopeEndPoints: 0
+services.RecoDrawingOptions.DrawSpacePoints: 1
+services.RecoDrawingOptions.DrawTracks: 1
+services.RecoDrawingOptions.DrawTrackTrajectoryPoints: 1
+services.RecoDrawingOptions.DrawTrackSpacePoints: 0
+services.RecoDrawingOptions.DrawVertices: 0
+services.RecoDrawingOptions.DrawHits: 0
+services.RecoDrawingOptions.DrawClusters: 0
+services.RecoDrawingOptions.DrawOpFlashes: 0
+services.SimulationDrawingOptions.ShowMCTruthTrajectories: false
+services.ColorDrawingOptions.ColorOrGrayScale: 1
+#services.EventDisplay.AutoAdvanceInterval: 5000

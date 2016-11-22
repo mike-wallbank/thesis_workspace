@@ -28,4 +28,4 @@ physics:
 
 }
 
-
+physics.analyzers.reconAnalysis.Debug: 1

@@ -1,5 +1,5 @@
-#include "shower_ana.fcl"
 #include "services_dune.fcl"
+#include "shower_ana.fcl"
 
 services:
 {

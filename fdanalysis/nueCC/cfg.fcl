@@ -1,3 +1,14 @@
+custom_trackshowersepalg: {
+   ConeAngle: 15
+   CylinderCut: 2e-1
+   CylinderRadius: 20
+   Debug: 3
+   Detector: "dune10kt"
+   RectangleCut: 3e-1
+   RectangleWidth: 1
+   ShowerConeCut: 5
+   TrackVertexCut: 5
+}
 outputs: {
    out1: {
       compressionLevel: 1
@@ -11,27 +22,28 @@ outputs: {
 }
 physics: {
    a1: [
+      "trackshowerana",
       "reconana"
    ]
    analyzers: {
       reconana: {
-         Debug: 3
+         Debug: 1
          HitsModuleLabel: "lineclusterdc"
          ShowerModuleLabel: "emshowerdc"
          TrackModuleLabel: "pmtrackdc"
          module_label: "reconana"
          module_type: "NuEReconAna"
       }
-      trackshower: {
+      trackshowerana: {
          ConeAngle: 10
          CylinderRadius: 10
-         Debug: 2
+         Debug: 3
          HitsModuleLabel: "lineclusterdc"
          IsolationRadius: 1
          SpacePointModuleLabel: "pmtrackdc"
          SphereRadius: 1
          TrackModuleLabel: "pmtrackdc"
-         module_label: "trackshower"
+         module_label: "trackshowerana"
          module_type: "TrackShowerSep"
       }
    }
@@ -69,16 +81,18 @@ physics: {
          PFParticleModuleLabel: "pandora"
          ShowerReconOnly: false
          TrackModuleLabel: "pmtrack"
-         TrackShowerSeparationAlg: {
-            AngleCut: 15
-            AvTrackHitDistance: 1
-            DistanceCut: 50
-            TrackProximityCut: 4
-            VertexProximityCut: 10
+         TrackShowerSepAlg: {
+            ConeAngle: 15
+            CylinderCut: 2e-1
+            CylinderRadius: 20
+            RectangleCut: 5e-1
+            RectangleWidth: 1
+            ShowerConeCut: 5
+            TrackVertexCut: 5
          }
          VertexModuleLabel: "linecluster"
          module_label: "blurredcluster"
-         module_type: "BlurredClustering"
+         module_type: "BlurredCluster"
       }
       blurredclusterdc: {
          BlurredClusterAlg: {
@@ -100,7 +114,7 @@ physics: {
          }
          CreateDebugPDF: false
          GlobalTPCRecon: true
-         HitsModuleLabel: "lineclusterdc"
+         HitsModuleLabel: "trackshower:shower"
          MergeClusterAlg: {
             MaxMergeSeparation: 30
             MinMergeClusterSize: 3
@@ -108,27 +122,27 @@ physics: {
          }
          MergeClusters: false
          PFParticleModuleLabel: "pandora"
-         ShowerReconOnly: true
+         ShowerReconOnly: false
          TrackModuleLabel: "pmtrackdc"
-         TrackShowerSeparationAlg: {
-            AngleCut: 15
-            AvTrackHitDistance: 1
+         TrackShowerSepAlg: {
             ConeAngle: 15
             CylinderCut: 2e-1
             CylinderRadius: 20
-            DistanceCut: 50
+            Debug: 3
+            Detector: "dune10kt"
+            RectangleCut: 3e-1
+            RectangleWidth: 1
             ShowerConeCut: 5
-            TrackProximityCut: 4
             TrackVertexCut: 5
-            VertexProximityCut: 10
          }
          VertexModuleLabel: "lineclusterdc"
          module_label: "blurredclusterdc"
-         module_type: "BlurredClustering"
+         module_type: "BlurredCluster"
       }
       caldata: {
          DigitLabel: "daq"
          DoAssns: true
+         DoGroups: true
          IntermediateStates: []
          LogLevel: 1
          WireName: ""
@@ -231,6 +245,7 @@ physics: {
                ZGradient: 7.30337e-6
                ZIntercept: -1.91387e-2
             }
+            SpacePointSize: 1e-1
             Toler: [
                30,
                5,
@@ -239,7 +254,10 @@ physics: {
             ]
             dEdxTrackLength: 3
          }
+         FindBadPlanes: true
          HitsModuleLabel: "linecluster"
+         MakeSpacePoints: true
+         SaveNonCompleteShowers: true
          TrackModuleLabel: "pmtrack"
          module_label: "emshower"
          module_type: "EMShower"
@@ -310,7 +328,7 @@ physics: {
       }
       emshowerdc: {
          ClusterModuleLabel: "blurredclusterdc"
-         Debug: 1
+         Debug: 0
          EMShowerAlg: {
             CalorimetryAlg: {
                CalAmpConstants: [
@@ -357,6 +375,7 @@ physics: {
                ZGradient: 7.30337e-6
                ZIntercept: -1.91387e-2
             }
+            SpacePointSize: 1e-1
             Toler: [
                30,
                5,
@@ -367,9 +386,12 @@ physics: {
          }
          FindBadPlanes: false
          HitsModuleLabel: "lineclusterdc"
+         MakeSpacePoints: true
          Plane: -1
          SaveNonCompleteShowers: true
          Shower: -1
+         ShowerHitsModuleLabel: "trackshower:shower"
+         TrackHitsModuleLabel: "lineclusterdc"
          TrackModuleLabel: "pmtrackdc"
          module_label: "emshowerdc"
          module_type: "EMShower"
@@ -1315,6 +1337,23 @@ physics: {
          module_label: "rns"
          module_type: "RandomNumberSaver"
       }
+      trackshower: {
+         HitsModuleLabel: "lineclusterdc"
+         TrackModuleLabel: "pmtrackdc"
+         TrackShowerSepAlg: {
+            ConeAngle: 15
+            CylinderCut: 2e-1
+            CylinderRadius: 20
+            Debug: 3
+            Detector: "dune10kt"
+            RectangleCut: 3e-1
+            RectangleWidth: 1
+            ShowerConeCut: 5
+            TrackVertexCut: 5
+         }
+         module_label: "trackshower"
+         module_type: "TrackIdentifier"
+      }
       trajcluster: {
          TrajClusterAlg: {
             AngleRanges: [
@@ -1505,6 +1544,7 @@ physics: {
       "dcheat",
       "lineclusterdc",
       "pmtrackdc",
+      "trackshower",
       "blurredclusterdc",
       "emshowerdc"
    ]
@@ -1550,6 +1590,10 @@ services: {
    CatalogInterface: {
       service_provider: "TrivialFileDelivery"
       service_type: "CatalogInterface"
+   }
+   ChannelGroupService: {
+      service_provider: "GeoApaChannelGroupService"
+      service_type: "ChannelGroupService"
    }
    ChannelStatusService: {
       BadChannels: []

@@ -1,5 +1,5 @@
+# #include "shower_ana.fcl"
 #include "services_dune.fcl"
-#include "shower_ana.fcl"
 
 services:
 {
@@ -17,7 +17,13 @@ physics:
 {
   analyzers:
   {
-     showerAnalysis: @local::showerana
+     showerAnalysis: {
+       module_type: "ShowerAnalysis"
+       ShowerModuleLabel: "emshowerdc"
+       HitsModuleLabel: "lineclusterdc"
+       ClusterModuleLabel: "blurredclusterdc"
+       TrackModuleLabel: "pmtrackdc"
+     }
   }
 
  a1: [ showerAnalysis ]

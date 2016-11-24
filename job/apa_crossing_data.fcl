@@ -39,4 +39,5 @@ physics:
 
 }
 
+physics.analyzers.apacrossing.HitsModuleLabel: "gaushit"
 physics.analyzers.apacrossing.ExpectedT0: 300

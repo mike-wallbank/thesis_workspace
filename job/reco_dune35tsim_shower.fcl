@@ -1,0 +1,57 @@
+#include "standard_reco_dune35tsim.fcl"
+# #include "shower_ana.fcl"
+
+process_name: ShowerReco
+
+services.scheduler.SkipEvent: [ProductNotFound]
+
+source.maxEvents: -1
+
+# physics.analyzers.showerAnalysis {
+#   module_type: ShowerAnalysis
+#   HitsModuleLabel: "lineclusterdc"
+#   ClusterModuleLabel: "blurredclusterdc"
+#   ShowerModuleLabel: "emshowerdc"
+# }
+
+physics.reco: [ rns, caldata,
+                gaushit, dcheat,
+                #lineclusterdc, blurredclusterdc
+                lineclusterdc, pmtrackdc, blurredclusterdc, emshowerdc
+                #lineclusterdc, pandoradc, pmtrackdc, blurredclusterdc, emshowerdc
+                #hit35t, linecluster, pmtrack, blurredcluster, emshower
+              ]
+
+# cluster
+physics.producers.blurredclusterdc.CreateDebugPDF: false
+physics.producers.blurredclusterdc.MergeClusters: false
+physics.producers.blurredclusterdc.GlobalTPCRecon: true
+physics.producers.blurredclusterdc.BlurredClusterAlg.Debug: true
+# physics.producers.blurredclusterdc.BlurredClusterAlg.BlurWire: 6
+# physics.producers.blurredclusterdc.BlurredClusterAlg.BlurTick: 12
+# physics.producers.blurredclusterdc.BlurredClusterAlg.SigmaWire: 4
+# physics.producers.blurredclusterdc.BlurredClusterAlg.SigmaTick: 6
+# physics.producers.blurredclusterdc.BlurredClusterAlg.ClusterWireDistance: 2
+# physics.producers.blurredclusterdc.BlurredClusterAlg.ClusterTickDistance: 2
+# physics.producers.blurredclusterdc.BlurredClusterAlg.MaxTickWidthBlur: 10
+
+# merge
+#physics.producers.blurredclusterdc.BlurredClusterAlg.MinSize: 6
+physics.producers.blurredclusterdc.MergeClusterAlg.ProjWidthThreshold: 0.2
+physics.producers.blurredclusterdc.MergeClusterAlg.MinMergeClusterSize: 10
+
+# shower
+physics.producers.blurredclusterdc.ShowerReconOnly: false
+physics.producers.emshowerdc.SaveNonCompleteShowers: true
+physics.producers.emshowerdc.Debug: 0
+physics.producers.emshowerdc.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshowerdc.EMShowerAlg.MakeGradientPlot: false
+physics.producers.emshowerdc.EMShowerAlg.NumShowerSegments: 4
+physics.producers.emshowerdc.Shower: -1
+physics.producers.emshowerdc.Plane: -1
+
+# # analysis
+# physics.analyzers.showerAnalysis.ElectrondEdx: 2.0
+# physics.analyzers.showerAnalysis.PhotondEdx: 4.38
+# physics.analyzers.showerAnalysis.ElectrondEdxWidth: 0.41
+# physics.analyzers.showerAnalysis.PhotondEdxWidth: 1.21

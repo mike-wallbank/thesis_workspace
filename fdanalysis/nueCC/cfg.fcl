@@ -4,7 +4,8 @@ custom_trackshowersepalg: {
    CylinderRadius: 20
    Debug: 3
    Detector: "dune10kt"
-   RectangleCut: 3e-1
+   LeastSquareCut: 10
+   RectangleCut: 4e-1
    RectangleWidth: 1
    ShowerConeCut: 5
    TrackVertexCut: 5
@@ -130,7 +131,8 @@ physics: {
             CylinderRadius: 20
             Debug: 3
             Detector: "dune10kt"
-            RectangleCut: 3e-1
+            LeastSquareCut: 10
+            RectangleCut: 4e-1
             RectangleWidth: 1
             ShowerConeCut: 5
             TrackVertexCut: 5
@@ -328,7 +330,7 @@ physics: {
       }
       emshowerdc: {
          ClusterModuleLabel: "blurredclusterdc"
-         Debug: 0
+         Debug: 3
          EMShowerAlg: {
             CalorimetryAlg: {
                CalAmpConstants: [
@@ -1346,7 +1348,8 @@ physics: {
             CylinderRadius: 20
             Debug: 3
             Detector: "dune10kt"
-            RectangleCut: 3e-1
+            LeastSquareCut: 10
+            RectangleCut: 4e-1
             RectangleWidth: 1
             ShowerConeCut: 5
             TrackVertexCut: 5
@@ -1361,7 +1364,16 @@ physics: {
                85,
                90
             ]
-            ChgPullCut: 3
+            ChargeCuts: [
+               3,
+               1.5e-1,
+               2.5e-1
+            ]
+            ChkStopCuts: [
+               1.4,
+               5,
+               1
+            ]
             DebugPlane: -1
             DebugTick: -1
             DebugWire: -1
@@ -1371,12 +1383,21 @@ physics: {
                5,
                500
             ]
-            FillTruth: 0
             HitErrFac: 2e-1
             HitFinderModuleLabel: "hitfd"
             JTMaxHitSep: 3
-            KinkAngCut: 5e-1
+            KinkCuts: [
+               3.5e-1,
+               1.5,
+               3
+            ]
             MakeNewHits: true
+            MatchTruth: [
+               -1,
+               0,
+               5e-1,
+               10
+            ]
             MaxAngleRange: [
                0,
                2
@@ -1413,16 +1434,19 @@ physics: {
                1
             ]
             SkipAlgs: [
-               "RefineVtx"
+               "MaskBadTPs",
+               "ChkAllStop",
+               "ChkStop"
             ]
             StudyMode: false
             TagAllTraj: false
             Vertex2DCuts: [
                10,
-               2,
+               4,
                30,
-               3,
-               5
+               10,
+               5,
+               100
             ]
             Vertex3DChiCut: 10
          }
@@ -1436,7 +1460,16 @@ physics: {
                85,
                90
             ]
-            ChgPullCut: 3
+            ChargeCuts: [
+               3,
+               1.5e-1,
+               2.5e-1
+            ]
+            ChkStopCuts: [
+               1.4,
+               5,
+               1
+            ]
             DebugPlane: -1
             DebugTick: -1
             DebugWire: -1
@@ -1446,12 +1479,21 @@ physics: {
                5,
                500
             ]
-            FillTruth: 0
             HitErrFac: 2e-1
             HitFinderModuleLabel: "dcheat"
             JTMaxHitSep: 3
-            KinkAngCut: 5e-1
+            KinkCuts: [
+               3.5e-1,
+               1.5,
+               3
+            ]
             MakeNewHits: true
+            MatchTruth: [
+               -1,
+               0,
+               5e-1,
+               10
+            ]
             MaxAngleRange: [
                0,
                2
@@ -1488,16 +1530,19 @@ physics: {
                1
             ]
             SkipAlgs: [
-               "RefineVtx"
+               "MaskBadTPs",
+               "ChkAllStop",
+               "ChkStop"
             ]
             StudyMode: false
             TagAllTraj: false
             Vertex2DCuts: [
                10,
-               2,
+               4,
                30,
-               3,
-               5
+               10,
+               5,
+               100
             ]
             Vertex3DChiCut: 10
          }

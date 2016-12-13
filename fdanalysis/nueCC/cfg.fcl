@@ -137,6 +137,7 @@ physics: {
             ShowerConeCut: 5
             TrackVertexCut: 5
          }
+         UseVertices: true
          VertexModuleLabel: "lineclusterdc"
          module_label: "blurredclusterdc"
          module_type: "BlurredCluster"
@@ -330,7 +331,7 @@ physics: {
       }
       emshowerdc: {
          ClusterModuleLabel: "blurredclusterdc"
-         Debug: 3
+         Debug: 1
          EMShowerAlg: {
             CalorimetryAlg: {
                CalAmpConstants: [
@@ -906,15 +907,15 @@ physics: {
          EmClusterModuleLabel: "trkshowersplit"
          HitModuleLabel: "linecluster"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
             MergeWithinTPC: false
             MinSeedSize1stPass: 20
-            MinSeedSize2ndPass: 4
+            MinSeedSize2ndPass: 2
             RunVertexing: true
             StitchAngle: 10
             StitchBetweenTPCs: true
@@ -996,15 +997,15 @@ physics: {
          EmClusterModuleLabel: ""
          HitModuleLabel: "lineclusterdc"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
             MergeWithinTPC: false
             MinSeedSize1stPass: 20
-            MinSeedSize2ndPass: 4
+            MinSeedSize2ndPass: 2
             RunVertexing: true
             StitchAngle: 10
             StitchBetweenTPCs: true
@@ -1056,9 +1057,9 @@ physics: {
          EmClusterModuleLabel: ""
          HitModuleLabel: "trajcluster"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
@@ -1146,9 +1147,9 @@ physics: {
          EmClusterModuleLabel: ""
          HitModuleLabel: "trajclusterdc"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
@@ -1590,8 +1591,7 @@ physics: {
       "lineclusterdc",
       "pmtrackdc",
       "trackshower",
-      "blurredclusterdc",
-      "emshowerdc"
+      "blurredclusterdc"
    ]
    stream1: [
       "out1"
@@ -1969,13 +1969,13 @@ services: {
       service_provider: "LArPropertiesServiceStandard"
       service_type: "LArPropertiesService"
    }
-   LArSeedService: {
-      endOfJobSummary: true
-      policy: "random"
-      service_type: "LArSeedService"
-   }
    MemoryTracker: {
       service_type: "MemoryTracker"
+   }
+   NuRandomService: {
+      endOfJobSummary: true
+      policy: "random"
+      service_type: "NuRandomService"
    }
    RandomNumberGenerator: {
       service_type: "RandomNumberGenerator"
@@ -2132,75 +2132,7 @@ services: {
          LogDebugFile: {
             append: false
             categories: {
-               AnaBaseDefaultCtor: {
-                  limit: 0
-               }
-               BackTracker: {
-                  limit: 0
-               }
-               CaloPrtHit: {
-                  limit: 0
-               }
-               CaloPrtTrk: {
-                  limit: 0
-               }
-               ChannelFilter: {
-                  limit: 0
-               }
-               ClusterCheater: {
-                  limit: 0
-               }
-               ClusterCrawlerAlg: {
-                  limit: 0
-               }
-               ClusterMergeTQ: {
-                  limit: 0
-               }
-               CosmicTracker: {
-                  limit: 0
-               }
-               DBscan: {
-                  limit: 0
-               }
-               DisambigAlg35t: {
-                  limit: 0
-               }
-               DisambigCheat: {
-                  limit: 0
-               }
-               GeometryBadInputPoint: {
-                  limit: 5
-                  timespan: 1000
-               }
-               HitCheater: {
-                  limit: 0
-               }
-               HoughBaseAlg: {
-                  limit: 0
-               }
-               KalmanFilterAlg: {
-                  limit: 0
-               }
-               LArPandora: {
-                  limit: 0
-               }
-               RecoBaseDefaultCtor: {
-                  limit: 0
-               }
-               SpacePointAlg: {
-                  limit: 0
-               }
-               Summary: {
-                  limit: 0
-               }
-               Track3DKalmanHit: {
-                  limit: 0
-               }
-               Track3DKalmanSPS_GenFit: {
-                  limit: 0
-               }
-               default: {}
-               fuzzyCluster: {
+               default: {
                   limit: 0
                }
             }
@@ -2217,23 +2149,18 @@ services: {
 }
          LogStandardOut: {
             categories: {
-               AnaBaseDefaultCtor: {
+               ArtReport: {
+                  limit: -1
+               }
+               default: {
                   limit: 0
                }
-               GeometryBadInputPoint: {
-                  limit: 5
-                  timespan: 1000
-               }
-               RecoBaseDefaultCtor: {
-                  limit: 0
-               }
-               default: {}
-}
-            threshold: "WARNING"
+            }
+            threshold: "INFO"
             type: "cout"
-}
-}
-}
+         }
+      }
+   }
    scheduler: {
       SkipEvent: [
          "ProductNotFound"

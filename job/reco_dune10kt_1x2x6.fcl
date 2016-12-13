@@ -51,10 +51,12 @@ physics.analyzers.trackshowerana.IsolationRadius: 1
 physics.analyzers.reconana.Debug: 1
 
 physics.producers.blurredclusterdc.ShowerReconOnly: true
+physics.producers.blurredclusterdc.UseVertices: true
 physics.producers.blurredclusterdc.CreateDebugPDF: false
 physics.producers.blurredclusterdc.MergeClusters: false
 physics.producers.blurredclusterdc.GlobalTPCRecon: true
 physics.producers.blurredclusterdc.HitsModuleLabel: "lineclusterdc"
+physics.producers.blurredclusterdc.VertexModuleLabel: "trackshower:shower"
 physics.producers.blurredclusterdc.BlurredClusterAlg.Debug: false
 
 physics.producers.emshowerdc.ShowerHitsModuleLabel: "trackshower:shower"

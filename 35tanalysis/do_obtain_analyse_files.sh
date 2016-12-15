@@ -11,7 +11,6 @@ source ${MRB_DIR}/bin/setup_local_products
 # make a temp dir in condor scratch
 CONDORDIR=${_CONDOR_SCRATCH_DIR}/${outputDirTag}
 mkdir -p ${CONDORDIR}
-echo Made directory at ${CONDORDIR}
 
 # get the run number for this job
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/$RUNFILE ${CONDORDIR}
@@ -28,19 +27,12 @@ rm -rf ${OUTRUNDIR}
 mkdir ${OUTRUNDIR}
 mkdir -p ${CONDORRUNDIR}
 
-echo Made directory at ${CONDORRUNDIR}
-
 # get the file from sam web
 filename=`samweb list-files "run_number=$run and data_tier raw"`
 path=`samweb -e lbne get-file-access-url "$filename"`
 file=/pnfs/lbne${path:29}
 
 # copy the necessary files
-cd $CONDORRUNDIR
-echo
-echo About to copy files into directory
-pwd
-echo
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/job/RunSplitter.fcl RunSplitter.fcl
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/job/SliceAndFilter.fcl SliceAndFilter.fcl
 copyfile /dune/app/users/wallbank/larsoft-base/workspace/job/reco_dune35tdata.fcl reco_dune35tdata.fcl
@@ -48,15 +40,12 @@ copyfile /dune/app/users/wallbank/larsoft-base/workspace/job/reco_dune35tdata.fc
 #copyfile /dune/app/users/wallbank/larsoft-base/workspace/35tanalysis/bad_timings.fcl bad_timings.fcl
 copyfile $file $filename
 
-echo "About to run jobs, contents of directory is"
-ls
-
 # run the jobs
 if [ ${FILTER} -eq 1 ]
 then
-lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root -n 5
+lar -c SliceAndFilter.fcl -s $filename -o sliced_and_filtered.root
 else
-lar -c RunSplitter.fcl -s $filename -o sliced_and_filtered.root -n 5
+lar -c RunSplitter.fcl -s $filename -o sliced_and_filtered.root
 fi
 lar -c reco_dune35tdata.fcl -s sliced_and_filtered.root -o reco.root
 #lar -c apa_crossing.fcl -s reco.root

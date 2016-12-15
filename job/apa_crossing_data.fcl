@@ -40,4 +40,7 @@ physics:
 }
 
 physics.analyzers.apacrossing.HitsModuleLabel: "gaushit"
+physics.analyzers.apacrossing.RawDigitModuleLabel: "SplitterInput:TPC"
 physics.analyzers.apacrossing.ExpectedT0: 300
+physics.analyzers.apacrossing.SaveImages: false
+physics.analyzers.apacrossing.SaveEVDs: true

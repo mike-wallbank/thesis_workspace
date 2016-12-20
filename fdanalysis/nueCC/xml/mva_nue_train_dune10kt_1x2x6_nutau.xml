@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_17_00">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "mva_nue_dune10kt_1x2x6_nutau">
+<!ENTITY tag "mcc7.2">
+]>
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Project size -->
+  <numevents>100000</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e10:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-base/prof/karlisgreat.tar</local>
+  </larsoft>
+
+  <!-- dune35t metadata parameters -->
+
+  <parameter name ="MCName">mva_nue_dune10kt_1x2x6_nutau</parameter>
+  <parameter name ="MCDetectorType">10kt</parameter>
+  <parameter name ="MCGenerators">GENIE</parameter>
+
+  <!-- Project stages -->
+
+  <stage name="mva">
+    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/mva_nue_train_dune10kt_1x2x6.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/mva_nue_dune10kt_1x2x6/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/mva_nue_dune10kt_1x2x6/&name;</workdir>
+    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_17_00/reco/prodgenie_nutau_dune10kt_1x2x6_reco/files.list</inputlist>
+    <numjobs>1000</numjobs>
+    <targetsize>8000000000</targetsize>
+    <datatier>full-reconstructed</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>

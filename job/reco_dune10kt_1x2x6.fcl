@@ -16,7 +16,7 @@ custom_trackshowersepalg.CylinderCut: 0.2
 custom_trackshowersepalg.ShowerConeCut: 5.
 custom_trackshowersepalg.RectangleWidth: 1
 custom_trackshowersepalg.RectangleCut: 0.4
-custom_trackshowersepalg.LeastSquareCut: 10
+custom_trackshowersepalg.LeastSquareCut: 12
 
 physics.producers.trackshower: @local::standard_trackidentifier
 physics.producers.trackshower.HitsModuleLabel: "lineclusterdc"

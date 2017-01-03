@@ -16,7 +16,7 @@ custom_trackshowersepalg.CylinderCut: 0.2
 custom_trackshowersepalg.ShowerConeCut: 5.
 custom_trackshowersepalg.RectangleWidth: 1
 custom_trackshowersepalg.RectangleCut: 0.4
-custom_trackshowersepalg.LeastSquareCut: 10
+custom_trackshowersepalg.LeastSquareCut: 12
 
 physics.producers.trackshower: @local::standard_trackidentifier
 physics.producers.trackshower.HitsModuleLabel: "lineclusterdc"
@@ -58,13 +58,18 @@ physics.producers.blurredclusterdc.GlobalTPCRecon: true
 physics.producers.blurredclusterdc.HitsModuleLabel: "lineclusterdc"
 physics.producers.blurredclusterdc.VertexModuleLabel: "trackshower:shower"
 physics.producers.blurredclusterdc.BlurredClusterAlg.Debug: false
+physics.producers.blurredclusterdc.UseReblurring: true
+physics.producers.blurredclusterdc.BlurredClusterAlg.ShowerDirectionWidth: 10
 
 physics.producers.emshowerdc.ShowerHitsModuleLabel: "trackshower:shower"
 physics.producers.emshowerdc.TrackHitsModuleLabel: "lineclusterdc"
+physics.producers.emshowerdc.VertexModuleLabel: "trackshower:shower"
 physics.producers.emshowerdc.SaveNonCompleteShowers: true
 physics.producers.emshowerdc.FindBadPlanes: false
 physics.producers.emshowerdc.MakeSpacePoints: false
+physics.producers.emshowerdc.UseVertices: true
 physics.producers.emshowerdc.Debug: 1
+physics.producers.emshowerdc.EMShowerAlg.MinTrackShowerHits: 1
 physics.producers.emshowerdc.EMShowerAlg.MakeRMSGradientPlot: false
 physics.producers.emshowerdc.EMShowerAlg.MakeGradientPlot: false
 physics.producers.emshowerdc.EMShowerAlg.NumShowerSegments: 4

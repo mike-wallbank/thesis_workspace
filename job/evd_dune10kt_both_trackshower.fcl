@@ -4,7 +4,7 @@ services.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
 services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
 services.RecoDrawingOptions.TrackModuleLabels: [ "trackshower:track" ]
 services.RecoDrawingOptions.DrawShowers: 1
-services.RecoDrawingOptions.Draw2DSlopeEndPoints: 0
+services.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
 services.RecoDrawingOptions.DrawSpacePoints: 1
 services.RecoDrawingOptions.DrawTracks: 1
 services.RecoDrawingOptions.DrawTrackTrajectoryPoints: 1

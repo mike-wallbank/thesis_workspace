@@ -128,7 +128,7 @@ void TMVAClassification( TString myMethodList = "" )
    Use["SVM"]             = 0;
    // 
    // --- Boosted Decision Trees
-   Use["BDT"]             = 0; // uses Adaptive Boost
+   Use["BDT"]             = 1; // uses Adaptive Boost
    Use["BDTG"]            = 1; // uses Gradient Boost
    Use["BDTB"]            = 0; // uses Bagging
    Use["BDTD"]            = 0; // decorrelation + Adaptive Boost
@@ -193,6 +193,8 @@ void TMVAClassification( TString myMethodList = "" )
 //   factory->AddVariable( "dedxpro", "dE/dx_{track1}", "MeV/cm", 'D' );
 
 
+//   bool SelectNuE = false;
+//   bool SelectNuMu = true;
    bool SelectNuE = true;
    bool SelectNuMu = false;
 
@@ -327,11 +329,8 @@ void TMVAClassification( TString myMethodList = "" )
    // Set individual event weights (the variables must exist in the original TTree)
    //    for signal    : factory->SetSignalWeightExpression    ("weight1*weight2");
    //    for background: factory->SetBackgroundWeightExpression("weight1*weight2");
-   //factory->SetSignalWeightExpression( "weight" );
-   //factory->SetBackgroundWeightExpression( "weight" );
-   factory->SetSignalWeightExpression( "projected_weight" );
-   factory->SetBackgroundWeightExpression( "projected_weight" );
-
+   factory->SetSignalWeightExpression( "weight" );
+   factory->SetBackgroundWeightExpression( "weight" );
 
    // Apply additional cuts on the signal and background samples (can be different)
    TCut mycuts = ""; // for example: TCut mycuts = "abs(var1)<0.5 && abs(var2-0.5)<1";
@@ -561,5 +560,5 @@ void TMVAClassification( TString myMethodList = "" )
    delete factory;
 
    // Launch the GUI for the root macros
-   if (!gROOT->IsBatch()) TMVA::TMVAGui( outfileName );
+   if (!gROOT->IsBatch()) TMVAGui( outfileName );
 }

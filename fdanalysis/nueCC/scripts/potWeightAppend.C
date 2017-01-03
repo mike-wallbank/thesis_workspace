@@ -37,6 +37,10 @@ void appendPOTBranch(TTree *tree, double pot_nu, double pot_nue, double pot_nuta
     else if (run==20000001) pot = pot_nu; //CC event from nu file
     else if (run==20000002) pot = pot_nue; //CC event from nue file
     else if (run==20000003) pot = pot_nutau; //CC event from nutau file
+    else if (run==20000004) pot = pot_nu; //CC event from nu file
+    else if (run==20000005) pot = pot_nue; //CC event from nue file
+    else if (run==20000006) pot = pot_nutau; //CC event from nutau file
+
     else{
       std::cout<<"Found unknown run number: " << run << " setting POT to 1" << std::endl;
       pot = 1.;
@@ -84,6 +88,9 @@ void potWeightAppend(TString file_name, double projected_pot=1.){
     if (run==20000001) pot_nu += pot;
     else if (run==20000002) pot_nue += pot;
     else if (run==20000003) pot_nutau += pot;
+    else if (run==20000004) pot_nu += pot;
+    else if (run==20000005) pot_nue += pot;
+    else if (run==20000006) pot_nutau += pot;
     else{
       std::cout<<"Found unknown run number: " << run << std::endl;
       return;

@@ -2,13 +2,14 @@
 
 process_name: MVASelect
 
-physics.analyzers.mvaselect.Select:                  "nue"
-physics.analyzers.mvaselect.WeightFile:              "training/weights/TMVAClassification_BDTG.weights.xml"
-physics.analyzers.mvaselect.MakeWeightTree:          false
-physics.analyzers.mvaselect.Reweight:                false
-physics.analyzers.mvaselect.MakeSystHist:            false
-services.TFileService.fileName:                      "histeval_nue.root"
+physics.analyzers.mvaselect.Select:           "nue"
+physics.analyzers.mvaselect.WeightFile:       "/dune/app/users/wallbank/larsoft-base/workspace/fdanalysis/nueCC/training/weights_anue/TMVAClassification_BDTG.weights.xml"
+physics.analyzers.mvaselect.MakeWeightTree:   false
+physics.analyzers.mvaselect.Reweight:         false
+physics.analyzers.mvaselect.MakeSystHist:     false
+physics.analyzers.mvaselect.SaveRecoInputs:   true
+services.TFileService.fileName:               "histeval_nue.root"
 
 
-physics.analyzers.mvaselect.NuECut:                  0.8
-physics.analyzers.mvaselect.NuMuCut:                 0.8
+physics.analyzers.mvaselect.NuECut:           0.8
+physics.analyzers.mvaselect.NuMuCut:          0.8

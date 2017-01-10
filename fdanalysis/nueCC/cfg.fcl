@@ -4,7 +4,7 @@ custom_trackshowersepalg: {
    CylinderRadius: 20
    Debug: 3
    Detector: "dune10kt"
-   LeastSquareCut: 10
+   LeastSquareCut: 12
    RectangleCut: 4e-1
    RectangleWidth: 1
    ShowerConeCut: 5
@@ -131,14 +131,14 @@ physics: {
             CylinderRadius: 20
             Debug: 3
             Detector: "dune10kt"
-            LeastSquareCut: 10
+            LeastSquareCut: 12
             RectangleCut: 4e-1
             RectangleWidth: 1
             ShowerConeCut: 5
             TrackVertexCut: 5
          }
          UseVertices: true
-         VertexModuleLabel: "lineclusterdc"
+         VertexModuleLabel: "trackshower:shower"
          module_label: "blurredclusterdc"
          module_type: "BlurredCluster"
       }
@@ -461,7 +461,7 @@ physics: {
             1,
             1
          ]
-         TryNplus1Fits: 0
+         TryNplus1Fits: true
          module_label: "gaushit"
          module_type: "GausHitFinder"
       }
@@ -1349,7 +1349,7 @@ physics: {
             CylinderRadius: 20
             Debug: 3
             Detector: "dune10kt"
-            LeastSquareCut: 10
+            LeastSquareCut: 12
             RectangleCut: 4e-1
             RectangleWidth: 1
             ShowerConeCut: 5
@@ -1591,7 +1591,8 @@ physics: {
       "lineclusterdc",
       "pmtrackdc",
       "trackshower",
-      "blurredclusterdc"
+      "blurredclusterdc",
+      "emshowerdc"
    ]
    stream1: [
       "out1"
@@ -2176,6 +2177,10 @@ showerana: {
    module_type: "ShowerAnalysis"
 }
 source: {
+   inputCommands: [
+      "keep *_*_*_*",
+      "drop *_*_*_Reco"
+   ]
    maxEvents: -1
    module_label: "source"
    module_type: "RootInput"

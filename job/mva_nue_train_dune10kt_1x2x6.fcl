@@ -1,0 +1,30 @@
+#include "mvaselect.fcl"
+
+process_name: MVASelect
+
+physics.analyzers.mvaselect.Select:                  "nue"
+#physics.analyzers.mvaselect.WeightFile:              "TMVAClassification_BDTG.weights.xml"
+physics.analyzers.mvaselect.MakeWeightTree:          true
+physics.analyzers.mvaselect.Reweight:                false
+physics.analyzers.mvaselect.MakeSystHist:            false
+physics.analyzers.mvaselect.SaveRecoInputs:          true
+services.TFileService.fileName:                      "histeval_nue.root"
+
+
+physics.analyzers.mvaselect.NuECut:                  0.8
+physics.analyzers.mvaselect.NuMuCut:                 0.8
+
+
+# physics.analyzers.mvaselect.HitsModuleLabel: "lineclusterdc"
+# physics.analyzers.mvaselect.ClusterModuleLabel: "lineclusterdc"
+# physics.analyzers.mvaselect.TrackModuleLabel: "pmtrackdc"
+# #physics.analyzers.mvaselect.TrackModuleLabel: "trackshower:track"
+# physics.analyzers.mvaselect.VertexModuleLabel: "pmtrackdc"
+# physics.analyzers.mvaselect.ShowerModuleLabel: "emshowerdc"
+
+physics.analyzers.mvaselect.HitsModuleLabel: "linecluster"
+physics.analyzers.mvaselect.ClusterModuleLabel: "linecluster"
+physics.analyzers.mvaselect.TrackModuleLabel: "pmtrack"
+#physics.analyzers.mvaselect.TrackModuleLabel: "trackshower:track"
+physics.analyzers.mvaselect.VertexModuleLabel: "pmtrack"
+physics.analyzers.mvaselect.ShowerModuleLabel: "emshower"

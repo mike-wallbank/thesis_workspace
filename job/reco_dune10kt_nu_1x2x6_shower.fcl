@@ -5,7 +5,7 @@ process_name: NuEReco
 services.scheduler.SkipEvent: [ProductNotFound]
 source.maxEvents: -1
 
-physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, trackshowersep, blurredcluster, emshower ]
+physics.reco: [ rns, trackshowersep, blurredcluster, emshower ]
 
 physics.analyzers.trackshowerana: @local::trackshowerana
 physics.analyzers.reconana: @local::reconana
@@ -14,7 +14,7 @@ physics.analyzers.reconana: @local::reconana
 #physics.a1: [ reconana ]
 physics.a1: [ trackshowerana, reconana ]
 physics.end_paths: [ stream1, a1 ]
-#physics.trigger_paths: [ reco ]
+ physics.trigger_paths: [ reco ]
 
 physics.analyzers.trackshowerana.Debug: 1
 physics.analyzers.reconana.Debug: 1
@@ -31,6 +31,7 @@ physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
 physics.producers.emshower.SaveNonCompleteShowers: true
 physics.producers.emshower.FindBadPlanes: false
 physics.producers.emshower.UseVertices: true
+physics.producers.emshower.MakeSpacePoints: false
 physics.producers.emshower.Debug: 1
 physics.producers.emshower.EMShowerAlg.MinTrackShowerHits: 1
 physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false

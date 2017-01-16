@@ -1,9 +1,9 @@
 #include "evd_dune10kt.fcl"
 
-services.RecoDrawingOptions.ShowerModuleLabels: [ "emshowerdc" ]
-services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredclusterdc" ]
-services.RecoDrawingOptions.TrackModuleLabels: [ "pmtrackdc" ]
-services.RecoDrawingOptions.SpacePointModuleLabels: [ "emshowerdc" ]
+services.RecoDrawingOptions.ShowerModuleLabels: [ "emshower" ]
+services.RecoDrawingOptions.ClusterModuleLabels: [ "blurredcluster" ]
+services.RecoDrawingOptions.TrackModuleLabels: [ "pmtrack" ]
+services.RecoDrawingOptions.SpacePointModuleLabels: [ "emshower" ]
 services.RecoDrawingOptions.DrawShowers: 1
 services.RecoDrawingOptions.Draw2DSlopeEndPoints: 1
 services.RecoDrawingOptions.DrawSpacePoints: 1

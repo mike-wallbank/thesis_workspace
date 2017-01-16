@@ -1,0 +1,41 @@
+#include "standard_reco_dune10kt_nu_1x2x6.fcl"
+#include "shower_ana.fcl"
+process_name: Reco
+
+services.scheduler.SkipEvent: [ProductNotFound]
+source.maxEvents: -1
+
+physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, trackshowersep, blurredcluster, emshower ]
+
+physics.analyzers.trackshowerana: @local::trackshowerana
+physics.analyzers.reconana: @local::reconana
+
+#physics.a1: [ trackshower ]
+#physics.a1: [ reconana ]
+physics.a1: [ trackshowerana, reconana ]
+physics.end_paths: [ stream1, a1 ]
+physics.trigger_paths: [ reco ]
+
+physics.analyzers.trackshowerana.Debug: 1
+physics.analyzers.reconana.Debug: 1
+physics.producers.trackshowersep.TrackShowerSepAlg.Debug: 3
+
+physics.producers.blurredcluster.UseVertices: true
+physics.producers.blurredcluster.UseReblurring: false
+physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
+physics.producers.blurredcluster.VertexModuleLabel: "trackshowersep:shower"
+
+physics.producers.emshower.ShowerHitsModuleLabel: "trackshowersep:shower"
+physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
+physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
+physics.producers.emshower.SaveNonCompleteShowers: true
+physics.producers.emshower.FindBadPlanes: false
+physics.producers.emshower.UseVertices: true
+physics.producers.emshower.Debug: 4
+physics.producers.emshower.EMShowerAlg.MinTrackShowerHits: 1
+physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshower.EMShowerAlg.MakeGradientPlot: false
+physics.producers.emshower.EMShowerAlg.NumShowerSegments: 4
+physics.producers.emshower.EMShowerAlg.SpacePointSize: 0.1
+physics.producers.emshower.Shower: -1
+physics.producers.emshower.Plane: -1

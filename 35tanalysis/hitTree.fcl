@@ -1,0 +1,37 @@
+#include "services_dune.fcl"
+
+process_name: MikeTree
+
+services:
+{
+  TFileService: { fileName: "hit_tree.root" }
+  TimeTracker:       {}
+  #SimpleMemoryCheck:     { ignoreTotal: 1 } # default is one
+  RandomNumberGenerator: {} #ART native random number generator
+  message:      @local::dune_message_services_prod_debug
+  FileCatalogMetadata:  @local::art_file_catalog_mc
+  #user:         @local::dune35t_services
+  @table::dune35t_services
+}
+
+services.scheduler.SkipEvent: [ProductNotFound]
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+     hittree: {
+       module_type: MakeMikeTree
+     }
+  }
+
+  a1: [ hittree ]
+  end_paths: [ a1 ]
+
+}

@@ -27,7 +27,7 @@ physics:
   analyzers:
   {
      hittree: {
-       module_type: MakeMikeTree
+       module_type: HitTree
      }
   }
 

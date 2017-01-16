@@ -45,7 +45,7 @@ physics: {
          ShowerReconOnly: false
          TrackModuleLabel: "pmtrack"
          TrackShowerSepAlg: {
-            ConeAngle: 20
+            ConeAngle: 15
             CylinderCut: 1
             CylinderRadius: 20
             Detector: "dune10kt"
@@ -60,13 +60,6 @@ physics: {
          VertexModuleLabel: "trackshowersep:shower"
          module_label: "blurredcluster"
          module_type: "BlurredCluster"
-      }
-      blurredclusterdc: {
-         HitsModuleLabel: "trackshowersep:shower"
-         ShowerReconOnly: false
-         UseVertices: true
-         VertexModuleLabel: "trackshowersep:shower"
-         module_label: "blurredclusterdc"
       }
       caldata: {
          DigitLabel: "daq"
@@ -164,7 +157,7 @@ physics: {
          TrackHitsModuleLabel: "linecluster"
          TrackModuleLabel: "pmtrack"
          UseVertices: false
-         VertexModuleLabel: "linecluster"
+         VertexModuleLabel: "trackshowersep:shower"
          module_label: "emshower"
          module_type: "EMShower"
       }
@@ -199,11 +192,6 @@ physics: {
          Trk3DModuleLabel: "pmtrack"
          module_label: "emshower3d"
          module_type: "EMShower3D"
-      }
-      emshowerdc: {
-         MakeSpacePoints: true
-         ShowerHitsModuleLabel: "trackshowersep:shower"
-         module_label: "emshowerdc"
       }
       fasthit: {
          AreaMethod: 0
@@ -524,9 +512,9 @@ physics: {
          EmClusterModuleLabel: ""
          HitModuleLabel: "linecluster"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
@@ -585,14 +573,6 @@ physics: {
          module_label: "pmtrackcalo"
          module_type: "Calorimetry"
       }
-      pmtrackdc: {
-         EmClusterModuleLabel: ""
-         PMAlgTracking: {
-            AutoFlip_dQdx: false
-            FlipToBeam: true
-         }
-         module_label: "pmtrackdc"
-      }
       pmtrackpid: {
          CalorimetryModuleLabel: "pmtrackcalo"
          Chi2PIDAlg: {
@@ -607,9 +587,9 @@ physics: {
          EmClusterModuleLabel: ""
          HitModuleLabel: "trajcluster"
          PMAlgTracking: {
-            AutoFlip_dQdx: false
+            AutoFlip_dQdx: true
             FlipDownward: false
-            FlipToBeam: true
+            FlipToBeam: false
             MatchT0inAPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
@@ -667,13 +647,6 @@ physics: {
          UseArea: true
          module_label: "pmtracktccalo"
          module_type: "Calorimetry"
-      }
-      pmtracktcdc: {
-         PMAlgTracking: {
-            AutoFlip_dQdx: false
-            FlipToBeam: true
-         }
-         module_label: "pmtracktcdc"
       }
       pmtracktcpid: {
          CalorimetryModuleLabel: "pmtracktccalo"
@@ -759,7 +732,7 @@ physics: {
          HitsModuleLabel: "linecluster"
          TrackModuleLabel: "pmtrack"
          TrackShowerSepAlg: {
-            ConeAngle: 20
+            ConeAngle: 15
             CylinderCut: 1
             CylinderRadius: 20
             Detector: "dune10kt"

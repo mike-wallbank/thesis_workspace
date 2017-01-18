@@ -20,6 +20,9 @@ physics.analyzers.trackshowerana.Debug: 1
 physics.analyzers.reconana.Debug: 1
 physics.producers.trackshowersep.TrackShowerSepAlg.Debug: 3
 
+#physics.producers.trackshowersep.TrackShowerSepAlg.CylinderCut: 1.0
+#physics.producers.trackshowersep.TrackShowerSepAlg.LeastSquareCut: 30
+
 physics.producers.blurredcluster.UseVertices: true
 physics.producers.blurredcluster.UseReblurring: false
 physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
@@ -30,7 +33,7 @@ physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
 physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
 physics.producers.emshower.SaveNonCompleteShowers: true
 physics.producers.emshower.FindBadPlanes: false
-physics.producers.emshower.UseVertices: true
+physics.producers.emshower.UseVertices: false
 physics.producers.emshower.Debug: 1
 physics.producers.emshower.EMShowerAlg.MinTrackShowerHits: 1
 physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false

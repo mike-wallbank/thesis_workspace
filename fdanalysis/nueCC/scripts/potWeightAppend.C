@@ -59,7 +59,7 @@ void appendPOTBranch(TTree *tree, double pot_nu, double pot_nue, double pot_nuta
   return;
 }
 
-void potWeightAppend(TString file_name, double projected_pot=1.80762e+23){
+void potWeightAppend(TString file_name, double projected_pot=1.){
 
   TFile *file = new TFile(file_name,"UPDATE");
   if (!file){

@@ -1,8 +1,0 @@
-#include "reco_dune10kt_nu_1x2x6.fcl"
-process_name: NuEReco
-
-source.inputCommands: [ "keep *_*_*_*" ]
-
-physics.reco: [ rns, trackshowersep, blurredcluster, emshower ]
-
-physics.producers.emshower.MakeSpacePoints: false

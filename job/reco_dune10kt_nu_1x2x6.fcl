@@ -35,10 +35,8 @@ physics.producers.emshower.SaveNonCompleteShowers: true
 physics.producers.emshower.FindBadPlanes: false
 physics.producers.emshower.UseVertices: false
 physics.producers.emshower.Debug: 1
-physics.producers.emshower.EMShowerAlg.MinTrackShowerHits: 1
 physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false
 physics.producers.emshower.EMShowerAlg.MakeGradientPlot: false
-physics.producers.emshower.EMShowerAlg.NumShowerSegments: 4
-physics.producers.emshower.EMShowerAlg.SpacePointSize: 0.1
+physics.producers.emshower.EMShowerAlg.BestPlaneMetric: "Energy"
 physics.producers.emshower.Shower: -1
 physics.producers.emshower.Plane: -1

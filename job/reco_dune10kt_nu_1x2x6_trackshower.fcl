@@ -1,0 +1,17 @@
+#include "reco_dune10kt_nu_1x2x6.fcl"
+process_name: NuEReco
+
+source.inputCommands: [ "keep *_*_*_*" ]
+
+physics.reco: [ rns, trackshower, blurredcluster, emshower ]
+
+physics.producers.emshower.MakeSpacePoints: false
+physics.producers.blurredcluster.ShowerReconOnly: false
+physics.producers.blurredcluster.UseVertices: true
+physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
+physics.producers.blurredcluster.VertexModuleLabel: "trackshowersep:shower"
+physics.producers.emshower.CrudeDirection: true
+physics.producers.emshower.MakeSpacePoints: true
+physics.producers.emshower.ShowerHitsModuleLabel: "trackshowersep:shower"
+physics.producers.emshower.UseVertices: false
+physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"

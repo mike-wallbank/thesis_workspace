@@ -1,0 +1,13 @@
+#include "reco_dune10kt_nu_1x2x6.fcl"
+process_name: NuEReco
+
+source.inputCommands: [ "keep *_*_*_*" ]
+
+physics.reco: [ rns, pandora, blurredcluster, emshower ]
+
+physics.producers.blurredcluster.ShowerReconOnly: true
+physics.producers.blurredcluster.UseVertices: false
+physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+physics.producers.blurredcluster.VertexModuleLabel: "pandora"
+physics.producers.emshower.CrudeDirection: true
+physics.producers.emshower.MakeSpacePoints: true

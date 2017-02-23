@@ -1,0 +1,13 @@
+#include "standard_reco_dune10kt_1x2x6.fcl"
+
+physics.producers.blurredcluster.ShowerReconOnly: false
+physics.producers.emshower.ClusterModuleLabel: "pandora"
+physics.producers.emshower.HitsModuleLabel: "linecluster"
+physics.producers.emshower.PFParticleModuleLabel: "pandora"
+physics.producers.emshower.TrackModuleLabel: "pandora"
+physics.producers.pmtrack.PMAlgTracking.FlipToBeam:     true
+physics.producers.pmtrack.PMAlgTracking.AutoFlip_dQdx:  false
+physics.producers.pmtracktc.PMAlgTracking.FlipToBeam:     true
+physics.producers.pmtracktc.PMAlgTracking.AutoFlip_dQdx:  false
+
+

@@ -1,0 +1,34 @@
+#include "services_dune.fcl"
+
+services:
+{
+  TFileService: { fileName: "wire_drawing.root" }
+  FileCatalogMetadata:  @local::art_file_catalog_mc
+                        @table::dune35t_services
+}
+services.scheduler.SkipEvent: [ProductNotFound]
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  -1        # Number of events to create
+}
+
+physics:
+{
+  analyzers:
+  {
+     drawWaveform:
+     {
+       module_type: "DrawWaveform"
+       RawDigitModuleLabels: [ "SplitterInput:TPC", "unstick:TPC", "daq" ]
+       Channel: 722
+       LowerTick: 0
+       UpperTick: 5500
+     }
+  }
+
+ a1: [ drawWaveform ]
+ end_paths: [ a1 ]
+
+}

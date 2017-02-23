@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_13_00">
+<!ENTITY release "v06_18_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "prodgenie_nue_dune10kt_1x2x6_ana">
@@ -43,7 +43,7 @@
     <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/reco_ana.fcl</fcl>
     <outdir>/pnfs/dune/scratch/users/wallbank/&release;/reconana/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reconana/&name;</workdir>
-    <inputlist>/pnfs/dune/scratch/dunepro/v06_02_00/reco/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist>
+    <inputlist>/pnfs/dune/scratch/users/dbrailsf/numu_FD/production/v06_11_00/A/mc/reco/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist>
     <numjobs>1000</numjobs>
     <targetsize>8000000000</targetsize>
     <datatier>full-reconstructed</datatier>

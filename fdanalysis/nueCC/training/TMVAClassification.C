@@ -245,7 +245,7 @@ void TMVAClassification( TString myMethodList = "" )
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
 
-   TString fname = "./mva_anue_train.root";
+   TString fname = "./mva_nue_train.root";
    //TString fname = "./histtrain_nue.root";
    //TString fname = "./train.anue.root";
    //TString fname = "./numu.train.root";
@@ -268,7 +268,7 @@ void TMVAClassification( TString myMethodList = "" )
    TFile *input = TFile::Open( fname );
    
    std::cout << "--- TMVAClassification       : Using input file: " << input->GetName() << std::endl;
-   
+
    // --- Register the training and test trees
 
    TTree *signal     = (TTree*)input->Get("mvaselect/sig"); // numu if selecting that, otherwise nue

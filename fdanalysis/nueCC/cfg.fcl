@@ -10,37 +10,8 @@ outputs: {
    }
 }
 physics: {
-   a1: [
-      "trackshowerana",
-      "reconana"
-   ]
-   analyzers: {
-      reconana: {
-         Debug: 1
-         GoodShowerDirection: 45
-         GoodShowerStart: 12
-         HitsModuleLabel: "linecluster"
-         ShowerModuleLabel: "emshower"
-         TrackModuleLabel: "pmtrack"
-         module_label: "reconana"
-         module_type: "NuEReconAna"
-      }
-      trackshowerana: {
-         ConeAngle: 10
-         CylinderRadius: 10
-         Debug: 1
-         HitsModuleLabel: "linecluster"
-         IsolationRadius: 1
-         SpacePointModuleLabel: "pmtrack"
-         SphereRadius: 1
-         TrackModuleLabel: "pmtrack"
-         module_label: "trackshowerana"
-         module_type: "TrackShowerSep"
-      }
-   }
    end_paths: [
-      "stream1",
-      "a1"
+      "stream1"
    ]
    producers: {
       blurredcluster: {
@@ -125,8 +96,9 @@ physics: {
       }
       emshower: {
          ClusterModuleLabel: "blurredcluster"
-         Debug: 1
+         CrudeDirection: true
          EMShowerAlg: {
+            BestPlaneMetric: "Energy"
             CalorimetryAlg: {
                CalAmpConstants: [
                   9.033e-4,
@@ -142,8 +114,6 @@ physics: {
                CaloUseModBox: true
             }
             Detector: "dune10kt"
-            MakeGradientPlot: false
-            MakeRMSGradientPlot: false
             MinTrackLength: 3
             MinTrackShowerHits: 1
             Nfithits: [
@@ -183,14 +153,12 @@ physics: {
             dEdxTrackLength: 3
          }
          FindBadPlanes: false
-         MakeSpacePoints: false
-         Plane: -1
+         MakeSpacePoints: true
          SaveNonCompleteShowers: true
-         Shower: -1
          ShowerHitsModuleLabel: "trackshowersep:shower"
          TrackHitsModuleLabel: "linecluster"
          TrackModuleLabel: "pmtrack"
-         UseVertices: true
+         UseVertices: false
          VertexModuleLabel: "trackshowersep:shower"
          module_label: "emshower"
          module_type: "EMShower"
@@ -769,7 +737,6 @@ physics: {
             ConeAngle: 15
             CylinderCut: 1
             CylinderRadius: 20
-            Debug: 3
             Detector: "dune10kt"
             LeastSquareCut: 12
             RectangleCut: 7e-1
@@ -895,6 +862,26 @@ physics: {
    }
    reco: [
       "rns",
+      "ophit",
+      "opflash",
+      "caldata",
+      "gaushit",
+      "hitfd",
+      "linecluster",
+      "trajcluster",
+      "trkshowersplit",
+      "pandora",
+      "pandoracalo",
+      "pandorapid",
+      "pmtrack",
+      "pmtrackcalo",
+      "pmtrackpid",
+      "pmtrajfit",
+      "pmtrajfitcalo",
+      "pmtrajfitpid",
+      "pmtracktc",
+      "pmtracktccalo",
+      "pmtracktcpid",
       "trackshowersep",
       "blurredcluster",
       "emshower"
@@ -906,15 +893,7 @@ physics: {
       "reco"
    ]
 }
-process_name: "NuEReco"
-reconana: {
-   GoodShowerDirection: 45
-   GoodShowerStart: 12
-   HitsModuleLabel: "linecluster"
-   ShowerModuleLabel: "emshower"
-   TrackModuleLabel: "pmtrack"
-   module_type: "NuEReconAna"
-}
+process_name: "Reco"
 services: {
    AdcDeconvolutionService: {
       LogLevel: 1
@@ -1470,35 +1449,19 @@ services: {
       }
    }
    scheduler: {
-      SkipEvent: [
-         "ProductNotFound"
-      ]
       errorOnFailureToPut: true
       errorOnSIGINT: true
    }
 }
-showerana: {
-   ClusterModuleLabel: "blurredcluster"
-   HitsModuleLabel: "linecluster"
-   ShowerModuleLabel: "emshower"
-   module_type: "ShowerAnalysis"
-}
 source: {
-   inputCommands: []
-   maxEvents: -1
+   inputCommands: [
+      "keep *_*_*_*",
+      "drop *_*_*_Reco"
+   ]
+   maxEvents: 10
    module_label: "source"
    module_type: "RootInput"
    saveMemoryObjectThreshold: 0
-}
-trackshowerana: {
-   ConeAngle: 10
-   CylinderRadius: 10
-   HitsModuleLabel: "linecluster"
-   IsolationRadius: 1
-   SpacePointModuleLabel: "pmtrack"
-   SphereRadius: 1
-   TrackModuleLabel: "pmtrack"
-   module_type: "TrackShowerSep"
 }
 trigger_paths: {
    trigger_paths: [

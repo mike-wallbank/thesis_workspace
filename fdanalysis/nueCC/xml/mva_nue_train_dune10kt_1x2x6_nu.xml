@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_18_01">
+<!ENTITY release "v06_20_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "mva_nue_train_dune10kt_1x2x6_nu">
@@ -43,8 +43,8 @@
     <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/mva_nue_train_dune10kt_1x2x6.fcl</fcl>
     <outdir>/pnfs/dune/scratch/users/wallbank/&release;/mva_nue_dune10kt_1x2x6/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/mva_nue_dune10kt_1x2x6/&name;</workdir>
-    <!-- <inputlist>/pnfs/dune/scratch/users/wallbank/v06_17_00/reco/prodgenie_nu_dune10kt_1x2x6_reco/files.list</inputlist> -->
-    <inputlist>/pnfs/dune/scratch/dunepro/v06_18_00/reco2/prodgenie_nu_dune10kt_1x2x6/files.list</inputlist>
+    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_20_00/reco/prodgenie_nu_dune10kt_1x2x6_reco/files.list</inputlist>
+    <!-- <inputlist>/pnfs/dune/scratch/dunepro/v06_18_00/reco2/prodgenie_nu_dune10kt_1x2x6/files.list</inputlist> -->
     <numjobs>1000</numjobs>
     <targetsize>8000000000</targetsize>
     <datatier>full-reconstructed</datatier>

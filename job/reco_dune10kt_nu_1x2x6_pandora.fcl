@@ -9,5 +9,6 @@ physics.producers.blurredcluster.ShowerReconOnly: true
 physics.producers.blurredcluster.UseVertices: true
 physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
 physics.producers.blurredcluster.VertexModuleLabel: "pandora"
+physics.producers.emshower.ShowerHitsModuleLabel: ""
 physics.producers.emshower.CrudeDirection: true
 physics.producers.emshower.MakeSpacePoints: true

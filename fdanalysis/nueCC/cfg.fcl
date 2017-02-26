@@ -34,7 +34,7 @@ physics: {
          }
          CreateDebugPDF: false
          GlobalTPCRecon: true
-         HitsModuleLabel: "trackshowersep:shower"
+         HitsModuleLabel: "linecluster"
          MergeClusterAlg: {
             MaxMergeSeparation: 30
             MinMergeClusterSize: 3
@@ -42,7 +42,7 @@ physics: {
          }
          MergeClusters: false
          PFParticleModuleLabel: "pandora"
-         ShowerReconOnly: false
+         ShowerReconOnly: true
          TrackModuleLabel: "pmtrack"
          TrackShowerSepAlg: {
             ConeAngle: 15
@@ -57,7 +57,7 @@ physics: {
          }
          UseReblurring: false
          UseVertices: true
-         VertexModuleLabel: "trackshowersep:shower"
+         VertexModuleLabel: "pandora"
          module_label: "blurredcluster"
          module_type: "BlurredCluster"
       }
@@ -155,11 +155,11 @@ physics: {
          FindBadPlanes: false
          MakeSpacePoints: true
          SaveNonCompleteShowers: true
-         ShowerHitsModuleLabel: "trackshowersep:shower"
+         ShowerHitsModuleLabel: ""
          TrackHitsModuleLabel: "linecluster"
          TrackModuleLabel: "pmtrack"
          UseVertices: false
-         VertexModuleLabel: "trackshowersep:shower"
+         VertexModuleLabel: "linecluster"
          module_label: "emshower"
          module_type: "EMShower"
       }
@@ -241,6 +241,16 @@ physics: {
             6,
             6
          ]
+         LongMaxHits: [
+            1,
+            1,
+            1
+         ]
+         LongPulseWidth: [
+            16,
+            16,
+            16
+         ]
          MaxMultiHit: 10
          MinSig: [
             6,
@@ -269,7 +279,7 @@ physics: {
                minPts: 2
             }
             DistanceCut: 1
-            DistanceCutClu: 4
+            DistanceCutClu: 100
             DoCleanUpHits: false
             TimeCut: 3
             TimeWiggle: 5
@@ -513,11 +523,16 @@ physics: {
          ClusterModuleLabel: "linecluster"
          EmClusterModuleLabel: ""
          HitModuleLabel: "linecluster"
+         PMAlgStitching: {
+            NodesFromEnd: 2
+            StitchingThreshold: 10
+         }
          PMAlgTracking: {
             AutoFlip_dQdx: true
             FlipDownward: false
             FlipToBeam: false
             MatchT0inAPACrossing: false
+            MatchT0inCPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
             MergeWithinTPC: false
@@ -588,11 +603,16 @@ physics: {
          ClusterModuleLabel: "trajcluster"
          EmClusterModuleLabel: ""
          HitModuleLabel: "trajcluster"
+         PMAlgStitching: {
+            NodesFromEnd: 2
+            StitchingThreshold: 10
+         }
          PMAlgTracking: {
             AutoFlip_dQdx: true
             FlipDownward: false
             FlipToBeam: false
             MatchT0inAPACrossing: false
+            MatchT0inCPACrossing: false
             MergeAngle: 2
             MergeTransverseShift: 2
             MergeWithinTPC: false
@@ -750,12 +770,13 @@ physics: {
       trajcluster: {
          TrajClusterAlg: {
             AngleRanges: [
-               65,
-               85,
+               40,
+               55,
+               75,
                90
             ]
             ChargeCuts: [
-               3,
+               4,
                1.5e-1,
                2.5e-1
             ]
@@ -773,40 +794,55 @@ physics: {
                5,
                500
             ]
-            HitErrFac: 2e-1
+            HitErrFac: 1.5e-1
             HitFinderModuleLabel: "hitfd"
             JTMaxHitSep: 3
             KinkCuts: [
-               3.5e-1,
+               4e-1,
                1.5,
                3
             ]
             MakeNewHits: true
+            Match3DCuts: [
+               3e-1,
+               0,
+               3,
+               1
+            ]
             MatchTruth: [
                -1,
                0,
                5e-1,
                10
             ]
-            MaxAngleRange: [
+            MaxAngleCode: [
                0,
+               1,
                2
             ]
             MaxChi: 20
             MaxVertexTrajSep: [
                6,
+               6,
                4
             ]
             MaxWireSkipNoSignal: 3
             MaxWireSkipWithSignal: 100
-            MinAmp: 1e-1
+            MinAmp: 1
+            MinMCSMom: [
+               100,
+               0,
+               0
+            ]
             MinPts: [
-               10,
+               5,
+               5,
                3
             ]
             MinPtsFit: [
                4,
-               2
+               4,
+               3
             ]
             Mode: 1
             MultHitSep: 2.5
@@ -818,27 +854,40 @@ physics: {
             ]
             NPtsAve: 10
             ProjectionErrFactor: 2
+            QualityCuts: [
+               8e-1,
+               3
+            ]
             ShowerTag: [
-               50,
-               5,
-               1
+               -1,
+               150,
+               20,
+               5e-1,
+               3,
+               2,
+               100,
+               10,
+               0
             ]
             SkipAlgs: [
-               "MaskBadTPs",
+               "MBadTPs",
                "ChkAllStop",
-               "ChkStop"
+               "ChkStop",
+               "CTKink",
+               "HED"
             ]
+            SpecialAlgs: []
             StudyMode: false
-            TagAllTraj: false
             Vertex2DCuts: [
-               10,
-               4,
-               30,
-               10,
+               6,
+               8,
+               40,
+               3,
                5,
-               100
+               60,
+               6e-1
             ]
-            Vertex3DChiCut: 10
+            Vertex3DChiCut: 3.5
          }
          module_label: "trajcluster"
          module_type: "TrajCluster"
@@ -894,6 +943,11 @@ physics: {
    ]
 }
 process_name: "Reco"
+producers: {
+   emshower: {
+      Debug: 1
+   }
+}
 services: {
    AdcDeconvolutionService: {
       LogLevel: 1
@@ -1423,7 +1477,7 @@ services: {
                   limit: 0
                }
             }
-            filename: "debug.log"
+            filename: "debugprod.log"
             threshold: "DEBUG"
             type: "file"
          }

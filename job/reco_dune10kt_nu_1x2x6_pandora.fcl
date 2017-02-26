@@ -6,7 +6,7 @@ source.inputCommands: [ "keep *_*_*_*" ]
 physics.reco: [ rns, pandora, blurredcluster, emshower ]
 
 physics.producers.blurredcluster.ShowerReconOnly: true
-physics.producers.blurredcluster.UseVertices: false
+physics.producers.blurredcluster.UseVertices: true
 physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
 physics.producers.blurredcluster.VertexModuleLabel: "pandora"
 physics.producers.emshower.CrudeDirection: true

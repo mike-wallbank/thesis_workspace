@@ -41,7 +41,11 @@ physics:
 
 physics.analyzers.apacrossing.HitsModuleLabel: "gaushit"
 physics.analyzers.apacrossing.RawDigitModuleLabel: "daq" # "SplitterInput:TPC"
-physics.analyzers.apacrossing.ExpectedT0: 358 #300
-physics.analyzers.apacrossing.T0Correction: 58 #0
+physics.analyzers.apacrossing.ExpectedT0: 300 #358 #300
+physics.analyzers.apacrossing.T0Correction: 0 #58 #0
 physics.analyzers.apacrossing.SaveImages: false
-physics.analyzers.apacrossing.SaveEVDs: true
+physics.analyzers.apacrossing.SaveEVDs: false
+physics.analyzers.apacrossing.SaveTrackSelection: false
+physics.analyzers.apacrossing.MeasureXOffsets: false
+physics.analyzers.apacrossing.XOffsets: [ ["TPC1TPC3",0.11], ["TPC3TPC5",0.23] ]
+physics.analyzers.apacrossing.ZOffsets: [ 0.1, 0.2, 0.3 ]

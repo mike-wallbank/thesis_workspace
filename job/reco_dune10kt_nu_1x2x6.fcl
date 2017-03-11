@@ -6,8 +6,8 @@ services.scheduler.SkipEvent: [ProductNotFound]
 source.inputCommands: [ "keep *_*_*_*" ]
 source.maxEvents: -1
 
-#physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, pandora, trackshowersep, blurredcluster, emshower ]
-physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, pandora, blurredcluster, emshower ]
+physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, trackshowersep, blurredcluster, emshower ]
+#physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, pandora, blurredcluster, emshower ]
 
 physics.analyzers.trackshowerana: @local::trackshowerana
 physics.analyzers.reconana: @local::reconana
@@ -26,31 +26,31 @@ physics.producers.trackshowersep.TrackShowerSepAlg.Debug: 3
 #physics.producers.trackshowersep.TrackShowerSepAlg.LeastSquareCut: 30
 
 # # trackshowersep
-# physics.producers.blurredcluster.UseVertices: true
-# physics.producers.blurredcluster.UseReblurring: false
-# physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
-# physics.producers.blurredcluster.VertexModuleLabel: "trackshowersep:shower"
-
-# physics.producers.emshower.ShowerHitsModuleLabel: "trackshowersep:shower"
-# physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
-# physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
-# physics.producers.emshower.SaveNonCompleteShowers: true
-# physics.producers.emshower.FindBadPlanes: false
-# physics.producers.emshower.UseVertices: false
-
-# pandora
 physics.producers.blurredcluster.UseVertices: true
 physics.producers.blurredcluster.UseReblurring: false
-physics.producers.blurredcluster.HitsModuleLabel: "linecluster"
-physics.producers.blurredcluster.VertexModuleLabel: "pandora"
-physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
+physics.producers.blurredcluster.VertexModuleLabel: "trackshowersep:shower"
 
-physics.producers.emshower.ShowerHitsModuleLabel: ""
+physics.producers.emshower.ShowerHitsModuleLabel: "trackshowersep:shower"
 physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
-physics.producers.emshower.VertexModuleLabel: "pandora"
+physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
 physics.producers.emshower.SaveNonCompleteShowers: true
 physics.producers.emshower.FindBadPlanes: false
 physics.producers.emshower.UseVertices: false
+
+# pandora
+# physics.producers.blurredcluster.UseVertices: true
+# physics.producers.blurredcluster.UseReblurring: false
+# physics.producers.blurredcluster.HitsModuleLabel: "linecluster"
+# physics.producers.blurredcluster.VertexModuleLabel: "pandora"
+# physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+
+# physics.producers.emshower.ShowerHitsModuleLabel: ""
+# physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
+# physics.producers.emshower.VertexModuleLabel: "pandora"
+# physics.producers.emshower.SaveNonCompleteShowers: true
+# physics.producers.emshower.FindBadPlanes: false
+# physics.producers.emshower.UseVertices: false
 
 # shower debug
 physics.producers.emshower.Debug: 1

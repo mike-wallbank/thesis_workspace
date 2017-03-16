@@ -3,11 +3,12 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_20_00">
+<!ENTITY release "v06_26_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "mva_nue_train_dune10kt_1x2x6_nu">
 <!ENTITY tag "mcc7.2">
+<!ENTITY recotype "trackshower">
 ]>
 
 <project name="&name;">
@@ -41,9 +42,9 @@
 
   <stage name="mva">
     <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/mva_nue_train_dune10kt_1x2x6.fcl</fcl>
-    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/mva_nue_dune10kt_1x2x6/&name;</outdir>
-    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/mva_nue_dune10kt_1x2x6/&name;</workdir>
-    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_20_00/reco/prodgenie_nu_dune10kt_1x2x6_reco/files.list</inputlist>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/mva_nue_dune10kt_1x2x6_&recotype;/&name;</outdir>
+    <workdir>/pnfs/dune/persistent/users/wallbank/work/&release;/mva_nue_dune10kt_1x2x6_&recotype;/&name;</workdir>
+    <inputlist>/pnfs/dune/persistent/users/wallbank/v06_26_00/reco_&recotype;/prodgenie_nu_dune10kt_1x2x6/files.list</inputlist>
     <!-- <inputlist>/pnfs/dune/scratch/dunepro/v06_18_00/reco2/prodgenie_nu_dune10kt_1x2x6/files.list</inputlist> -->
     <numjobs>1000</numjobs>
     <targetsize>8000000000</targetsize>

@@ -1,17 +1,43 @@
-#include "reco_dune10kt_nu_1x2x6.fcl"
+#include "standard_reco_dune10kt_nu_1x2x6.fcl"
+#include "shower_ana.fcl"
 process_name: NuEReco
 
+services.scheduler.SkipEvent: [ProductNotFound]
 source.inputCommands: [ "keep *_*_*_*" ]
+source.maxEvents: -1
 
-physics.reco: [ rns, trackshower, blurredcluster, emshower ]
+physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, trackshowersep, blurredcluster, emshower ]
 
-physics.producers.emshower.MakeSpacePoints: false
-physics.producers.blurredcluster.ShowerReconOnly: false
+physics.analyzers.trackshowerana: @local::trackshowerana
+physics.analyzers.reconana: @local::reconana
+
+#physics.a1: [ trackshower ]
+#physics.a1: [ reconana ]
+physics.a1: [ trackshowerana, reconana ]
+physics.end_paths: [ stream1, a1 ]
+#physics.trigger_paths: [ reco ]
+
+physics.analyzers.trackshowerana.Debug: 1
+physics.analyzers.reconana.Debug: 1
+physics.producers.trackshowersep.TrackShowerSepAlg.Debug: 3
+
+# # trackshowersep
 physics.producers.blurredcluster.UseVertices: true
+physics.producers.blurredcluster.UseReblurring: false
 physics.producers.blurredcluster.HitsModuleLabel: "trackshowersep:shower"
 physics.producers.blurredcluster.VertexModuleLabel: "trackshowersep:shower"
-physics.producers.emshower.CrudeDirection: true
-physics.producers.emshower.MakeSpacePoints: true
+
 physics.producers.emshower.ShowerHitsModuleLabel: "trackshowersep:shower"
-physics.producers.emshower.UseVertices: false
+physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
 physics.producers.emshower.VertexModuleLabel: "trackshowersep:shower"
+physics.producers.emshower.SaveNonCompleteShowers: true
+physics.producers.emshower.FindBadPlanes: false
+physics.producers.emshower.UseVertices: false
+
+# shower debug
+physics.producers.emshower.Debug: 1
+physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshower.EMShowerAlg.MakeGradientPlot: false
+physics.producers.emshower.EMShowerAlg.BestPlaneMetric: "Energy"
+physics.producers.emshower.Shower: -1
+physics.producers.emshower.Plane: -1

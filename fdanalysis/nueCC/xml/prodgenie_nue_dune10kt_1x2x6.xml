@@ -69,9 +69,9 @@
 
   <stage name="reco">
     <!-- <fcl>standard_reco_dune10kt_nu_1x2x6.fcl</fcl> -->
-    <fcl>/dune/app/users/wallbank/larsoft-fd/workspace/job/reco_dune10kt_nu_1x2x6_old.fcl</fcl>
-    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reco_old/&name;</outdir>
-    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reco_old/&name;</workdir>
+    <fcl>/dune/app/users/wallbank/larsoft-fd/workspace/job/reco_dune10kt_nu_1x2x6.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reco_trackshower/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reco_trackshower/&name;</workdir>
     <!-- <inputlist>/pnfs/dune/persistent/dunepro/v05_09_01/detsim/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist> -->
     <!-- <inputlist>/pnfs/dune/persistent/dunepro/v06_17_00/detsim/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist> -->
     <numjobs>1000</numjobs>

@@ -1,14 +1,44 @@
-#include "reco_dune10kt_nu_1x2x6.fcl"
+#include "standard_reco_dune10kt_nu_1x2x6.fcl"
+#include "shower_ana.fcl"
 process_name: NuEReco
 
+services.scheduler.SkipEvent: [ProductNotFound]
 source.inputCommands: [ "keep *_*_*_*" ]
+source.maxEvents: -1
 
-physics.reco: [ rns, pandora, blurredcluster, emshower ]
+physics.reco: [ rns, caldata, gaushit, hitfd, linecluster, pmtrack, pandora, blurredcluster, emshower ]
 
-physics.producers.blurredcluster.ShowerReconOnly: true
+physics.analyzers.trackshowerana: @local::trackshowerana
+physics.analyzers.reconana: @local::reconana
+
+#physics.a1: [ trackshower ]
+#physics.a1: [ reconana ]
+physics.a1: [ trackshowerana, reconana ]
+physics.end_paths: [ stream1, a1 ]
+#physics.trigger_paths: [ reco ]
+
+physics.analyzers.trackshowerana.Debug: 1
+physics.analyzers.reconana.Debug: 1
+physics.producers.trackshowersep.TrackShowerSepAlg.Debug: 3
+
+# pandora
 physics.producers.blurredcluster.UseVertices: true
-physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+physics.producers.blurredcluster.UseReblurring: false
+physics.producers.blurredcluster.HitsModuleLabel: "linecluster"
 physics.producers.blurredcluster.VertexModuleLabel: "pandora"
+physics.producers.blurredcluster.PFParticleModuleLabel: "pandora"
+
 physics.producers.emshower.ShowerHitsModuleLabel: ""
-physics.producers.emshower.CrudeDirection: true
-physics.producers.emshower.MakeSpacePoints: true
+physics.producers.emshower.TrackHitsModuleLabel: "linecluster"
+physics.producers.emshower.VertexModuleLabel: "pandora"
+physics.producers.emshower.SaveNonCompleteShowers: true
+physics.producers.emshower.FindBadPlanes: false
+physics.producers.emshower.UseVertices: false
+
+# shower debug
+physics.producers.emshower.Debug: 1
+physics.producers.emshower.EMShowerAlg.MakeRMSGradientPlot: false
+physics.producers.emshower.EMShowerAlg.MakeGradientPlot: false
+physics.producers.emshower.EMShowerAlg.BestPlaneMetric: "Energy"
+physics.producers.emshower.Shower: -1
+physics.producers.emshower.Plane: -1

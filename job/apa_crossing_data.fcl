@@ -45,7 +45,12 @@ physics.analyzers.apacrossing.ExpectedT0: 300 #358 #300
 physics.analyzers.apacrossing.T0Correction: 0 #58 #0
 physics.analyzers.apacrossing.SaveImages: false
 physics.analyzers.apacrossing.SaveEVDs: false
+physics.analyzers.apacrossing.SaveGapEVDs: false
 physics.analyzers.apacrossing.SaveTrackSelection: false
-physics.analyzers.apacrossing.MeasureXOffsets: false
-physics.analyzers.apacrossing.XOffsets: [ ["TPC1TPC3",0.11], ["TPC3TPC5",0.23] ]
-physics.analyzers.apacrossing.ZOffsets: [ 0.1, 0.2, 0.3 ]
+
+physics.analyzers.apacrossing.OffsetToMeasure: "X"
+# Offsets are listed in this order: TPC0TPC2, TPC0TPC4, TPC2TPC6, TPC4TPC6, TPC1TPC3, TPC1TPC5, TPC3TPC7, TPC5TPC7
+#physics.analyzers.apacrossing.XOffsets: [ -0.36, -0.25, -0.12, -0.30, -0.36, -0.25, -0.12, -0.30 ]
+physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, -0.4, -0.58, 0.18, 0.60, 0.09 ]
+#physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]

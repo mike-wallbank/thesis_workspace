@@ -1,34 +1,194 @@
-outputs: {
-   out1: {
-      compressionLevel: 1
-      dataTier: "sliced"
-      fileName: "%ifb_%tc_split.root"
-      module_label: "out1"
-      module_type: "RootOutput"
-      streamName: "out1"
+apacrossing_data: {
+   CalorimetryAlg: {
+      CalAmpConstants: [
+         5.82554e-4,
+         1.16594e-3
+      ]
+      CalAreaConstants: [
+         5.44391e-3,
+         2.0376e-2
+      ]
+      CaloLifeTimeForm: 0
+      CaloUseModBox: true
    }
+   CalorimetryConst: 7.4e-3
+   CalorimetryMinHits: 20
+   CounterMapFile: "counterInformation.txt"
+   CounterWidth: 15
+   DriftVelocityScale: 1
+   ExpectedT0: 0
+   ExpectedT0Tolerance: 20
+   HitDensityThresh: 6
+   HitGapDistance: 15
+   HitLineDistThresh: 2
+   HitsModuleLabel: "linecluster"
+   MC: false
+   NeighbourDistThresh: 5
+   NoisyWireThresh: 5
+   OpFlashModuleLabel: "opflash"
+   RecombinationFactor: 5.2e-1
+   SaveImages: false
+   T0Correction: 0
+   T0ModuleLabel: "t0counter"
+   TrackModuleLabel: "pmtrack"
+   TriggerModuleLabel: "SplitterInput:TRIGGER"
+   module_type: "APACrossingMuons"
+}
+apacrossing_mc: {
+   CalorimetryAlg: {
+      CalAmpConstants: [
+         9.033e-4,
+         1.0287e-3,
+         8.8e-4
+      ]
+      CalAreaConstants: [
+         5.1822e-3,
+         5.2682e-3,
+         5.3962e-3
+      ]
+      CaloLifeTimeForm: 0
+      CaloUseModBox: true
+   }
+   CalorimetryConst: 5.3962e-3
+   CalorimetryMinHits: 20
+   CounterMapFile: "counterInformation.txt"
+   CounterWidth: 15
+   DriftVelocityScale: 1
+   ExpectedT0: 0
+   ExpectedT0Tolerance: 1e10
+   HitDensityThresh: 6
+   HitGapDistance: 15
+   HitLineDistThresh: 2
+   HitsModuleLabel: "lineclusterdc"
+   MC: true
+   NeighbourDistThresh: 5
+   NoisyWireThresh: 5
+   OpFlashModuleLabel: "opflash"
+   RecombinationFactor: 5.2e-1
+   SaveImages: false
+   T0Correction: 0
+   T0ModuleLabel: "t0counter"
+   TrackModuleLabel: "pmtrackdc"
+   TriggerModuleLabel: "simcounter"
+   module_type: "APACrossingMuons"
+}
+apacrossing_standard: {
+   CalorimetryMinHits: 20
+   CounterMapFile: "counterInformation.txt"
+   CounterWidth: 15
+   DriftVelocityScale: 1
+   ExpectedT0: 0
+   ExpectedT0Tolerance: 20
+   HitDensityThresh: 6
+   HitGapDistance: 15
+   HitLineDistThresh: 2
+   HitsModuleLabel: "linecluster"
+   NeighbourDistThresh: 5
+   NoisyWireThresh: 5
+   OpFlashModuleLabel: "opflash"
+   RecombinationFactor: 5.2e-1
+   SaveImages: false
+   T0Correction: 0
+   T0ModuleLabel: "t0counter"
+   TrackModuleLabel: "pmtrack"
+   TriggerModuleLabel: "SplitterInput:TRIGGER"
+   module_type: "APACrossingMuons"
 }
 physics: {
-   end_paths: [
-      "stream1"
+   a1: [
+      "apacrossing"
    ]
-   producers: {
-      rns: {
-         module_label: "rns"
-         module_type: "RandomNumberSaver"
+   analyzers: {
+      apacrossing: {
+         CalorimetryAlg: {
+            CalAmpConstants: [
+               7.4e-3,
+               7.4e-3,
+               7.4e-3
+            ]
+            CalAreaConstants: [
+               7.4e-3,
+               7.4e-3,
+               7.4e-3
+            ]
+            CaloLifeTimeForm: 0
+            CaloUseModBox: true
+         }
+         CalorimetryConst: 7.4e-3
+         CalorimetryMinHits: 20
+         CounterMapFile: "counterInformation.txt"
+         CounterWidth: 15
+         DriftVelocityScale: 1
+         ExpectedT0: 353
+         ExpectedT0Tolerance: 20
+         HitDensityThresh: 6
+         HitGapDistance: 15
+         HitLineDistThresh: 2
+         HitsModuleLabel: "gaushit"
+         MC: false
+         NeighbourDistThresh: 5
+         NoisyWireThresh: 5
+         OffsetToMeasure: "none"
+         OpFlashModuleLabel: "opflash"
+         RawDigitModuleLabel: "daq"
+         RecombinationFactor: 5.2e-1
+         SaveEVDs: false
+         SaveGapEVDs: false
+         SaveImages: false
+         SaveTrackSelection: false
+         T0Correction: 53
+         T0ModuleLabel: "t0counter"
+         TrackModuleLabel: "pmtrack"
+         TriggerModuleLabel: "SplitterInput:TRIGGER"
+         XGapOffsets: [
+            -3.77e-1,
+            -2.52e-1,
+            -1.6e-1,
+            -2.86e-1,
+            -3.77e-1,
+            -2.52e-1,
+            -1.6e-1,
+            -2.86e-1
+         ]
+         XOffsets: [
+            0,
+            0,
+            -3.77e-1,
+            -3.77e-1,
+            -2.52e-1,
+            -2.52e-1,
+            -5.38e-1,
+            -5.38e-1
+         ]
+         ZGapOffsets: [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+         ]
+         ZOffsets: [
+            0,
+            0,
+            -6.3e-1,
+            -6.3e-1,
+            1.31e-1,
+            1.31e-1,
+            1e-1,
+            1e-1
+         ]
+         module_label: "apacrossing"
+         module_type: "APACrossingMuons"
       }
    }
-   reco: [
-      "rns"
-   ]
-   stream1: [
-      "out1"
-   ]
-   trigger_paths: [
-      "reco"
+   end_paths: [
+      "a1"
    ]
 }
-process_name: "Splitter"
+process_name: "APACrossing"
 services: {
    BackTracker: {
       G4ModuleLabel: "largeant"
@@ -38,6 +198,10 @@ services: {
    CatalogInterface: {
       service_provider: "TrivialFileDelivery"
       service_type: "CatalogInterface"
+   }
+   ChannelGroupService: {
+      service_provider: "GeoApaChannelGroupService"
+      service_type: "ChannelGroupService"
    }
    ChannelMapService: {
       FileName: "35tTPCChannelMap_v6.txt"
@@ -399,7 +563,7 @@ services: {
    FileCatalogMetadata: {
       applicationFamily: "art"
       applicationVersion: "development"
-      fileType: "data"
+      fileType: "mc"
       group: "dune"
       runType: "physics"
       service_type: "FileCatalogMetadata"
@@ -668,14 +832,10 @@ services: {
       service_provider: "LArPropertiesServiceStandard"
       service_type: "LArPropertiesService"
    }
-   LArSeedService: {
+   NuRandomService: {
       endOfJobSummary: true
       policy: "random"
-      service_type: "LArSeedService"
-   }
-   MemoryTracker: {
-      ignoreTotal: 1
-      service_type: "MemoryTracker"
+      service_type: "NuRandomService"
    }
    RandomNumberGenerator: {
       service_type: "RandomNumberGenerator"
@@ -795,7 +955,7 @@ services: {
       service_type: "SpaceCharge"
    }
    TFileService: {
-      fileName: "SplitterTree.root"
+      fileName: "hit_maps.root"
       service_type: "TFileService"
    }
    TimeTracker: {
@@ -912,86 +1072,15 @@ services: {
 }
 }
    scheduler: {
+      SkipEvent: [
+         "ProductNotFound"
+      ]
       errorOnFailureToPut: true
       errorOnSIGINT: true
    }
 }
 source: {
-   ADCdiffThreshold: 40
-   ADCsOverThreshold: 1000
-   DebugLevel: 1
-   MCPartInputDataProduct: "simb::MCParticle"
-   MCPartInputTag: "largeant::G4"
-   MCSimChanInputDataProduct: "sim::SimChannel"
-   MCSimChanInputTag: "largeant::G4"
-   MCTrigLevel: 0
-   MCTruthInputDataProduct: "simb::MCTruth"
-   MCTruthInputTag: "generator::CosmicsGen"
-   MonteCarlo: "false"
-   NanoSecondsPerNovaTick: 1.5625e1
-   NovaTicksPerCountTick: 1
-   NovaTicksPerSSPTick: 64
-   NovaTicksPerTPCTick: 32
-   OpHitADCThreshold: 1550
-   OpHitADCWidth: 100
-   OpHitADCsOverThreshold: 10
-   OpHitInputDataProduct: "artdaq::Fragment"
-   OpHitInputTag: "daq:OPHIT:DAQ"
-   PTBMapDir: "/dune/data2/users/warburton/PTBChannelMap/"
-   PTBMapFile: "PTBChannelMap.txt"
-   PTBTrigs: [
-      110,
-      111,
-      112,
-      113,
-      114,
-      115
-   ]
-   PedestalFile: ""
-   PedestalFileSearchPath: ""
-   PennInputDataProduct: "artdaq::Fragment"
-   PennInputTag: "daq:TRIGGER:DAQ"
-   PostTriggerTicks: 15000
-   PreTriggerTicks: 0
-   RequireOpHit: "true"
-   RequirePTB: "true"
-   RequireRCE: "true"
-   RequireSSP: "true"
-   SSPInputDataProduct: "artdaq::Fragment"
-   SSPInputTag: "daq:PHOTON:DAQ"
-   SSPReformatter: {
-      NOvAClockFrequency: 64
-      OpDetChannelMapFile: "ssp_channel_map_dune35t.txt"
-      SPESize: 25
-      SSPd: 20
-      SSPdisc: 10
-      SSPi1: 500
-      SSPi2: 500
-      SSPm1: 10
-      SSPm2: 10
-   }
-   SkipNInputEvents: 0
-   SkipNOutputEvents: 0
-   SparseInputTag: "sparseSsp:PHOTON:DAQ"
-   TPCInputDataProduct: "artdaq::Fragment"
-   TPCInputTag: "daq:TPC:DAQ"
-   TimeStampThreshold: 5
-   TrigSeparation: 0
-   UsePedestalDefault: "false"
-   UsePedestalFile: "false"
-   UsePedestalFileSearchPath: "false"
-   UseRCEChanMap: "true"
-   WaveformADCThreshold: 1550
-   WaveformADCWidth: 100
-   WaveformADCsOverThreshold: 10
-   WhichTrigger: [
-      1
-   ]
+   maxEvents: -1
    module_label: "source"
-   module_type: "SplitterInput"
-}
-trigger_paths: {
-   trigger_paths: [
-      "reco"
-   ]
+   module_type: "RootInput"
 }

@@ -34,4 +34,15 @@ physics:
 }
 
 physics.analyzers.apacrossing.SaveImages: false
+physics.analyzers.apacrossing.SaveEVDs: false
+physics.analyzers.apacrossing.SaveGapEVDs: false
+physics.analyzers.apacrossing.SaveTrackSelection: false
+
 physics.analyzers.apacrossing.CounterWidth: 20.
+
+physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+
+physics.analyzers.apacrossing.OffsetToMeasure: "none"
+physics.analyzers.apacrossing.ZGapOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+physics.analyzers.apacrossing.XGapOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]

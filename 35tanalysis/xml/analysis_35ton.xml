@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_28_01">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY name "data35ton">
+<!ENTITY tag "wallbank">
+]>
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e10:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-base/prof/karlisgreat.tar</local>
+  </larsoft>
+
+  <!-- dune35t metadata parameters -->
+
+  <parameter name ="MCName">&name;</parameter>
+  <parameter name ="MCDetectorType">35t</parameter>
+  <parameter name ="MCGenerators">35tData</parameter>
+
+  <!-- Project stages -->
+
+  <stage name="split">
+    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/RunSplitter.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/split/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/split/&name;</workdir>
+    <output>&name;_${PROCESS}_%tc_split.root</output>
+    <TFileName>&name;_${PROCESS}_split_hist.root</TFileName>
+    <inputdef>goodruns_35ton_raw_wallbank</inputdef>
+    <numjobs>1219</numjobs>
+    <numevents>-1</numevents>
+    <maxfilesperjob>1</maxfilesperjob>
+    <datatier>sliced</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <stage name="reco">
+    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/reco_dune35tdata.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reco/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reco/&name;</workdir>
+    <output>&name;_${PROCESS}_%tc_reco.root</output>
+    <TFileName>&name;_${PROCESS}_reco_hist.root</TFileName>
+    <numjobs>1219</numjobs>
+    <numevents>-1</numevents>
+    <maxfilesperjob>1</maxfilesperjob>
+    <!-- <targetsize>8000000000</targetsize> -->
+    <datatier>full-reconstructed</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <stage name="ana">
+    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/apa_crossing_data.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/ana/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+    <numjobs>1219</numjobs>
+    <numevents>-1</numevents>
+    <maxfilesperjob>1</maxfilesperjob>
+    <!-- <targetsize>8000000000</targetsize> -->
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>

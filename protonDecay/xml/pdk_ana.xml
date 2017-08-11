@@ -3,8 +3,8 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_40_00">
-<!ENTITY file_type "data">
+<!ENTITY release "v06_45_01">
+<!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "pdkcosmobg">
 <!ENTITY tag "wallbank">
@@ -20,12 +20,13 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+  <!-- <resource>DEDICATED,OPPORTUNISTIC</resource> -->
 
   <!-- Larsoft information -->
   <larsoft>
     <tag>&release;</tag>
     <qual>e14:prof</qual>
-    <local>/dune/app/users/wallbank/larsoft-pdk/karlisgreat.tar</local>
+    <local>/pnfs/dune/persistent/users/wallbank/karlisgreat.tar</local>
   </larsoft>
 
   <!-- dune35t metadata parameters -->
@@ -40,11 +41,12 @@
     <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/job/pdk_filter_detsim.fcl</fcl>
     <outdir>/pnfs/dune/scratch/users/wallbank/&release;/detsim/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/detsim/&name;</workdir>
-    <inputlist>/pnfs/dune/persistent/musun/mctruth/full.txt<inputlist>
+    <inputlist>/pnfs/dune/persistent/users/wallbank/mctruth_files.list</inputlist>
     <output>&name;_${PROCESS}_%tc_filter_detsim.root</output>
     <TFileName>&name;_${PROCESS}_filter_detsim_hist.root</TFileName>
     <numjobs>10000</numjobs>
-    <jobsub>--memory=4000 --expected-lifetime=12h</jobsub>
+    <numevents>-1</numevents>
+    <jobsub>--memory=4000 --expected-lifetime=long --maxConcurrent=50</jobsub>
     <defname>&name;_&tag;</defname>
   </stage>
 
@@ -55,17 +57,22 @@
     <output>&name;_${PROCESS}_%tc_reco.root</output>
     <TFileName>&name;_${PROCESS}_reco_hist.root</TFileName>
     <numjobs>10000</numjobs>
-    <jobsub>--memory=4000 --expected-lifetime=12h</jobsub>
+    <numevents>-1</numevents>
+    <jobsub>--memory=4000 --expected-lifetime=long --maxConcurrent=50</jobsub>
     <!-- <targetsize>8000000000</targetsize> -->
     <datatier>full-reconstructed</datatier>
     <defname>&name;_&tag;</defname>
   </stage>
 
-  <stage name="ana">
-    <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/job/apa_crossing_data.fcl</fcl>
-    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/ana/&name;</outdir>
-    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+  <stage name="reconana">
+    <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/protonDecay/pdk_reco_ana.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/reconana/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reconana/&name;</workdir>
+    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_40_00/reco/pdkcosmobg/files.list</inputlist>
+    <TFileName>&name;_${PROCESS}_reconana.root</TFileName>
     <numjobs>10000</numjobs>
+    <numevents>-1</numevents>
+    <jobsub>--memory=4000 --expected-lifetime=long</jobsub>
     <!-- <targetsize>8000000000</targetsize> -->
     <defname>&name;_&tag;</defname>
   </stage>

@@ -61,6 +61,17 @@
     <defname>&name;_&tag;</defname>
   </stage>
 
+  <stage name="ana">
+    <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/protonDecay/cosmo_calib.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/ana/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+    <TFileName>&name;_${PROCESS}_ana_hist.root</TFileName>
+    <numjobs>1000</numjobs>
+    <numevents>-1</numevents>
+    <jobsub>--memory=4000 --expected-lifetime=long</jobsub>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
   <!-- file type -->
   <filetype>&file_type;</filetype>
 

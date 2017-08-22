@@ -1,4 +1,4 @@
-#include "services_dune.fcl"
+#include "pdkcosmobg.fcl"
 
 process_name: CosmoCalib
 
@@ -26,9 +26,7 @@ physics:
 {
   analyzers:
   {
-    cosmocalib: {
-      module_type: CosmoCalib
-    }
+    cosmocalib: @local::cosmocalib
   }
 
   a1: [ cosmocalib ]

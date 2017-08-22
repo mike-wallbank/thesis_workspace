@@ -1,10 +1,10 @@
 #include "pdkcosmobg.fcl"
 
-process_name: PDKReconAna
+process_name: PDKRecon
 
 services:
 {
-  TFileService: { fileName: "pdk_recon_ana.root" }
+  TFileService: { fileName: "pdk_recon.root" }
   MemoryTracker:         {}
   TimeTracker:           {}
   RandomNumberGenerator: {} #ART native random number generator
@@ -26,10 +26,10 @@ physics:
 {
   analyzers:
   {
-    pdkreconana: @local::pdkreconana
+    pdkrecon: @local::pdkrecon
   }
 
-  a1: [ pdkreconana ]
+  a1: [ pdkrecon ]
   end_paths: [ a1 ]
 
 }

@@ -77,6 +77,19 @@
     <defname>&name;_&tag;</defname>
   </stage>
 
+  <stage name="ana">
+    <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/protonDecay/pdk_analysis_reco.fcl</fcl>
+    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/ana/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_40_00/reco/pdkcosmobg/files.list</inputlist>
+    <TFileName>&name;_${PROCESS}_ana.root</TFileName>
+    <numjobs>10000</numjobs>
+    <numevents>-1</numevents>
+    <jobsub>--memory=4000 --expected-lifetime=long</jobsub>
+    <!-- <targetsize>8000000000</targetsize> -->
+    <defname>&name;_&tag;</defname>
+  </stage>
+
   <!-- file type -->
   <filetype>&file_type;</filetype>
 

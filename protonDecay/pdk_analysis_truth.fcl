@@ -1,4 +1,4 @@
-#include "services_dune.fcl"
+#include "pdkcosmobg.fcl"
 
 process_name: PDKTruth
 
@@ -26,9 +26,7 @@ physics:
 {
   analyzers:
   {
-    pdktruth: {
-      module_type: PDKTruth
-    }
+    pdktruth: @local::pdktruth
   }
 
   a1: [ pdktruth ]

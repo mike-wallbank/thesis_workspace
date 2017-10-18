@@ -37,7 +37,7 @@ physics:
 physics.analyzers.apacrossing.HitsModuleLabel: "gaushit"
 physics.analyzers.apacrossing.RawDigitModuleLabel: "daq" # "SplitterInput:TPC"
 physics.analyzers.apacrossing.SaveImages: false
-physics.analyzers.apacrossing.SaveEVDs: false
+physics.analyzers.apacrossing.SaveEVDs: true
 physics.analyzers.apacrossing.SaveGapEVDs: false
 physics.analyzers.apacrossing.SaveTrackSelection: false
 

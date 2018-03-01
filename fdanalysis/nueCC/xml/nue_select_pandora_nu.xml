@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_44_00">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "nue_select_pandora_nu">
+<!ENTITY tag "mcc7.2">
+]>
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Project size -->
+  <numevents>100000</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e14:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
+  </larsoft>
+
+  <!-- dune35t metadata parameters -->
+
+  <parameter name ="MCName">nue_select_pandora</parameter>
+  <parameter name ="MCDetectorType">10kt</parameter>
+  <parameter name ="MCGenerators">GENIE</parameter>
+
+  <!-- Project stages -->
+
+  <stage name="nueselect">
+    <fcl>/dune/app/users/wallbank/larsoft-fd/workspace/job/nue_select_pandora.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/nue_select_pandora/&name;</outdir>
+    <workdir>/pnfs/dune/persistent/users/wallbank/work/&release;/nue_select_pandora/&name;</workdir>
+    <!-- <numjobs>1000</numjobs> -->
+    <maxfilesperjob>1</maxfilesperjob>
+    <numjobs>67</numjobs>
+    <inputdef>prodgenie_nu_dune10kt_1x2x6_mcc7.0</inputdef>
+    <datatier>full-reconstructed</datatier>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>

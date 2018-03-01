@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_26_00">
+<!ENTITY release "v06_44_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "prodgenie_nutau_dune10kt_1x2x6">
@@ -27,7 +27,7 @@
   <!-- Larsoft information -->
   <larsoft>
     <tag>&release;</tag>
-    <qual>e10:prof</qual>
+    <qual>e14:prof</qual>
     <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
   </larsoft>
 

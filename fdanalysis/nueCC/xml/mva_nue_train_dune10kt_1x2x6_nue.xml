@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_26_00">
+<!ENTITY release "v06_49_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "mva_nue_train_dune10kt_1x2x6_nue">
@@ -28,8 +28,8 @@
   <!-- Larsoft information -->
   <larsoft>
     <tag>&release;</tag>
-    <qual>e10:prof</qual>
-    <local>/dune/app/users/wallbank/larsoft-base/prof/karlisgreat.tar</local>
+    <qual>e14:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
   </larsoft>
 
   <!-- dune35t metadata parameters -->
@@ -45,8 +45,11 @@
     <outdir>/pnfs/dune/persistent/users/wallbank/&release;/mva_nue_dune10kt_1x2x6_&recotype;/&name;</outdir>
     <workdir>/pnfs/dune/persistent/users/wallbank/work/&release;/mva_nue_dune10kt_1x2x6_&recotype;/&name;</workdir>
     <inputlist>/pnfs/dune/persistent/users/wallbank/v06_26_00/reco_&recotype;/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist>
-    <!-- <inputlist>/pnfs/dune/scratch/dunepro/v06_18_00/reco2/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist> -->
+    <!-- <inputlist>/dune/app/users/dbrailsf/oscillation/nu_mu/cutsel/production/xml/v06_41_00/mc/v06_41_00_C_prodgenie_nue_dune10kt_1x2x6_reco2.list</inputlist> -->
     <numjobs>1000</numjobs>
+    <!-- <maxfilesperjob>1</maxfilesperjob> -->
+    <!-- <numjobs>53</numjobs> -->
+    <!-- <inputdef>prodgenie_nue_dune10kt_1x2x6_mcc7.0</inputdef> -->
     <targetsize>8000000000</targetsize>
     <datatier>full-reconstructed</datatier>
     <defname>&name;_&tag;</defname>

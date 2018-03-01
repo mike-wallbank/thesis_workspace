@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_26_00">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "prodgenie_nue_dune10kt_1x2x6">
+<!ENTITY tag "mcc7.2">
+<!ENTITY recotype "old">
+]>
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Project size -->
+  <numevents>100000</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e10:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
+  </larsoft>
+
+  <!-- dune35t metadata parameters -->
+
+  <parameter name ="MCName">prodgenie_nue_dune10kt_1x2x6</parameter>
+  <parameter name ="MCDetectorType">10kt</parameter>
+  <parameter name ="MCGenerators">GENIE</parameter>
+
+  <!-- Project stages -->
+
+  <stage name="ana">
+    <maxfilesperjob>1</maxfilesperjob>
+    <fcl>/dune/app/users/wallbank/larsoft-fd/workspace/job/reco_ana.fcl</fcl>
+    <inputdef>prodgenie_nue_dune10kt_1x2x6_mcc7.0</inputdef>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reconana_&recotype;/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reconana_&recotype;/&name;</workdir>
+    <numjobs>53</numjobs>
+    <targetsize>8000000000</targetsize>
+    <datatier>full-reconstructed</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>

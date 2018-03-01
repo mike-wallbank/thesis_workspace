@@ -1,4 +1,4 @@
-void efficiency(TString inputname, TString outputname="hists_efficiencies.root",TString mvacut="0.8",TString friendfile=""){
+void efficiency(TString inputname,TString mvacut="0.8",TString outputname="hists_efficiencies.root",TString friendfile=""){
 
 
   TString INFV="(abs(nuvtxx_truth)<360-50&&abs(nuvtxy_truth)<600-50&&nuvtxz_truth>50&&nuvtxz_truth<1394-150)";
@@ -6,7 +6,7 @@ void efficiency(TString inputname, TString outputname="hists_efficiencies.root",
   TString WEIGHTING="projected_weight";
 
 
-  //gROOT->SetStyle("T2K");
+  gROOT->SetStyle("T2K");
 
 
   //Figure out how we are going to select
@@ -25,6 +25,11 @@ void efficiency(TString inputname, TString outputname="hists_efficiencies.root",
   if (friendfile!=""){
     MVASelection->AddFriend("mvatree",friendfile);
   }
+
+  TEventList alllist("alllist"), sellist("sellist");
+  MVASelection->Draw(">>alllist",WEIGHTING+"*("+SIGNAL_DEF+")");
+  MVASelection->Draw(">>sellist",WEIGHTING+"*("+SIGNAL_DEF+"&&"+SELECTION+")");
+  std::cout << "Overall efficiency: " << sellist.GetN()/(float)alllist.GetN() << std::endl;
 
   //ENu
   TH1F *h_enu_sig = new TH1F("h_enu_sig","h_enu_sig",25,0,10);

@@ -47,13 +47,13 @@ physics.analyzers.apacrossing.CalorimetryAlg.CalAreaConstants:  [ 7.4e-3, 7.4e-3
 physics.analyzers.apacrossing.ExpectedT0: 353 #300
 physics.analyzers.apacrossing.T0Correction: 53 #0
 
-physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, -0.377, -0.377, -0.252, -0.252, -0.538, -0.538 ]
-#physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
-physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, -0.63, -0.63, 0.131, 0.131, 0.1, 0.1 ]
+#physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, -0.377, -0.377, -0.252, -0.252, -0.538, -0.538 ]
+physics.analyzers.apacrossing.XOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+#physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, -0.2, -0.63, -0.1, 0.131, -0.3, 0.1 ]
 #physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, -0.63, 0.0, 0.131, 0.0, 0.1 ]
-#physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+physics.analyzers.apacrossing.ZOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 
-physics.analyzers.apacrossing.OffsetToMeasure: "none"
+physics.analyzers.apacrossing.OffsetToMeasure: "both"
 # Offsets are listed in this order: TPC0TPC2, TPC0TPC4, TPC2TPC6, TPC4TPC6, TPC1TPC3, TPC1TPC5, TPC3TPC7, TPC5TPC7
 physics.analyzers.apacrossing.ZGapOffsets: [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
 #physics.analyzers.apacrossing.ZGapOffsets: [ 0.0, 0.0, 0.0, 0.0, -0.64, 0.15, 0.58, 0.117 ]

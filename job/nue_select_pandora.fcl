@@ -21,7 +21,7 @@ physics:
   analyzers:
   {
      nueSelect: {
-       module_type: NuESelection
+       module_type: SimpleNuESelection
      }
   }
 

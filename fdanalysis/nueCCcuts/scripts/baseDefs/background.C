@@ -1,0 +1,4 @@
+{
+  TString DEF_BACKGROUND = "(!("+DEF_SIGNAL+"))";
+  TString DEF_BACKGROUND_WEIGHTED = "(("+DEF_WEIGHTING+")*("+DEF_BACKGROUND+"))";
+}

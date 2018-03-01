@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_44_00">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "selection_nue_dune10kt_1x2x6_nue">
+<!ENTITY tag "mcc7.2">
+]>
+
+<project name="&name;">
+
+  <!-- Group -->
+  <group>dune</group>
+
+  <!-- Project size -->
+  <numevents>100000</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+    <tag>&release;</tag>
+    <qual>e14:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
+  </larsoft>
+
+  <!-- dune35t metadata parameters -->
+
+  <parameter name ="MCName">selection_nue_dune10kt_1x2x6_nue</parameter>
+  <parameter name ="MCDetectorType">10kt</parameter>
+  <parameter name ="MCGenerators">GENIE</parameter>
+
+  <!-- Project stages -->
+
+  <stage name="pid">
+    <fcl>runPID.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/pid/&name;</outdir>
+    <workdir>/pnfs/dune/persistent/users/wallbank/work/&release;/pid/&name;</workdir>
+    <inputlist>/dune/app/users/dbrailsf/oscillation/nu_mu/cutsel/production/xml/v06_41_00/mc/v06_41_00_C_prodgenie_nue_dune10kt_1x2x6_reco2.list</inputlist>
+    <numjobs>1000</numjobs>
+    <targetsize>8000000000</targetsize>
+    <datatier>full-reconstructed</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>    
+
+  <stage name="selection">
+    <fcl>standard_nuecutselection.fcl</fcl>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/selection/&name;</outdir>
+    <workdir>/pnfs/dune/persistent/users/wallbank/work/&release;/selection/&name;</workdir>
+    <numjobs>1000</numjobs>
+    <targetsize>8000000000</targetsize>
+    <datatier>full-reconstructed</datatier>
+    <defname>&name;_&tag;</defname>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>

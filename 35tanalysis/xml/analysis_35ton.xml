@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_28_01">
+<!ENTITY release "v06_38_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
 <!ENTITY name "data35ton">
@@ -68,6 +68,7 @@
     <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/apa_crossing_data.fcl</fcl>
     <outdir>/pnfs/dune/persistent/users/wallbank/&release;/ana/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+    <inputlist>/pnfs/dune/persistent/users/wallbank/v06_28_01/reco/data35ton/files.list</inputlist>
     <numjobs>1219</numjobs>
     <numevents>-1</numevents>
     <maxfilesperjob>1</maxfilesperjob>

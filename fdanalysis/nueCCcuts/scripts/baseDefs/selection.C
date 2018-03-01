@@ -1,0 +1,20 @@
+{
+  TString DEF_SELECTION_INFV = "((SelRecoStartX>"+DEF_FV_XLOW+") && (SelRecoStartX<"+DEF_FV_XHIGH+") && (SelRecoStartY>"+DEF_FV_YLOW+") && (SelRecoStartY<"+DEF_FV_YHIGH+") && (SelRecoStartZ>"+DEF_FV_ZLOW+") && (SelRecoStartZ<"+DEF_FV_ZHIGH+"))";
+  //TString DEF_SELECTION_MVACUT = "(SelMVAMuon > -9000)"; //all
+  TString DEF_SELECTION_MVACUT = "(SelMVAElectron > 0.02)"; //Tuned on highest PID score
+  //TString DEF_SELECTION_MVACUT = "(SelMVAMuon > 0.07)"; //Tuned on longest track
+  TString DEF_SELECTION_ALL = "(SelMVAElectron > -9000)"; //means we reconstructed something
+  TString DEF_SELECTION = "("+DEF_SELECTION_INFV+" && "+DEF_SELECTION_MVACUT+")";
+
+  TString DEF_SELECTION_ALL_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_SELECTION_ALL+")))";
+  TString DEF_SELECTION_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_SELECTION+")))";
+
+  TString DEF_SELECTION_ALL_SIGNAL_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_SIGNAL+")&&("+DEF_SELECTION_ALL+")))";
+  TString DEF_SELECTION_SIGNAL_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_SIGNAL+")&&("+DEF_SELECTION+")))";
+
+  TString DEF_SELECTION_ALL_BACKGROUND_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_BACKGROUND+")&&("+DEF_SELECTION_ALL+")))";
+  TString DEF_SELECTION_BACKGROUND_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_BACKGROUND+")&&("+DEF_SELECTION+")))";
+
+  TString DEF_REJECTION_SEEN_SIGNAL_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_SIGNAL+")&&("+DEF_SELECTION_ALL+") && !("+DEF_SELECTION+")))";
+  TString DEF_REJECTION_SEEN_BACKGROUND_WEIGHTED = "(("+DEF_WEIGHTING+")*(("+DEF_BACKGROUND+")&&("+DEF_SELECTION_ALL+") && !("+DEF_SELECTION+")))";
+}

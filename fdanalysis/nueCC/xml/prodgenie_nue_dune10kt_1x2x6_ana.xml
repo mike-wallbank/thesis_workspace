@@ -3,11 +3,12 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_18_00">
+<!ENTITY release "v06_44_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "prodgenie_nue_dune10kt_1x2x6_ana">
+<!ENTITY name "prodgenie_nue_dune10kt_1x2x6">
 <!ENTITY tag "mcc7.2">
+<!ENTITY recotype "old">
 ]>
 
 <project name="&name;">
@@ -27,8 +28,8 @@
   <!-- Larsoft information -->
   <larsoft>
     <tag>&release;</tag>
-    <qual>e10:prof</qual>
-    <local>/dune/app/users/wallbank/larsoft-base/prof/karlisgreat.tar</local>
+    <qual>e14:prof</qual>
+    <local>/dune/app/users/wallbank/larsoft-fd/karlisgreat.tar</local>
   </larsoft>
 
   <!-- dune35t metadata parameters -->
@@ -39,12 +40,13 @@
 
   <!-- Project stages -->
 
-  <stage name="reconana">
-    <fcl>/dune/app/users/wallbank/larsoft-base/workspace/job/reco_ana.fcl</fcl>
-    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/reconana/&name;</outdir>
-    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reconana/&name;</workdir>
-    <inputlist>/pnfs/dune/scratch/users/dbrailsf/numu_FD/production/v06_11_00/A/mc/reco/prodgenie_nue_dune10kt_1x2x6/files.list</inputlist>
-    <numjobs>1000</numjobs>
+  <stage name="ana">
+    <maxfilesperjob>1</maxfilesperjob>
+    <fcl>/dune/app/users/wallbank/larsoft-fd/workspace/job/reco_ana.fcl</fcl>
+    <inputdef>prodgenie_nue_dune10kt_1x2x6_mcc7.0</inputdef>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/reconana_&recotype;/&name;</outdir>
+    <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/reconana_&recotype;/&name;</workdir>
+    <numjobs>53</numjobs>
     <targetsize>8000000000</targetsize>
     <datatier>full-reconstructed</datatier>
     <defname>&name;_&tag;</defname>

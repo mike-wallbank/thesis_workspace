@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RECOTYPE=_old
+RECOTYPE=_trackshower
 
 if [ "$#" -ne 1 ]; then
     echo

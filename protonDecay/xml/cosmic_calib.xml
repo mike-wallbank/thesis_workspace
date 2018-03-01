@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_45_01">
+<!ENTITY release "v06_53_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "comsic_calib">
@@ -39,7 +39,7 @@
 
   <stage name="gen">
     <fcl>prodMUSUN_dune10kt.fcl</fcl>
-    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/gen/&name;</outdir>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/gen/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/gen/&name;</workdir>
     <output>&name;_${PROCESS}_%tc_gen.root</output>
     <TFileName>&name;_${PROCESS}_gen_hist.root</TFileName>
@@ -51,7 +51,7 @@
 
   <stage name="g4">
     <fcl>standard_g4_dune10kt.fcl</fcl>
-    <outdir>/pnfs/dune/scratch/users/wallbank/&release;/g4/&name;</outdir>
+    <outdir>/pnfs/dune/persistent/users/wallbank/&release;/g4/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/g4/&name;</workdir>
     <output>&name;_${PROCESS}_%tc_g4.root</output>
     <TFileName>&name;_${PROCESS}_g4_hist.root</TFileName>
@@ -65,6 +65,7 @@
     <fcl>/dune/app/users/wallbank/larsoft-pdk/workspace/protonDecay/cosmo_calib.fcl</fcl>
     <outdir>/pnfs/dune/scratch/users/wallbank/&release;/ana/&name;</outdir>
     <workdir>/pnfs/dune/scratch/users/wallbank/work/&release;/ana/&name;</workdir>
+    <inputlist>/pnfs/dune/scratch/users/wallbank/v06_45_01/g4/comsic_calib/files.list</inputlist>
     <TFileName>&name;_${PROCESS}_ana_hist.root</TFileName>
     <numjobs>1000</numjobs>
     <numevents>-1</numevents>
